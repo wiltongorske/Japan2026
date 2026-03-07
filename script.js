@@ -308,6 +308,7 @@ const locationFilters = document.querySelector("#locationFilters");
 const timelineGrid = document.querySelector("#timelineGrid");
 const resultsLabel = document.querySelector("#resultsLabel");
 const focusToggle = document.querySelector("#focusToggle");
+const destinationSpotlight = document.querySelector("#destinationSpotlight");
 const dayCardTemplate = document.querySelector("#dayCardTemplate");
 const eventTemplate = document.querySelector("#eventTemplate");
 
@@ -323,15 +324,15 @@ const uniqueStops = [
 const routeNarrative = [
   {
     title: "Arrival arc",
-    text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight.",
+    text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight. It starts with soft landings and resets: hotel check-ins, favorite vegan meals, shopping pockets, and long walks easing the trip into motion. By the time Kamakura arrives, the rhythm has shifted from arrival logistics into temple air, seaside calm, and a more intimate pace.",
   },
   {
     title: "Middle chapter",
-    text: "Kyoto anchors the cultural center of the trip, with Himeji as a side quest before shifting south to Naoshima's slower museum rhythm.",
+    text: "Kyoto anchors the cultural center of the trip, with Himeji as a side quest before shifting south to Naoshima's slower museum rhythm. This section feels more carved-out and intentional: workshops, castle history, hikes, saunas, and carefully chosen dinners. Then the trip opens up again on Naoshima, where ferries, galleries, and onsen time replace city momentum with quiet immersion.",
   },
   {
     title: "Exit glide",
-    text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco.",
+    text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco. The final Tokyo days carry the celebratory core of the trip, including the May 21 birthday itself, before Honolulu turns everything looser and sunnier. It reads like a coda: beach time, massage, one more great dinner, then the transition back home.",
   },
 ];
 
@@ -357,6 +358,65 @@ const hotelLinks = {
   "Hotel: Ryokan Roka": "https://roka.voyage/",
   "Hotel: Okura Tokyo": "https://theokuratokyo.jp/en/",
   "Hotel: Royal Hawaiian": "https://www.royal-hawaiian.com/",
+};
+
+const destinationSpotlights = {
+  All: {
+    title: "The full route",
+    summary:
+      "This itinerary moves from departure-day logistics into a layered Japan run, then shifts into a Honolulu recovery chapter before returning home. It balances reservations and structure with deliberate breathing room: museums, temples, train transfers, special meals, spa time, and the May 21 birthday centerpiece.",
+    image:
+      "https://theokuratokyo.jp/wp-content/uploads/2025/03/Prestige-Lobby-Rokkaku-AutumnLeaves-Recommended_TKSN8642-625x417.jpg",
+    alt: "The Okura Tokyo lobby",
+  },
+  "San Francisco": {
+    title: "Departure day",
+    summary:
+      "San Francisco is the runway rather than the destination. It is the clean handoff into the trip: pickup, airport, and the first long-haul flight that starts the birthday journey.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWC_-Z8q74e4CmusFu2jHGd9e1ER5LUlzPmA&s",
+    alt: "San Francisco skyline",
+  },
+  Tokyo: {
+    title: "Tokyo chapters",
+    summary:
+      "Tokyo holds the widest range of the trip: arrival energy, neighborhood wandering, museums, shopping, workout resets, milestone dinners, and the birthday day itself. It works as both launch point and finale, with each return to the city carrying a different mood.",
+    image:
+      "https://media-cdn.tripadvisor.com/media/photo-s/1b/66/a5/ac/caption.jpg",
+    alt: "Hoshinoya Tokyo exterior",
+  },
+  Kamakura: {
+    title: "Kamakura pause",
+    summary:
+      "Kamakura compresses the trip into something more intimate and restorative. The focus shifts to temples, sea air, a ryokan stay, and a slower overnight before the Kyoto transition.",
+    image:
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/310086629.jpg?k=44d6ac190eef9c0e4774ac65659a5e84508c7304fa000ddeb2acb1749fb7db32&o=",
+    alt: "Kishi-ke Ryokan room",
+  },
+  Kyoto: {
+    title: "Kyoto center of gravity",
+    summary:
+      "Kyoto carries the craft, history, and ritual core of the itinerary. It includes the transfer from Kamakura, the Himeji excursion, recovery time, hikes, dinners, and the moment where the trip feels most rooted in place.",
+    image:
+      "https://www.img-ikyu.com/contents/common/dg/image/sd/acc8/00051678/00051678a.jpg?auto=compress,format&fit=crop&h=500&lossless=0&w=750",
+    alt: "Tamao Kyoto room",
+  },
+  Naoshima: {
+    title: "Naoshima immersion",
+    summary:
+      "Naoshima is the art-island deep breath. Ferries, buses, bike rides, museums, galleries, and kaiseki dinners create a slower, more atmospheric chapter before the return to Tokyo.",
+    image:
+      "https://www.thehotelguru.com/_images/7c/35/7c358e2b3ede5ea339300f7705cf8911/original.jpg",
+    alt: "Ryokan Roka exterior",
+  },
+  Honolulu: {
+    title: "Honolulu coda",
+    summary:
+      "Honolulu acts as the warm afterglow of the trip. After the birthday flight out of Japan, the plan loosens into massage, beach time, bike touring, easier meals, and a gentler runway back into real life.",
+    image:
+      "https://cache.marriott.com/content/dam/marriott-renditions/HNLLC/hnllc-building-1813-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
+    alt: "Royal Hawaiian hotel exterior",
+  },
 };
 
 const highlightMatchers = [
@@ -403,7 +463,13 @@ function getDayStops(day) {
 }
 
 function countHotels() {
-  return itinerary.reduce((sum, day) => sum + day.items.filter((item) => item.kind === "hotel").length, 0);
+  const hotelNames = new Set();
+  itinerary.forEach((day) => {
+    day.items
+      .filter((item) => item.kind === "hotel")
+      .forEach((item) => hotelNames.add(item.time));
+  });
+  return hotelNames.size;
 }
 
 function countTimedEvents() {
@@ -526,9 +592,39 @@ function renderFilters() {
     button.addEventListener("click", () => {
       state.activeLocation = button.dataset.location;
       renderFilters();
+      renderSpotlight();
       renderTimeline();
     });
   });
+}
+
+function renderSpotlight() {
+  const key = state.activeLocation;
+  const spotlight = destinationSpotlights[key] || destinationSpotlights.All;
+  const days =
+    key === "All"
+      ? itinerary.map((day) => day.date)
+      : itinerary
+          .filter((day) => getDayStops(day).includes(key))
+          .map((day) => day.date);
+
+  destinationSpotlight.innerHTML = `
+    <div class="spotlight__media">
+      ${
+        spotlight.image
+          ? `<img class="spotlight__image" src="${spotlight.image}" alt="${spotlight.alt}" loading="lazy" />`
+          : `<div class="spotlight__placeholder">Image<br />placeholder</div>`
+      }
+    </div>
+    <div class="spotlight__body">
+      <p class="spotlight__kicker">${key === "All" ? "Trip summary" : key}</p>
+      <h3>${spotlight.title}</h3>
+      <p>${spotlight.summary}</p>
+      <div class="spotlight__days">
+        ${days.map((day) => `<span class="spotlight__day">${day}</span>`).join("")}
+      </div>
+    </div>
+  `;
 }
 
 function isHighlight(item) {
@@ -660,4 +756,5 @@ renderHeroStats();
 renderRouteRibbon();
 renderOverview();
 renderFilters();
+renderSpotlight();
 renderTimeline();

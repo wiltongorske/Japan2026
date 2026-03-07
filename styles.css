@@ -91,6 +91,7 @@ body::before {
   top: -100px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(181, 73, 45, 0.18), transparent 70%);
+  pointer-events: none;
 }
 
 .topbar,
@@ -329,6 +330,90 @@ h2 {
 
 .section-heading h2 {
   margin-top: 6px;
+}
+
+.spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.spotlight__media,
+.spotlight__body {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.spotlight__media {
+  min-height: 280px;
+}
+
+.spotlight__image,
+.spotlight__placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.spotlight__image {
+  object-fit: cover;
+}
+
+.spotlight__placeholder {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(230, 188, 98, 0.35), transparent 30%),
+    linear-gradient(135deg, rgba(108, 168, 181, 0.4), rgba(181, 73, 45, 0.25)),
+    rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+.spotlight__body {
+  padding: 24px;
+}
+
+.spotlight__kicker {
+  margin: 0 0 10px;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spotlight__body h3 {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
+.spotlight__body p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.spotlight__days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.spotlight__day {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(181, 73, 45, 0.08);
+  color: var(--accent-deep);
+  font-size: 0.74rem;
+  font-weight: 800;
 }
 
 .overview__grid {
@@ -596,6 +681,10 @@ h2 {
 
   .hero__panel {
     min-width: 0;
+  }
+
+  .spotlight {
+    grid-template-columns: 1fr;
   }
 
   h1 {
