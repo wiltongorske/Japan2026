@@ -350,6 +350,15 @@ const hotelImages = {
     "https://cache.marriott.com/content/dam/marriott-renditions/HNLLC/hnllc-building-1813-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
 };
 
+const hotelLinks = {
+  "Hotel: Hoshinoya Tokyo": "https://hoshinoresorts.com/en/hotels/hoshinoyatokyo/",
+  "Hotel: Kishi-ke Ryokan": "https://www.kishike.com/en/",
+  "Hotel: Tamao Kyoto": "https://www.tamaokyoto.com/en/",
+  "Hotel: Ryokan Roka": "https://roka.voyage/",
+  "Hotel: Okura Tokyo": "https://theokuratokyo.jp/en/",
+  "Hotel: Royal Hawaiian": "https://www.royal-hawaiian.com/",
+};
+
 const highlightMatchers = [
   "flight",
   "hotel:",
@@ -482,13 +491,13 @@ function renderOverview() {
       ${Array.from(hotelMap.entries())
         .map(
           ([name, address]) => `
-            <div class="hotel-stack__item">
+            <a class="hotel-stack__item" href="${hotelLinks[name] || "#"}" target="_blank" rel="noreferrer noopener" aria-label="Open ${name.replace("Hotel: ", "")} website">
               <img class="hotel-stack__image" src="${hotelImages[name] || ""}" alt="${name.replace("Hotel: ", "")}" loading="lazy" />
               <div class="hotel-stack__body">
                 <span>${address}</span>
                 <strong>${name.replace("Hotel: ", "")}</strong>
               </div>
-            </div>
+            </a>
           `
         )
         .join("")}
