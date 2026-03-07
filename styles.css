@@ -192,6 +192,12 @@ h3 {
   line-height: 0.96;
 }
 
+sup {
+  font-size: 0.42em;
+  vertical-align: super;
+  line-height: 0;
+}
+
 h1 {
   max-width: 12ch;
   font-size: clamp(3.4rem, 7vw, 6.2rem);
@@ -658,6 +664,12 @@ h2 {
 .event__activity {
   color: var(--ink);
   font-weight: 700;
+}
+
+.event__activity a {
+  color: inherit;
+  text-decoration-color: rgba(181, 73, 45, 0.4);
+  text-underline-offset: 0.14em;
 }
 
 .event__notes {

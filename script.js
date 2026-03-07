@@ -360,6 +360,15 @@ const hotelLinks = {
   "Hotel: Royal Hawaiian": "https://www.royal-hawaiian.com/",
 };
 
+const hotelMapLinks = {
+  "Hotel: Hoshinoya Tokyo": "https://goo.gl/maps/KJ18ein5gBkHWZHq7",
+  "Hotel: Kishi-ke Ryokan": "https://goo.gl/maps/urJPCZnQbwLsZSBC9",
+  "Hotel: Tamao Kyoto": "https://goo.gl/maps/DS21AZ9uHJeMmVcT8",
+  "Hotel: Ryokan Roka": "https://goo.gl/maps/CZ7GSizRRz8V2S3i6",
+  "Hotel: Okura Tokyo": "https://maps.app.goo.gl/FrPGtMhN9fp9dZFu5",
+  "Hotel: Royal Hawaiian": "https://goo.gl/maps/aU6cN71r1uoS5vqd8",
+};
+
 const destinationSpotlights = {
   All: {
     title: "The full route",
@@ -552,7 +561,6 @@ function renderOverview() {
 
   hotelSummary.innerHTML = `
     <h3>Hotels on file</h3>
-    <p>The stays now read more like a visual route: serene Tokyo, a Kamakura ryokan pause, Kyoto, Naoshima, a final Tokyo return, then the Royal Hawaiian landing.</p>
     <div class="hotel-stack">
       ${Array.from(hotelMap.entries())
         .map(
@@ -569,6 +577,43 @@ function renderOverview() {
         .join("")}
     </div>
   `;
+}
+
+function formatDateWithSuperscript(date) {
+  if (date === "TIMEWARP") {
+    return date;
+  }
+
+  return date.replace(
+    /\b(\d{1,2})(?=,|$)/,
+    (_, day) => `${day}<sup>${getOrdinalSuffix(Number(day))}</sup>`
+  );
+}
+
+function getOrdinalSuffix(day) {
+  if (day >= 11 && day <= 13) {
+    return "th";
+  }
+
+  switch (day % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+}
+
+function getGoogleMapsUrl(address, label = "") {
+  if (label && hotelMapLinks[`Hotel: ${label}`]) {
+    return hotelMapLinks[`Hotel: ${label}`];
+  }
+
+  const query = label ? `${label}, ${address}` : address;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 function renderFilters() {
@@ -621,7 +666,7 @@ function renderSpotlight() {
       <h3>${spotlight.title}</h3>
       <p>${spotlight.summary}</p>
       <div class="spotlight__days">
-        ${days.map((day) => `<span class="spotlight__day">${day}</span>`).join("")}
+        ${days.map((day) => `<span class="spotlight__day">${formatDateWithSuperscript(day)}</span>`).join("")}
       </div>
     </div>
   `;
@@ -668,7 +713,11 @@ function renderEvent(item, list) {
 
   time.textContent = item.kind === "hotel" ? item.time.replace("Hotel: ", "") : item.time || "Flexible";
   kind.textContent = item.kind === "hotel" ? "Stay" : item.time ? "Scheduled" : "Open";
-  activity.textContent = item.activity;
+  if (item.kind === "hotel") {
+    activity.innerHTML = `<a href="${getGoogleMapsUrl(item.activity, item.time.replace("Hotel: ", ""))}" target="_blank" rel="noreferrer noopener">${item.activity}</a>`;
+  } else {
+    activity.textContent = item.activity;
+  }
 
   if (item.notes) {
     notes.textContent = item.notes;
@@ -706,7 +755,7 @@ function renderTimeline() {
     const eventList = card.querySelector(".event-list");
 
     indexNode.textContent = `Day ${String(index + 1).padStart(2, "0")}`;
-    dateNode.textContent = day.date;
+    dateNode.innerHTML = formatDateWithSuperscript(day.date);
     locationNode.textContent = getDisplayLocation(day);
     titleNode.textContent = day.title;
 
