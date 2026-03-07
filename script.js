@@ -485,8 +485,8 @@ function renderOverview() {
             <div class="hotel-stack__item">
               <img class="hotel-stack__image" src="${hotelImages[name] || ""}" alt="${name.replace("Hotel: ", "")}" loading="lazy" />
               <div class="hotel-stack__body">
-                <span>${name.replace("Hotel: ", "")}</span>
-                <strong>${address}</strong>
+                <span>${address}</span>
+                <strong>${name.replace("Hotel: ", "")}</strong>
               </div>
             </div>
           `
