@@ -442,6 +442,100 @@ const highlightMatchers = [
   "workshop",
 ];
 
+const diningPlaceLinks = {
+  "Komeda-is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
+  "Komeda-Is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
+  "Vegan Sushi Tokyo": "https://www.google.com/maps/search/?api=1&query=Vegan+Sushi+Tokyo+Dogenzaka+Shibuya+Tokyo",
+  "Vegan Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
+  "Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
+  "Izakya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
+  "Izakaya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
+  "Ain Soph Shinjuku": "https://www.google.com/maps/search/?api=1&query=AIN+SOPH+Journey+Shinjuku",
+  "2foods": "https://www.google.com/maps/search/?api=1&query=2foods+Ginza+Tokyo",
+  "Cafe Restaurant Bell": "https://www.google.com/maps/search/?api=1&query=Cafe+Restaurant+Bell+Nikko",
+  "Falafel Brothers": "https://www.google.com/maps/search/?api=1&query=Falafel+Brothers+Otemachi+Tokyo",
+  "Brown Rice Ometosando": "https://www.google.com/maps/search/?api=1&query=Brown+Rice+Omotesando+Tokyo",
+  FARO: "https://www.google.com/maps/search/?api=1&query=FARO+Ginza+Tokyo",
+  "luna burger": "https://www.google.com/maps/search/?api=1&query=Luna+Burger+Hase+Kamakura",
+  magokoro: "https://www.google.com/maps/search/?api=1&query=Magokoro+Hase+Kamakura",
+  "Vegan Izakaya Masaka": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Masaka+Kyoto",
+  "Il Riccio": "https://www.google.com/maps/search/?api=1&query=il+riccio+Himeji",
+  Kotonoki: "https://www.google.com/maps/search/?api=1&query=Kotonoki+Himeji",
+  Mumokuteki: "https://www.google.com/maps/search/?api=1&query=MUMOKUTEKI+CAFE+Kyoto",
+  Nijiya: "https://www.google.com/maps/search/?api=1&query=Nijiya+Kyoto+vegan",
+  Vegginy: "https://www.google.com/maps/search/?api=1&query=Vegginy+Kyoto",
+  Zirael: "https://www.google.com/maps/search/?api=1&query=ZIRAEL+Vegan+Restaurant+Kyoto",
+  "Uno Ramen Sanjo": "https://www.google.com/maps/search/?api=1&query=UNO+RAMEN+Sanjo+Kyoto",
+  aisunao: "https://www.google.com/maps/search/?api=1&query=Aisunao+Naoshima",
+  apron: "https://www.google.com/maps/search/?api=1&query=Apron+Cafe+Naoshima",
+  "Noeud.Tokyo": "https://www.google.com/maps/search/?api=1&query=N%C5%93ud+TOKYO+Hirakawacho+Tokyo",
+  Marugoto: "https://www.google.com/maps/search/?api=1&query=Marugoto+Vegan+Dining+Asakusa",
+  Udatsu: "https://www.google.com/maps/search/?api=1&query=Udatsu+Sushi+Tokyo+Nakameguro",
+  Sougo: "https://www.google.com/maps/search/?api=1&query=Sougo+Roppongi+Tokyo",
+  "Oscar Wilde": "https://www.google.com/maps/search/?api=1&query=Oscar+Wilde+Hoba+Tosso+Roppongi+Tokyo",
+  "Island Vintage": "https://www.google.com/maps/search/?api=1&query=Island+Vintage+Coffee+Royal+Hawaiian+Center+Waikiki",
+  "Peace Cafe": "https://www.google.com/maps/search/?api=1&query=Peace+Cafe+Honolulu",
+  Floralia: "https://www.google.com/maps/search/?api=1&query=Floralia+Honolulu+vegan+pizza",
+  "Tane Vegan Izakaya": "https://www.google.com/maps/search/?api=1&query=Tane+Vegan+Izakaya+Honolulu",
+};
+
+const activityHtmlOverrides = {
+  "Dinner: Komeda-is":
+    `Dinner: ${linkPlace("Komeda-is")}`,
+  "Lunch: Vegan Sushi Tokyo (or Vegan Bistro Jangara)":
+    `Lunch: ${linkPlace("Vegan Sushi Tokyo")} (or ${linkPlace("Vegan Bistro Jangara")})`,
+  "Dinner: Izakya Nowhere (open 5pm)":
+    `Dinner: ${linkPlace("Izakya Nowhere")} (open 5pm)`,
+  "Lunch: Ain Soph Shinjuku":
+    `Lunch: ${linkPlace("Ain Soph Shinjuku")}`,
+  "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-Is (17mins) [also Ginza block on Tuesday]":
+    `Dinner: ${linkPlace("Bistro Jangara")} (20mins) or Ginza + ${linkPlace("2foods")}, ${linkPlace("Komeda-Is")} (17mins) [also Ginza block on Tuesday]`,
+  "Lunch: Cafe Restaurant Bell for yuba set":
+    `Lunch: ${linkPlace("Cafe Restaurant Bell")} for yuba set`,
+  "Dinner: Falafel Brothers or Izakaya Nowhere (open until 10pm)":
+    `Dinner: ${linkPlace("Falafel Brothers")} or ${linkPlace("Izakaya Nowhere")} (open until 10pm)`,
+  "Lunch Brown Rice Ometosando or Vegan Bistro Jangara":
+    `Lunch ${linkPlace("Brown Rice Ometosando")} or ${linkPlace("Vegan Bistro Jangara")}`,
+  "Dinner: FARO 1*":
+    `Dinner: ${linkPlace("FARO")} 1*`,
+  "Lunch luna burger":
+    `Lunch ${linkPlace("luna burger")}`,
+  "Dinner: magokoro":
+    `Dinner: ${linkPlace("magokoro")}`,
+  "Dinner: Vegan Izakaya Masaka (open at 5pm)":
+    `Dinner: ${linkPlace("Vegan Izakaya Masaka")} (open at 5pm)`,
+  "Lunch: Il Riccio OR Kotonoki to go (leave at 2:45pm for train) - update guide!":
+    `Lunch: ${linkPlace("Il Riccio")} OR ${linkPlace("Kotonoki")} to go (leave at 2:45pm for train) - update guide!`,
+  "Dinner: Mumokuteki":
+    `Dinner: ${linkPlace("Mumokuteki")}`,
+  "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)":
+    `Lunch: ${linkPlace("Nijiya")} (12-3pm) or ${linkPlace("Vegginy")} (12-2:30pm open) or ${linkPlace("Zirael")} (12:30-7pm open)`,
+  "Dinner: Uno Ramen Sanjo":
+    `Dinner: ${linkPlace("Uno Ramen Sanjo")}`,
+  "Lunch: aisunao or apron":
+    `Lunch: ${linkPlace("aisunao")} or ${linkPlace("apron")}`,
+  "Dinner: Noeud.Tokyo":
+    `Dinner: ${linkPlace("Noeud.Tokyo")}`,
+  "Lunch: Marugoto [option for Ginza on the way back]":
+    `Lunch: ${linkPlace("Marugoto")} [option for Ginza on the way back]`,
+  "Dinner: Udatsu":
+    `Dinner: ${linkPlace("Udatsu")}`,
+  "Lunch: Sougo + Oscar Wilde":
+    `Lunch: ${linkPlace("Sougo")} + ${linkPlace("Oscar Wilde")}`,
+  "Lunch at Island Vintage or Peace Cafe (delivery possible)":
+    `Lunch at ${linkPlace("Island Vintage")} or ${linkPlace("Peace Cafe")} (delivery possible)`,
+  "Dinner at Island Vintage or Floralia (no delivery)":
+    `Dinner at ${linkPlace("Island Vintage")} or ${linkPlace("Floralia")} (no delivery)`,
+  "Dinner at Floralia [Island Vintage, Peace Cafe also open & delivery]":
+    `Dinner at ${linkPlace("Floralia")} [${linkPlace("Island Vintage")}, ${linkPlace("Peace Cafe")} also open & delivery]`,
+  "Dinner at Tane Vegan Izakaya (delivery possible) [Peace, Floralia also open]":
+    `Dinner at ${linkPlace("Tane Vegan Izakaya")} (delivery possible) [<a href="${diningPlaceLinks["Peace Cafe"]}" target="_blank" rel="noreferrer noopener">Peace</a>, ${linkPlace("Floralia")} also open]`,
+};
+
+function linkPlace(label) {
+  return `<a href="${diningPlaceLinks[label]}" target="_blank" rel="noreferrer noopener">${label}</a>`;
+}
+
 function normalizeLocation(location) {
   return location || "Unassigned";
 }
@@ -715,6 +809,8 @@ function renderEvent(item, list) {
   kind.textContent = item.kind === "hotel" ? "Stay" : item.time ? "Scheduled" : "Open";
   if (item.kind === "hotel") {
     activity.innerHTML = `<a href="${getGoogleMapsUrl(item.activity, item.time.replace("Hotel: ", ""))}" target="_blank" rel="noreferrer noopener">${item.activity}</a>`;
+  } else if (activityHtmlOverrides[item.activity]) {
+    activity.innerHTML = activityHtmlOverrides[item.activity];
   } else {
     activity.textContent = item.activity;
   }
