@@ -800,7 +800,7 @@ const activityHtmlOverrides = {
   "Photomatic, Iyoshi Cola, Square Enix?":
     `${linkExternal("Photomatic", "https://photomatic.jp/")}, ${linkExternal("Iyoshi Cola", "https://iyoshicola.com/en/")}, ${linkExternal("ARTNIA", "https://www.jp.square-enix.com/artnia/")}?`,
   "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
-    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (${linkExternal("Harajuku", "https://en.wikipedia.org/wiki/Harajuku")} and ${linkExternal("Shibuya", "https://en.wikipedia.org/wiki/Shibuya")}), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.beams.co.jp/")}`,
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (${linkExternal("Harajuku", "https://en.wikipedia.org/wiki/Harajuku")} and ${linkExternal("Shibuya", "https://en.wikipedia.org/wiki/Shibuya")}), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.instagram.com/beams_japan_shibuya/?hl=en")}`,
   "Shinjuku Gyoen":
     `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")}`,
   "Snack: marbre vegan":
@@ -816,11 +816,11 @@ const activityHtmlOverrides = {
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
-    `${linkExternal("Aoyama", "https://en.wikipedia.org/wiki/Aoyama")} shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/en/brands/pleatspleaseisseymiyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
+    `${linkExternal("Aoyama", "https://en.wikipedia.org/wiki/Aoyama")} shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/collections/pleats-please-issey-miyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
   "Hasedera Temple, Buddha":
     `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")}, ${linkExternal("Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")}`,
   "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
-    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")}, ${linkExternal("Genjiyama Park", "https://en.wikipedia.org/wiki/Genjiyama_Park")}, ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")}, Old Town`,
+    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")}, ${linkExternal("Genjiyama Park", "https://www.japan-guide.com/e/e3113.html")}, ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")}, Old Town`,
   "Himeji Castle and Koko-en Gardens Tickets":
     `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} Tickets for a 4-hour tour with a private government guide`,
   "guide whatsapp +81-90-9712-1750":
@@ -830,7 +830,7 @@ const activityHtmlOverrides = {
   "Art House Project (Go'O, Haisha, Kadoya)":
     `${linkExternal("Art House Project", "https://benesse-artsite.jp/en/art/arthouse.html")} (Go'O, Haisha, Kadoya)`,
   Minamidera:
-    `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/minamidera.html")}`,
+    `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/arthouse.html")}`,
   Chichu:
     `${linkExternal("Chichu Art Museum", "https://benesse-artsite.jp/en/art/chichu.html")}`,
   "Benessee House":
@@ -838,9 +838,9 @@ const activityHtmlOverrides = {
   "Valley Gallery":
     `${linkExternal("Valley Gallery", "https://www.wallpaper.com/architecture/valley-gallery-tadao-ando-naoshima-japan")}`,
   "Hiroshi Sugimoto Gallery: Time Corridors":
-    `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/timecorridors.html")}`,
+    `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/sugimoto-gallery.html")}`,
   "Option to stop by Okura Museum or gym":
-    `Option to stop by ${linkExternal("Okura Museum", "https://www.shukokan.org/en/")} or gym`,
+    `Option to stop by ${linkExternal("Okura Museum", "https://theokuratokyo.jp/en/experiences-and-activities/the-okura-museum-of-art/")} or gym`,
   "Car service":
     `Car service`,
   "Dinner: Komeda-is":
