@@ -589,6 +589,12 @@ h2 {
   font-weight: 700;
 }
 
+.day-card__title a {
+  color: inherit;
+  text-decoration-color: rgba(181, 73, 45, 0.4);
+  text-underline-offset: 0.14em;
+}
+
 .day-card__tags {
   display: flex;
   flex-wrap: wrap;

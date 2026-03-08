@@ -138,7 +138,7 @@ const itinerary = [
   {
     date: "Saturday, May 16",
     location: "Kyoto",
-    title: "Kyoto Light: Markets, Hike, and Recovery Time COULD DO NARA",
+    title: "Kyoto Light: Markets, Hike, and Recovery Time",
     items: [
       { time: "9:00 AM", activity: "Breakfast", notes: "", kind: "event" },
       { time: "10:00 AM", activity: "Gym (and laundry if needed)", notes: "", kind: "event" },
@@ -208,7 +208,7 @@ const itinerary = [
   {
     date: "Wednesday, May 20",
     location: "Tokyo",
-    title: "Hands-On Tokyo: Silversmithing, Udatsu Sushi, gay Japan",
+    title: "Hands-On Tokyo: Chopstick Workshop, Udatsu Sushi, gay Japan",
     items: [
       { time: "10:30 AM", activity: "Chopstick workshop (90 mins)", notes: "", kind: "event" },
       { time: "12:30 PM", activity: "Lunch: Marugoto [option for Ginza on the way back]", notes: "", kind: "event" },
@@ -323,15 +323,15 @@ const uniqueStops = [
 
 const routeNarrative = [
   {
-    title: "Arrival arc",
+    title: "Arrival arc ✈️",
     text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight. It starts with soft landings and resets: hotel check-ins, favorite vegan meals, shopping pockets, and long walks easing the trip into motion. By the time Kamakura arrives, the rhythm has shifted from arrival logistics into temple air, seaside calm, and a more intimate pace.",
   },
   {
-    title: "Middle chapter",
+    title: "Middle chapter ⛩️",
     text: "Kyoto anchors the cultural center of the trip, with Himeji as a side quest before shifting south to Naoshima's slower museum rhythm. This section feels more carved-out and intentional: workshops, castle history, hikes, saunas, and carefully chosen dinners. Then the trip opens up again on Naoshima, where ferries, galleries, and onsen time replace city momentum with quiet immersion.",
   },
   {
-    title: "Exit glide",
+    title: "Exit glide 🌺",
     text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco. The final Tokyo days carry the celebratory core of the trip, including the May 21 birthday itself, before Honolulu turns everything looser and sunnier. It reads like a coda: beach time, massage, one more great dinner, then the transition back home.",
   },
 ];
@@ -373,7 +373,7 @@ const destinationSpotlights = {
   All: {
     title: "The full route",
     summary:
-      "This itinerary moves from departure-day logistics into a layered Japan run, then shifts into a Honolulu recovery chapter before returning home. It balances reservations and structure with deliberate breathing room: museums, temples, train transfers, special meals, spa time, and the May 21 birthday centerpiece.",
+      "This itinerary unfolds as a celebratory run through Tokyo, Kamakura, Kyoto, Naoshima, and Honolulu before returning home. It reads like a generous birthday trip at full volume: museums, temples, train rides, unforgettable meals, spa time, beach days, and the May 21 centerpiece woven through it all.",
     image:
       "https://theokuratokyo.jp/wp-content/uploads/2025/03/Prestige-Lobby-Rokkaku-AutumnLeaves-Recommended_TKSN8642-625x417.jpg",
     alt: "The Okura Tokyo lobby",
@@ -472,7 +472,7 @@ const diningPlaceLinks = {
   Marugoto: "https://www.google.com/maps/search/?api=1&query=Marugoto+Vegan+Dining+Asakusa",
   Udatsu: "https://www.google.com/maps/search/?api=1&query=Udatsu+Sushi+Tokyo+Nakameguro",
   Sougo: "https://www.google.com/maps/search/?api=1&query=Sougo+Roppongi+Tokyo",
-  "Oscar Wilde": "https://www.google.com/maps/search/?api=1&query=Oscar+Wilde+Hoba+Tosso+Roppongi+Tokyo",
+  "Oscar Wilde": "https://maps.app.goo.gl/uhVSaxKL7xRSX84x7",
   "Island Vintage": "https://www.google.com/maps/search/?api=1&query=Island+Vintage+Coffee+Royal+Hawaiian+Center+Waikiki",
   "Peace Cafe": "https://www.google.com/maps/search/?api=1&query=Peace+Cafe+Honolulu",
   Floralia: "https://www.google.com/maps/search/?api=1&query=Floralia+Honolulu+vegan+pizza",
@@ -485,32 +485,38 @@ const diningPlaceLinks = {
 const activityHtmlOverrides = {
   "Universal Bakes and Cafe":
     `${linkPlace("Universal Bakes and Cafe")}`,
+  "Ginza exploration":
+    `${linkExternal("Ginza exploration", "https://en.wikipedia.org/wiki/Ginza")}`,
   "Gotoku-ji":
     `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")}`,
   "Photomatic, Iyoshi Cola, Square Enix?":
-    `${linkExternal("Photomatic", "https://photomatic.jp/")}, ${linkExternal("Iyoshi Cola", "https://iyoshicola.com/en/")}, ${linkExternal("Square Enix", "https://www.jp.square-enix.com/")}?`,
+    `${linkExternal("Photomatic", "https://photomatic.jp/")}, ${linkExternal("Iyoshi Cola", "https://iyoshicola.com/en/")}, ${linkExternal("ARTNIA", "https://www.jp.square-enix.com/artnia/")}?`,
   "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
-    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (Harujuku and Shibuya), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.beams.co.jp/")}`,
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (${linkExternal("Harajuku", "https://en.wikipedia.org/wiki/Harajuku")} and ${linkExternal("Shibuya", "https://en.wikipedia.org/wiki/Shibuya")}), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.beams.co.jp/")}`,
   "Shinjuku Gyoen":
     `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")}`,
   "Snack: marbre vegan":
     `Snack: ${linkPlace("marbre vegan")}`,
   "Isetan men's, CDG":
-    `${linkExternal("Isetan men's", "https://www.mistore.jp/store/shinjuku/shops/men.html")}, ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}`,
+    `${linkExternal("Isetan men's", "https://www.mistore.jp/store/shinjuku/shops/men.html")}, ${linkExternal("CDG", "https://www.comme-des-garcons.com/")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
   "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
     `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Shinky%C5%8D")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3811.html")}`,
+  "Train to Nikko Spacia X (depart from Tokyo Skytree)":
+    `Train to ${linkExternal("Nikko Spacia X", "https://www.tobu.co.jp/spaciax/en/en/")} (${linkExternal("Nikko", "https://en.wikipedia.org/wiki/Nikk%C5%8D")}; depart from Tokyo Skytree)`,
   "Nezu Museum":
-    `${linkExternal("Nezu Museum", "https://www.nezumuseum.or.jp/en/")}`,
+    `${linkExternal("Nezu Museum", "https://www.nezu-muse.or.jp/en/")}`,
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
-    `Aoyama shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/en/brands/pleatspleaseisseymiyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
+    `${linkExternal("Aoyama", "https://en.wikipedia.org/wiki/Aoyama")} shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/en/brands/pleatspleaseisseymiyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
   "Hasedera Temple, Buddha":
     `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")}, ${linkExternal("Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")}`,
   "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
     `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")}, ${linkExternal("Genjiyama Park", "https://en.wikipedia.org/wiki/Genjiyama_Park")}, ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")}, Old Town`,
   "Himeji Castle and Koko-en Gardens Tickets":
-    `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} Tickets`,
+    `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} Tickets for a 4-hour tour with a private government guide`,
+  "guide whatsapp +81-90-9712-1750":
+    `Guide's WhatsApp: ${linkExternal("+81-90-9712-1750", "https://wa.me/819097121750")}`,
   "Send luggage to Tokyo":
     `Send luggage to Tokyo`,
   "Art House Project (Go'O, Haisha, Kadoya)":
@@ -518,11 +524,11 @@ const activityHtmlOverrides = {
   Minamidera:
     `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/minamidera.html")}`,
   Chichu:
-    `${linkExternal("Chichu", "https://benesse-artsite.jp/en/art/chichu.html")}`,
+    `${linkExternal("Chichu Art Museum", "https://benesse-artsite.jp/en/art/chichu.html")}`,
   "Benessee House":
     `${linkExternal("Benessee House", "https://benesse-artsite.jp/en/art/benessehouse-museum.html")}`,
   "Valley Gallery":
-    `${linkExternal("Valley Gallery", "https://benesse-artsite.jp/en/art/valley-gallery.html")}`,
+    `${linkExternal("Valley Gallery", "https://www.wallpaper.com/architecture/valley-gallery-tadao-ando-naoshima-japan")}`,
   "Hiroshi Sugimoto Gallery: Time Corridors":
     `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/timecorridors.html")}`,
   "Option to stop by Okura Museum or gym":
@@ -559,12 +565,28 @@ const activityHtmlOverrides = {
     `Dinner: ${linkPlace("Mumokuteki")}`,
   "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)":
     `Lunch: ${linkPlace("Nijiya")} (12-3pm) or ${linkPlace("Vegginy")} (12-2:30pm open) or ${linkPlace("Zirael")} (12:30-7pm open)`,
+  "Honen-in (moss temple) and Ginkaku-ji (temple) + Mt. Daimonji-yama Climb":
+    `${linkExternal("Honen-in", "https://en.wikipedia.org/wiki/H%C5%8Dnen-in")} (moss temple) and ${linkExternal("Ginkaku-ji", "https://www.shokoku-ji.jp/en/ginkakuji/about/")} (temple) + ${linkExternal("Mt. Daimonji-yama Climb", "http://insidekyoto.com/mt-daimonji-yama-hike-ginkaku-ji-temple")}`,
   "Dinner: Uno Ramen Sanjo":
     `Dinner: ${linkPlace("Uno Ramen Sanjo")}`,
   "Lunch: aisunao or apron":
     `Lunch: ${linkPlace("aisunao")} or ${linkPlace("apron")}`,
   "Dinner: Noeud.Tokyo":
     `Dinner: ${linkPlace("Noeud.Tokyo")}`,
+  "Ginza":
+    `${linkExternal("Ginza", "https://en.wikipedia.org/wiki/Ginza")}`,
+  "train to Kamakura":
+    `train to ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}`,
+  "arrive in Kamakura; drop bags at Kishi-ke Ryokan":
+    `arrive in ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}; drop bags at Kishi-ke Ryokan`,
+  "train to Himeji":
+    `train to ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")}`,
+  "arrival, grab coffee":
+    `arrival in ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")}, grab coffee`,
+  "Dropoff at Naoshima Port":
+    `Dropoff at ${linkExternal("Naoshima Port", "https://en.wikipedia.org/wiki/Naoshima,_Kagawa")}`,
+  "Ni-Chome":
+    `${linkExternal("Ni-Chome", "https://en.wikipedia.org/wiki/Shinjuku_Ni-ch%C5%8Dme")} 🏳️‍🌈`,
   "Lunch: Marugoto [option for Ginza on the way back]":
     `Lunch: ${linkPlace("Marugoto")} [option for Ginza on the way back]`,
   "Dinner: Udatsu":
@@ -585,6 +607,40 @@ const activityHtmlOverrides = {
     `Option 1) ${linkPlace("Brown Rice Ometosando")} + any Aoyama stores; back to Okura at 6pm`,
   "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm":
     `Option 2) ${linkExternal("Alchemy", "https://www.google.com/maps/search/?api=1&query=Alchemy+Honolulu+restaurant")} or ${linkExternal("Shogun Burger", "https://shogun-burger.com/")} ; walk back to Okura 6:20pm`,
+  "Sumida River nighttime walk":
+    `${linkExternal("Sumida River", "https://en.wikipedia.org/wiki/Sumida_River")} nighttime walk`,
+  "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck":
+    `If time permits, cat billboard and maybe ${linkExternal("Tokyo Metropolitan Gov. Building observation deck", "https://www.yokoso.metro.tokyo.lg.jp/en/tenbou/index.html")}`,
+  "Aman Spa Afternoon (4pm treatment; 90min Grounding Massage Ritual)":
+    `${linkExternal("Aman Spa Afternoon", "https://www.aman.com/hotels/aman-tokyo/wellness/spa")} (4pm treatment; 90min Grounding Massage Ritual)`,
+  "Hanko class":
+    `${linkExternal("Hanko class", "https://wabunka-lux.jp/experiences/en_kamakurahanko-basic/")} 💮`,
+  "Shuttle (first coffee mikauzkishoten)":
+    `Shuttle (first coffee ${linkExternal("mikauzkishoten", "https://www.google.com/maps/search/?api=1&query=Mikazuki+Shoten+Naoshima")})`,
+  "Chopstick workshop (90 mins)":
+    `${linkExternal("Chopstick workshop", "https://wabunka-lux.jp/experiences/en_mogami-kogei/")} (90 mins)`,
+  "Tokyo Tower View":
+    `${linkExternal("Tokyo Tower View", "https://www.tokyotower.co.jp/en/ticket/")}`,
+  "Tameike: Exploring the Heart of Japanese Politics Tour (3 hours)":
+    `${linkExternal("Tameike: Exploring the Heart of Japanese Politics Tour", "https://www.getyourguide.com/tokyo-l193/tameike-exploring-the-heart-of-japanese-politics-tour-t740982/?ranking_uuid=84718a94-dad7-4a5f-9f43-e9731ef8145a")} (3 hours)`,
+  "eBike Tour Honolulu Rainforest":
+    `${linkExternal("eBike Tour Honolulu Rainforest", "https://www.tripadvisor.com/AttractionProductReview-g29222-d17684562-EBike_Tour_Honolulu_Rainforest-Oahu_Hawaii.html")}`,
+};
+
+const dayTitleHtmlOverrides = {
+  "Birthday and Japan Goodbye: National Diet, Birthday Lunch, and Hawai'i":
+    `Birthday and Japan Goodbye: ${linkExternal("National Diet", "https://en.wikipedia.org/wiki/National_Diet")}, Birthday Lunch, and Hawai'i`,
+  "Naoshima Immersion: Chichu Light + Island Wanders":
+    `${linkExternal("Naoshima", "https://en.wikipedia.org/wiki/Naoshima,_Kagawa")} Immersion: Chichu Light + Island Wanders`,
+};
+
+const routeStopDisplay = {
+  "San Francisco": "San Francisco 🇺🇸",
+  Tokyo: "Tokyo 🇯🇵",
+  Kamakura: "Kamakura 🇯🇵",
+  Kyoto: "Kyoto 🇯🇵",
+  Naoshima: "Naoshima 🇯🇵",
+  Honolulu: "Honolulu 🇺🇸",
 };
 
 function linkPlace(label) {
@@ -679,7 +735,7 @@ function renderRouteRibbon() {
       (stop) => `
         <div class="route-stop">
           <span class="route-stop__dot" aria-hidden="true"></span>
-          <span class="route-stop__label">${stop}</span>
+          <span class="route-stop__label">${routeStopDisplay[stop] || stop}</span>
         </div>
       `
     )
@@ -912,7 +968,7 @@ function renderTimeline() {
     indexNode.textContent = `Day ${String(index + 1).padStart(2, "0")}`;
     dateNode.innerHTML = formatDateWithSuperscript(day.date);
     locationNode.textContent = getDisplayLocation(day);
-    titleNode.textContent = day.title;
+    titleNode.innerHTML = dayTitleHtmlOverrides[day.title] || day.title;
 
     getDayStops(day).forEach((stop) => {
       tagsNode.appendChild(createMiniTag(stop));
