@@ -57,7 +57,7 @@ const itinerary = [
   },
   {
     date: "Monday, May 11",
-    location: "Tokyo",
+    location: "Tokyo/Nikko",
     title: "Nikko: Mountains, Shrines, and Yuba",
     items: [
       { time: "8:00 AM", activity: "Train to Nikko Spacia X (depart from Tokyo Skytree)", notes: "", kind: "event" },
@@ -72,7 +72,7 @@ const itinerary = [
   },
   {
     date: "Tuesday, May 12",
-    location: "",
+    location: "Tokyo",
     title: "Artful Tokyo: Old Roots, Modern Design, and FARO",
     items: [
       { time: "9:00 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
@@ -119,7 +119,7 @@ const itinerary = [
   },
   {
     date: "Friday, May 15",
-    location: "Kyoto",
+    location: "Himeji/Kyoto",
     title: "Kyoto at a Distance: Himeji Castles, History, and Evening Wanders",
     items: [
       { time: "8:29 AM", activity: "train to Himeji", notes: "", kind: "event" },
@@ -240,7 +240,7 @@ const itinerary = [
   },
   {
     date: "TIMEWARP",
-    location: "",
+    location: "Honolulu",
     title: "And another one: Birthday Pt 2, jet lag recovery and massage",
     items: [
       { time: "10:20 AM", activity: "Arrive Honolulu", notes: "", kind: "event" },
@@ -256,7 +256,7 @@ const itinerary = [
   {
     date: "Friday, May 22",
     location: "Honolulu",
-    title: "Waikiki Living: Native Plants and Beach",
+    title: "Waikiki Living: Beach Day Recovery",
     items: [
       { time: "7:00 AM", activity: "Beach chair reservations start", notes: "", kind: "event" },
       { time: "", activity: "Gym", notes: "", kind: "event" },
@@ -285,7 +285,7 @@ const itinerary = [
   },
   {
     date: "Sunday, May 24",
-    location: "Honolulu",
+    location: "Honolulu/San Francisco",
     title: "Back to Reality: Travel Home",
     items: [
       { time: "10:00 AM", activity: "Shuttle", notes: "", kind: "event" },
@@ -316,6 +316,17 @@ const uniqueStops = [
   "Tokyo",
   "Kamakura",
   "Kyoto",
+  "Naoshima",
+  "Honolulu",
+];
+
+const filterStops = [
+  "San Francisco",
+  "Tokyo",
+  "Nikko",
+  "Kamakura",
+  "Kyoto",
+  "Himeji",
   "Naoshima",
   "Honolulu",
 ];
@@ -441,6 +452,12 @@ const imageAssets = {
     alt: "Nikko Toshogu Shrine",
     credit: "Koichi Sato via Wikimedia Commons, CC BY-SA 4.0",
   },
+  nikkoToshoguWeb: {
+    src: "https://images.unsplash.com/photo-1735034758020-908f7783ff91?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-pagoda-in-the-middle-of-a-forest-C1H_w47pSN4",
+    alt: "Pagoda among the trees in Nikko",
+    credit: "S K via Unsplash",
+  },
   kyotoKinkaku: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinkaku-ji%2C_Kyoto.jpg?width=1400",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Kinkaku-ji,_Kyoto.jpg",
@@ -476,6 +493,12 @@ const imageAssets = {
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Himeji_castle_q.jpg",
     alt: "Himeji Castle",
     credit: "Floodmfx via Wikimedia Commons, CC0 1.0",
+  },
+  himejiCastleWeb: {
+    src: "https://images.unsplash.com/photo-1741044191378-340e656d453c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-japanese-castle-stands-on-a-clear-bright-day-ekmIkOYrOVE",
+    alt: "Himeji Castle under a bright blue sky",
+    credit: "Charlie Charoenwattana via Unsplash",
   },
   naoshimaPort: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/Naoshima_honmura_port_terminal.jpg?width=1400",
@@ -661,13 +684,13 @@ const destinationSpotlights = {
   All: {
     title: "The full route",
     summary:
-      "This itinerary unfolds as a celebratory run through Tokyo, Kamakura, Kyoto, Naoshima, and Honolulu before returning home. It reads like a generous birthday trip at full volume: museums, temples, train rides, unforgettable meals, spa time, beach days, and the May 21 centerpiece woven through it all.",
+      "This itinerary unfolds as a celebratory run through Tokyo, Kamakura, Kyoto, Naoshima, and Honolulu before returning home to California: museums, temples, train rides, unforgettable meals, spa time, and beach days in paradise at the very end to top it all off and ease the transition back home.",
     imageKey: "kyotoKinkaku",
   },
   "San Francisco": {
     title: "Launch and landing",
     summary:
-      "San Francisco bookends the itinerary rather than acting as a full stop on its own. It holds both the clean takeoff into Japan on May 7th and the final return home on May 24th after the Honolulu coda.",
+      "The home base. No activities! But note the timing and flight details.",
     imageKey: "sfVictorianWeb",
   },
   Tokyo: {
@@ -675,6 +698,12 @@ const destinationSpotlights = {
     summary:
       "Tokyo holds the widest range of the trip: arrival energy, neighborhood wandering, museums, shopping, workout resets, milestone dinners, and the birthday day itself. It works as both launch point and finale, with each return to the city carrying a different mood.",
     imageKey: "tokyoTowerWeb",
+  },
+  Nikko: {
+    title: "Nikko day trip",
+    summary:
+      "Nikko reads as the mountain-and-shrine detour inside the Tokyo chapter: Toshogu, Shinkyo Bridge, the Kanmangafuchi Abyss, and a yuba lunch before returning to the city that night.",
+    imageKey: "nikkoToshoguWeb",
   },
   Kamakura: {
     title: "Kamakura pause",
@@ -687,6 +716,12 @@ const destinationSpotlights = {
     summary:
       "Kyoto carries the craft, history, and ritual core of the itinerary. It includes the transfer from Kamakura, the Himeji excursion, recovery time, hikes, dinners, and the moment where the trip feels most rooted in place.",
     imageKey: "kiyomizuTemple",
+  },
+  Himeji: {
+    title: "Himeji side quest",
+    summary:
+      "Himeji is a focused castle-history day trip from Kyoto, built around the guided Himeji Castle and Koko-en visit before the evening returns the trip to its Kyoto rhythm.",
+    imageKey: "himejiCastleWeb",
   },
   Naoshima: {
     title: "Naoshima immersion",
@@ -794,7 +829,7 @@ const activityHtmlOverrides = {
   "Isetan men's, CDG":
     `${linkExternal("Isetan men's", "https://www.mistore.jp/store/shinjuku/shops/men.html")}, ${linkExternal("CDG", "https://www.comme-des-garcons.com/")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
   "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
-    `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Shinky%C5%8D")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3811.html")}`,
+    `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Futarasan_shrine#Sacred_Bridge")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3810.html")}`,
   "Train to Nikko Spacia X (depart from Tokyo Skytree)":
     `Train to ${linkExternal("Nikko Spacia X", "https://www.tobu.co.jp/spaciax/en/en/")} (${linkExternal("Nikko", "https://en.wikipedia.org/wiki/Nikk%C5%8D")}; depart from Tokyo Skytree)`,
   "Nezu Museum":
@@ -982,10 +1017,6 @@ function renderImageCredit(image, { prefix = "Image: " } = {}) {
 }
 
 function getDisplayLocation(day) {
-  if (day.date === "TIMEWARP") {
-    return "Tokyo to Honolulu";
-  }
-
   if (!day.location) {
     return getDayStops(day)
       .filter((stop) => stop !== "Unassigned")
@@ -1000,14 +1031,6 @@ function getDayStops(day) {
     .split("/")
     .map((stop) => stop.trim())
     .filter(Boolean);
-
-  if (day.date === "TIMEWARP") {
-    return ["Tokyo", "Honolulu"];
-  }
-
-  if (day.date === "Sunday, May 24") {
-    return ["Honolulu", "San Francisco"];
-  }
 
   if (!base.length && /Tokyo/i.test(day.title)) {
     return ["Tokyo"];
@@ -1213,7 +1236,7 @@ function getGoogleMapsUrl(address, label = "") {
 }
 
 function renderFilters() {
-  const buttons = ["All", ...uniqueStops];
+  const buttons = ["All", ...filterStops];
 
   locationFilters.innerHTML = buttons
     .map(
