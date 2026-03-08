@@ -307,7 +307,6 @@ const hotelSummary = document.querySelector("#hotelSummary");
 const locationFilters = document.querySelector("#locationFilters");
 const timelineGrid = document.querySelector("#timelineGrid");
 const resultsLabel = document.querySelector("#resultsLabel");
-const focusToggle = document.querySelector("#focusToggle");
 const destinationSpotlight = document.querySelector("#destinationSpotlight");
 const dayCardTemplate = document.querySelector("#dayCardTemplate");
 const eventTemplate = document.querySelector("#eventTemplate");
@@ -324,31 +323,332 @@ const uniqueStops = [
 const routeNarrative = [
   {
     title: "Arrival arc ✈️",
-    text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight. It starts with soft landings and resets: hotel check-ins, favorite vegan meals, shopping pockets, and long walks easing the trip into motion. By the time Kamakura arrives, the rhythm has shifted from arrival logistics into temple air, seaside calm, and a more intimate pace.",
+    text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight. It starts with soft landings and resets: hotel check-ins, favorite vegan meals, shopping pockets, and long walks easing the trip into motion. By the time Kamakura arrives, the rhythm has shifted from city sparkle into temple air, seaside calm, and a more intimate pace.",
+    imageKey: "sfSkylineWeb",
   },
   {
     title: "Middle chapter ⛩️",
     text: "Kyoto anchors the cultural center of the trip, with Himeji as a side quest before shifting south to Naoshima's slower museum rhythm. This section feels more carved-out and intentional: workshops, castle history, hikes, saunas, and carefully chosen dinners. Then the trip opens up again on Naoshima, where ferries, galleries, and onsen time replace city momentum with quiet immersion.",
+    imageKey: "naoshimaSeaWeb",
   },
   {
     title: "Exit glide 🌺",
-    text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco. The final Tokyo days carry the celebratory core of the trip, including the May 21 birthday itself, before Honolulu turns everything looser and sunnier. It reads like a coda: beach time, massage, one more great dinner, then the transition back home.",
+    text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco. The final Tokyo days carry the celebratory core of the trip, including the May 21 birthday itself, before Honolulu turns everything looser and sunnier. It reads like a coda: beach time, massage, one more great dinner, and a warm glide back home.",
+    imageKey: "honoluluBeachWeb",
   },
 ];
 
+const imageAssets = {
+  sfCableCarWeb: {
+    src: "https://images.unsplash.com/photo-1770742153178-84f7b416d761?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/cable-car-on-a-street-in-san-francisco-walLgLob1YE",
+    alt: "San Francisco cable car on a sunlit street",
+    credit: "clement proust via Unsplash",
+  },
+  sfSkylineWeb: {
+    src: "https://images.unsplash.com/photo-1754018111909-e5f360f6c271?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/san-francisco-skyline-with-a-bridge-and-the-bay-Ms6aT6qea9E",
+    alt: "San Francisco skyline with the Bay Bridge",
+    credit: "Mazin Omron via Unsplash",
+  },
+  sfWaterfrontWeb: {
+    src: "https://images.unsplash.com/photo-1770739528974-b34aff52b730?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/san-francisco-skyline-with-buildings-and-a-beach-pY6wWJkzEvI",
+    alt: "San Francisco waterfront skyline",
+    credit: "clement proust via Unsplash",
+  },
+  sfSkyline: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/San_Francisco_skyline_from_Marin_Headlands.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:San_Francisco_skyline_from_Marin_Headlands.jpg",
+    alt: "San Francisco skyline from Marin Headlands",
+    credit: "Ryan Schwark via Wikimedia Commons, CC0 1.0",
+  },
+  tokyoSkyline: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Skyline.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Tokyo_Skyline.jpg",
+    alt: "Tokyo skyline",
+    credit: "Ningyou via Wikimedia Commons, Public domain",
+  },
+  tokyoSunset: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_-_Sunset_Skyline.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Tokyo_-_Sunset_Skyline.jpg",
+    alt: "Tokyo skyline at sunset with Mount Fuji in the distance",
+    credit: "Fred Cherrygarden via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  tokyoTowerWeb: {
+    src: "https://images.unsplash.com/photo-1759495049794-10431ebc1898?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/tokyo-tower-illuminated-at-night-with-city-lights-wOUsihrc0Ug",
+    alt: "Tokyo Tower illuminated above the city at night",
+    credit: "Y S via Unsplash",
+  },
+  tokyoGardenWeb: {
+    src: "https://images.unsplash.com/photo-1767859937364-f0449719b7f8?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/tranquil-japanese-garden-with-a-stone-bridge-and-pond-2xWtjatUGwk",
+    alt: "A tranquil garden in Tokyo",
+    credit: "Muhammad Irfan via Unsplash",
+  },
+  tokyoShinjukuWeb: {
+    src: "https://images.unsplash.com/photo-1531164442814-c81a813fd9a4?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/shinjuku-tokyo-japan-d92I1Of2ofQ",
+    alt: "Kabukicho gate in Shinjuku at night",
+    credit: "Manuel Cosentino via Unsplash",
+  },
+  tokyoAsakusaTempleWeb: {
+    src: "https://images.unsplash.com/photo-1716845219909-9542be627951?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-tall-building-with-a-tower-in-the-background-xDUNSgp5LQw",
+    alt: "Senso-ji and pagoda in Asakusa",
+    credit: "Frank Huang via Unsplash",
+  },
+  tokyoAsakusaNight: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset_in_Tokyo_Tower_-_panoramio.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Sunset_in_Tokyo_Tower_-_panoramio.jpg",
+    alt: "Sunset light over Tokyo Tower",
+    credit: "Tomi M\u00e4kitalo via Wikimedia Commons, CC BY 3.0",
+  },
+  gotokujiTemple: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Gotokuji.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Gotokuji.jpg",
+    alt: "Gotoku-ji temple in Tokyo",
+    credit: "Akonnchiroll via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  tokyoTowerNight: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_at_night_-_DSC00818.JPG?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_at_night_-_DSC00818.JPG",
+    alt: "Tokyo Tower lit up at night",
+    credit: "Daderot via Wikimedia Commons, CC0 1.0",
+  },
+  shinjukuGyoen: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/At_Shinjuku_Gyoen.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:At_Shinjuku_Gyoen.jpg",
+    alt: "Garden scene at Shinjuku Gyoen",
+    credit: "nubobo via Wikimedia Commons, CC BY 2.0",
+  },
+  nezuMuseumGarden: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Museum_P5091941.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Nezu_Museum_P5091941.jpg",
+    alt: "Garden at Nezu Museum in Tokyo",
+    credit: "Fukumoto via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  kamakuraBuddha: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Great_Buddha_of_Kamakura%2C_Kanagawa_Prefecture%3B_May_2011_%2801%29.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Great_Buddha_of_Kamakura,_Kanagawa_Prefecture;_May_2011_(01).jpg",
+    alt: "The Great Buddha of Kamakura",
+    credit: "TAKA@P.P.R.S via Wikimedia Commons, CC BY-SA 2.0",
+  },
+  hasederaKamakura: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Hase-dera_Kamakura.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Hase-dera_Kamakura.jpg",
+    alt: "View from Hase-dera Temple in Kamakura",
+    credit: "U-Kane via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  hasederaInteriorWeb: {
+    src: "https://images.unsplash.com/photo-1723242017109-64ac2ad3babf?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-room-with-a-large-circular-window-and-flowers-in-a-basket-Apozpg8oXUk",
+    alt: "Tatami room at Hase-dera Temple in Kamakura",
+    credit: "Andrea Sun via Unsplash",
+  },
+  nikkoToshogu: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Nikko_toshogu_shrine.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Nikko_toshogu_shrine.jpg",
+    alt: "Nikko Toshogu Shrine",
+    credit: "Koichi Sato via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  kyotoKinkaku: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinkaku-ji%2C_Kyoto.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Kinkaku-ji,_Kyoto.jpg",
+    alt: "Kinkaku-ji in Kyoto",
+    credit: "27curlyta via Wikimedia Commons, CC0 1.0",
+  },
+  kyotoStreet: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Japanese_street_Kyoto.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Japanese_street_Kyoto.jpg",
+    alt: "Street scene in Kyoto",
+    credit: "Floodmfx via Wikimedia Commons, CC0 1.0",
+  },
+  ginkakuji: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Ginkaku%2C_Jish%C5%8D-ji.JPG?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Ginkaku,_Jish%C5%8D-ji.JPG",
+    alt: "Ginkaku-ji in Kyoto",
+    credit: "Kakidai via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  kiyomizuTemple: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Kiyomizu-dera_in_Kyoto-r.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera_in_Kyoto-r.jpg",
+    alt: "Kiyomizu-dera in Kyoto",
+    credit: "Daderot via Wikimedia Commons, CC0 1.0",
+  },
+  kiyomizuTempleWeb: {
+    src: "https://images.unsplash.com/photo-1531408638501-77322cd8a5ed?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/green-and-orange-temples-_7RtWTAXvms",
+    alt: "Kiyomizu-dera in Kyoto at golden hour",
+    credit: "zhgn_ via Unsplash",
+  },
+  himejiCastle: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Himeji_castle_q.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Himeji_castle_q.jpg",
+    alt: "Himeji Castle",
+    credit: "Floodmfx via Wikimedia Commons, CC0 1.0",
+  },
+  naoshimaPort: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Naoshima_honmura_port_terminal.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Naoshima_honmura_port_terminal.jpg",
+    alt: "Port terminal on Naoshima",
+    credit: "Artandgeograph via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  naoshimaSeaWeb: {
+    src: "https://images.unsplash.com/photo-1699031847231-fda6325b2363?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-group-of-boats-floating-on-top-of-a-large-body-of-water-V5q7BMXfAv0",
+    alt: "Boats on the water around Naoshima",
+    credit: "Lee Thom via Unsplash",
+  },
+  naoshimaBeachWeb: {
+    src: "https://images.unsplash.com/photo-1699031840949-a81e2c58ac85?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-body-of-water-sitting-next-to-a-sandy-beach-K3hdYC9ZK-s",
+    alt: "Shoreline on Naoshima",
+    credit: "Lee Thom via Unsplash",
+  },
+  naoshimaInteriorWeb: {
+    src: "https://images.unsplash.com/photo-1753581271449-d11642a31439?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/modern-art-hangs-above-a-minimalist-table-jKO_dNtns4A",
+    alt: "Interior scene from Hiroshi Sugimoto Gallery in Naoshima",
+    credit: "Yanhao Fang via Unsplash",
+  },
+  naoshimaConcreteWeb: {
+    src: "https://images.unsplash.com/photo-1747747005816-877450afb16f?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+    sourceUrl: "https://unsplash.com/photos/a-modern-concrete-interior-features-walls-ZqSHsj8GOUk",
+    alt: "Concrete interior architecture on Naoshima",
+    credit: "Alan Jiang via Unsplash",
+  },
+  naoshimaBenesse: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Entrance_to_the_Benesse_House_complex_on_Naoshima.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Entrance_to_the_Benesse_House_complex_on_Naoshima.jpg",
+    alt: "Entrance to the Benesse House complex on Naoshima",
+    credit: "Bea Phi via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  minamidera: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Art_house_project_in_Naoshima%2C_Minami-dera%28%E5%8D%97%E5%AF%BA%E3%80%81%E7%9B%B4%E5%B3%B6_%E5%AE%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%29_PC193351.JPG?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Art_house_project_in_Naoshima,_Minami-dera(%E5%8D%97%E5%AF%BA%E3%80%81%E7%9B%B4%E5%B3%B6_%E5%AE%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88)_PC193351.JPG",
+    alt: "Minami-dera on Naoshima",
+    credit: "松岡明芳 via Wikimedia Commons, CC BY-SA 3.0",
+  },
+  yoiyaPumpkin: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Naoshima_Ferry_Terminal.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Naoshima_Ferry_Terminal.jpg",
+    alt: "Naoshima Ferry Terminal in Miyanoura",
+    credit: "Bea Phi via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  nationalDietBuilding: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/National_Diet_Building.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:National_Diet_Building.jpg",
+    alt: "National Diet Building in Tokyo",
+    credit: "Kakidai via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  shibuyaCrossing: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shibuya_crossing_%2812214%29.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Shibuya_crossing_(12214).jpg",
+    alt: "Shibuya Crossing in Tokyo",
+    credit: "Syced via Wikimedia Commons, CC0 1.0",
+  },
+  shinjukuNight: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shinjuku_at_night.JPG?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Shinjuku_at_night.JPG",
+    alt: "Shinjuku at night",
+    credit: "Masashi Hatsuka via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  royalHawaiian: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Royal_Hawaiian_Hotel%2C_Kalakaua_Avenue%2C_Waikiki%2C_Honolulu%2C_HI_-_52273145256.jpg?width=1400",
+    sourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Royal_Hawaiian_Hotel,_Kalakaua_Avenue,_Waikiki,_Honolulu,_HI_-_52273145256.jpg",
+    alt: "Royal Hawaiian Hotel in Waikiki",
+    credit: "w_lemay via Wikimedia Commons, CC BY-SA 2.0",
+  },
+  waikikiBeach: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Hawaii_Honolulu_Waikiki_beach.JPG?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Hawaii_Honolulu_Waikiki_beach.JPG",
+    alt: "Waikiki Beach in Honolulu",
+    credit: "小野 優太 via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  honoluluSkylineWeb: {
+    src: "https://cdn.pixabay.com/photo/2019/06/15/17/32/waikiki-4276133_1280.jpg",
+    sourceUrl: "https://pixabay.com/photos/waikiki-honolulu-hawaii-skyline-4276133/",
+    alt: "Honolulu skyline at night",
+    credit: "Artodidact via Pixabay",
+  },
+  honoluluParkWeb: {
+    src: "https://cdn.pixabay.com/photo/2013/08/13/11/18/beach-172136_1280.jpg",
+    sourceUrl: "https://pixabay.com/photos/beach-hawaii-honolulu-ocean-sea-172136/",
+    alt: "Palm-lined park by the beach in Honolulu",
+    credit: "CCPAPA via Pixabay",
+  },
+  honoluluBeachWeb: {
+    src: "https://cdn.pixabay.com/photo/2014/05/18/12/02/waikiki-beach-347018_1280.jpg",
+    sourceUrl: "https://pixabay.com/photos/waikiki-beach-hawaii-holiday-347018/",
+    alt: "Waikiki beach scene in Honolulu",
+    credit: "stinne24 via Pixabay",
+  },
+  waikikiSunset: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Waikiki_Sunset.png?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Waikiki_Sunset.png",
+    alt: "Sunset in Waikiki",
+    credit: "Warren McKenzie via Wikimedia Commons, CC BY-SA 4.0",
+  },
+  diamondHead: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Oahu-DiamondHead-Punchbowl-Honolulu.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Oahu-DiamondHead-Punchbowl-Honolulu.jpg",
+    alt: "Diamond Head and Honolulu skyline",
+    credit: "Travis Thurston via Wikimedia Commons, CC BY-SA 3.0",
+  },
+  goldenGateBridge: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Golden_Gate_Bridge_01.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_01.jpg",
+    alt: "Golden Gate Bridge in San Francisco",
+    credit: "Jon Sullivan via Wikimedia Commons, Public domain",
+  },
+  sfCableCar: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/San_Francisco_Cable_Car_-_Powell_and_Market.jpg?width=1400",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:San_Francisco_Cable_Car_-_Powell_and_Market.jpg",
+    alt: "San Francisco cable car at Powell and Market",
+    credit: "\u00c9rico Andrei via Wikimedia Commons, CC BY 3.0",
+  },
+};
+
 const hotelImages = {
-  "Hotel: Hoshinoya Tokyo":
-    "https://media-cdn.tripadvisor.com/media/photo-s/1b/66/a5/ac/caption.jpg",
-  "Hotel: Kishi-ke Ryokan":
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/310086629.jpg?k=44d6ac190eef9c0e4774ac65659a5e84508c7304fa000ddeb2acb1749fb7db32&o=",
-  "Hotel: Tamao Kyoto":
-    "https://www.img-ikyu.com/contents/common/dg/image/sd/acc8/00051678/00051678a.jpg?auto=compress,format&fit=crop&h=500&lossless=0&w=750",
-  "Hotel: Ryokan Roka":
-    "https://www.thehotelguru.com/_images/7c/35/7c358e2b3ede5ea339300f7705cf8911/original.jpg",
-  "Hotel: Okura Tokyo":
-    "https://theokuratokyo.jp/wp-content/uploads/2025/03/Prestige-Lobby-Rokkaku-AutumnLeaves-Recommended_TKSN8642-625x417.jpg",
-  "Hotel: Royal Hawaiian":
-    "https://cache.marriott.com/content/dam/marriott-renditions/HNLLC/hnllc-building-1813-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
+  "Hotel: Hoshinoya Tokyo": {
+    src: "https://media-cdn.tripadvisor.com/media/photo-s/1b/66/a5/ac/caption.jpg",
+    sourceUrl: "https://hoshinoresorts.com/en/hotels/hoshinoyatokyo/",
+    alt: "HOSHINOYA Tokyo exterior",
+    credit: "Image courtesy of HOSHINOYA Tokyo",
+  },
+  "Hotel: Kishi-ke Ryokan": {
+    src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/310086629.jpg?k=44d6ac190eef9c0e4774ac65659a5e84508c7304fa000ddeb2acb1749fb7db32&o=",
+    sourceUrl: "https://www.kishike.com/en/",
+    alt: "Kishi-ke Ryokan room",
+    credit: "Image courtesy of Kishi-ke Ryokan",
+  },
+  "Hotel: Tamao Kyoto": {
+    src: "https://www.img-ikyu.com/contents/common/dg/image/sd/acc8/00051678/00051678a.jpg?auto=compress,format&fit=crop&h=500&lossless=0&w=750",
+    sourceUrl: "https://www.tamaokyoto.com/en/",
+    alt: "Tamao Kyoto room",
+    credit: "Image courtesy of Tamao Kyoto",
+  },
+  "Hotel: Ryokan Roka": {
+    src: "https://www.thehotelguru.com/_images/7c/35/7c358e2b3ede5ea339300f7705cf8911/original.jpg",
+    sourceUrl: "https://roka.voyage/",
+    alt: "Ryokan Roka exterior",
+    credit: "Image courtesy of Ryokan Roka",
+  },
+  "Hotel: Okura Tokyo": {
+    src: "https://theokuratokyo.jp/wp-content/uploads/2025/03/Prestige-Lobby-Rokkaku-AutumnLeaves-Recommended_TKSN8642-625x417.jpg",
+    sourceUrl: "https://theokuratokyo.jp/en/",
+    alt: "The Okura Tokyo lobby",
+    credit: "Image courtesy of The Okura Tokyo",
+  },
+  "Hotel: Royal Hawaiian": {
+    src: "https://cache.marriott.com/content/dam/marriott-renditions/HNLLC/hnllc-building-1813-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
+    sourceUrl: "https://www.royal-hawaiian.com/",
+    alt: "The Royal Hawaiian exterior",
+    credit: "Image courtesy of The Royal Hawaiian",
+  },
 };
 
 const hotelLinks = {
@@ -374,58 +674,66 @@ const destinationSpotlights = {
     title: "The full route",
     summary:
       "This itinerary unfolds as a celebratory run through Tokyo, Kamakura, Kyoto, Naoshima, and Honolulu before returning home. It reads like a generous birthday trip at full volume: museums, temples, train rides, unforgettable meals, spa time, beach days, and the May 21 centerpiece woven through it all.",
-    image:
-      "https://theokuratokyo.jp/wp-content/uploads/2025/03/Prestige-Lobby-Rokkaku-AutumnLeaves-Recommended_TKSN8642-625x417.jpg",
-    alt: "The Okura Tokyo lobby",
+    imageKey: "kyotoKinkaku",
   },
   "San Francisco": {
     title: "Departure day",
     summary:
       "San Francisco is the runway rather than the destination. It is the clean handoff into the trip: pickup, airport, and the first long-haul flight that starts the birthday journey.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWC_-Z8q74e4CmusFu2jHGd9e1ER5LUlzPmA&s",
-    alt: "San Francisco skyline",
+    imageKey: "sfCableCarWeb",
   },
   Tokyo: {
     title: "Tokyo chapters",
     summary:
       "Tokyo holds the widest range of the trip: arrival energy, neighborhood wandering, museums, shopping, workout resets, milestone dinners, and the birthday day itself. It works as both launch point and finale, with each return to the city carrying a different mood.",
-    image:
-      "https://media-cdn.tripadvisor.com/media/photo-s/1b/66/a5/ac/caption.jpg",
-    alt: "Hoshinoya Tokyo exterior",
+    imageKey: "tokyoTowerWeb",
   },
   Kamakura: {
     title: "Kamakura pause",
     summary:
       "Kamakura compresses the trip into something more intimate and restorative. The focus shifts to temples, sea air, a ryokan stay, and a slower overnight before the Kyoto transition.",
-    image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/310086629.jpg?k=44d6ac190eef9c0e4774ac65659a5e84508c7304fa000ddeb2acb1749fb7db32&o=",
-    alt: "Kishi-ke Ryokan room",
+    imageKey: "kamakuraBuddha",
   },
   Kyoto: {
     title: "Kyoto center of gravity",
     summary:
       "Kyoto carries the craft, history, and ritual core of the itinerary. It includes the transfer from Kamakura, the Himeji excursion, recovery time, hikes, dinners, and the moment where the trip feels most rooted in place.",
-    image:
-      "https://www.img-ikyu.com/contents/common/dg/image/sd/acc8/00051678/00051678a.jpg?auto=compress,format&fit=crop&h=500&lossless=0&w=750",
-    alt: "Tamao Kyoto room",
+    imageKey: "kiyomizuTemple",
   },
   Naoshima: {
     title: "Naoshima immersion",
     summary:
       "Naoshima is the art-island deep breath. Ferries, buses, bike rides, museums, galleries, and kaiseki dinners create a slower, more atmospheric chapter before the return to Tokyo.",
-    image:
-      "https://www.thehotelguru.com/_images/7c/35/7c358e2b3ede5ea339300f7705cf8911/original.jpg",
-    alt: "Ryokan Roka exterior",
+    imageKey: "naoshimaSeaWeb",
   },
   Honolulu: {
     title: "Honolulu coda",
     summary:
       "Honolulu acts as the warm afterglow of the trip. After the birthday flight out of Japan, the plan loosens into massage, beach time, bike touring, easier meals, and a gentler runway back into real life.",
-    image:
-      "https://cache.marriott.com/content/dam/marriott-renditions/HNLLC/hnllc-building-1813-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
-    alt: "Royal Hawaiian hotel exterior",
+    imageKey: "honoluluSkylineWeb",
   },
+};
+
+const dayImages = {
+  "Thursday, May 7": "sfWaterfrontWeb",
+  "Friday, May 8": "tokyoSunset",
+  "Saturday, May 9": "gotokujiTemple",
+  "Sunday, May 10": "tokyoGardenWeb",
+  "Monday, May 11": "nikkoToshogu",
+  "Tuesday, May 12": "nezuMuseumGarden",
+  "Wednesday, May 13": "hasederaInteriorWeb",
+  "Thursday, May 14": "kyotoStreet",
+  "Friday, May 15": "himejiCastle",
+  "Saturday, May 16": "kiyomizuTempleWeb",
+  "Sunday, May 17": "naoshimaBeachWeb",
+  "Monday, May 18": "naoshimaConcreteWeb",
+  "Tuesday, May 19": "tokyoTowerNight",
+  "Wednesday, May 20": "shibuyaCrossing",
+  "Thursday, May 21": "tokyoAsakusaTempleWeb",
+  TIMEWARP: "honoluluParkWeb",
+  "Friday, May 22": "waikikiBeach",
+  "Saturday, May 23": "waikikiSunset",
+  "Sunday, May 24": "goldenGateBridge",
 };
 
 const highlightMatchers = [
@@ -575,6 +883,8 @@ const activityHtmlOverrides = {
     `Dinner: ${linkPlace("Noeud.Tokyo")}`,
   "Ginza":
     `${linkExternal("Ginza", "https://en.wikipedia.org/wiki/Ginza")}`,
+  "Train to Shin-Yokahama":
+    `Train to ${linkExternal("Shin-Yokahama", "https://en.wikipedia.org/wiki/Shin-Yokohama_Station")}`,
   "train to Kamakura":
     `train to ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}`,
   "arrive in Kamakura; drop bags at Kishi-ke Ryokan":
@@ -651,13 +961,37 @@ function linkExternal(label, url) {
   return `<a href="${url}" target="_blank" rel="noreferrer noopener">${label}</a>`;
 }
 
+function getDayAnchorId(date) {
+  return `day-${date.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
 function normalizeLocation(location) {
   return location || "Unassigned";
+}
+
+function emphasizeCities(text) {
+  return text.replace(
+    /\b(San Francisco|Tokyo|Kamakura|Kyoto|Himeji|Naoshima|Honolulu)\b/g,
+    "<strong>$1</strong>"
+  );
+}
+
+function superscriptMonthDays(text) {
+  return text.replace(/\b(May) (\d{1,2})(?!<)/g, (_, month, dayText) => {
+    const day = Number(dayText);
+    return `${month} ${day}<sup>${getOrdinalSuffix(day)}</sup>`;
+  });
 }
 
 function getDisplayLocation(day) {
   if (day.date === "TIMEWARP") {
     return "Tokyo to Honolulu";
+  }
+
+  if (!day.location) {
+    return getDayStops(day)
+      .filter((stop) => stop !== "Unassigned")
+      .join(" / ");
   }
 
   return normalizeLocation(day.location);
@@ -745,14 +1079,23 @@ function renderRouteRibbon() {
 function renderOverview() {
   routeCards.innerHTML = routeNarrative
     .map(
-      (segment) => `
+      (segment) => {
+        const image = imageAssets[segment.imageKey];
+        return `
         <div class="route-segment">
+          <a class="route-segment__image-link" href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener" aria-label="Open image source for ${segment.title}">
+            <img class="route-segment__image" src="${image.src}" alt="${image.alt}" loading="lazy" />
+          </a>
+          <p class="route-segment__credit">
+            <a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${image.credit}</a>
+          </p>
           <div>
             <strong>${segment.title}</strong>
-            <p>${segment.text}</p>
+            <p>${superscriptMonthDays(emphasizeCities(segment.text))}</p>
           </div>
         </div>
-      `
+      `;
+      }
     )
     .join("");
 
@@ -773,19 +1116,48 @@ function renderOverview() {
     <div class="hotel-stack">
       ${Array.from(hotelMap.entries())
         .map(
-          ([name, address]) => `
-            <a class="hotel-stack__item" href="${hotelLinks[name] || "#"}" target="_blank" rel="noreferrer noopener" aria-label="Open ${name.replace("Hotel: ", "")} website">
-              <img class="hotel-stack__image" src="${hotelImages[name] || ""}" alt="${name.replace("Hotel: ", "")}" loading="lazy" />
+          ([name, address]) => {
+            const image = hotelImages[name];
+            return `
+            <article class="hotel-stack__item" data-href="${hotelLinks[name] || "#"}" tabindex="0" role="link" aria-label="Open ${name.replace("Hotel: ", "")} website">
+              <img class="hotel-stack__image" src="${image?.src || ""}" alt="${image?.alt || name.replace("Hotel: ", "")}" loading="lazy" />
+              ${
+                image
+                  ? `<p class="hotel-stack__credit"><a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">${image.credit}</a></p>`
+                  : ""
+              }
               <div class="hotel-stack__body">
                 <span>${address}</span>
                 <strong>${name.replace("Hotel: ", "")}</strong>
+                <span class="hotel-stack__cta">Official website</span>
               </div>
-            </a>
-          `
+            </article>
+          `;
+          }
         )
         .join("")}
     </div>
   `;
+
+  hotelSummary.querySelectorAll(".hotel-stack__item[data-href]").forEach((card) => {
+    const openCard = () => {
+      window.open(card.dataset.href, "_blank", "noopener,noreferrer");
+    };
+
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        return;
+      }
+      openCard();
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openCard();
+      }
+    });
+  });
 }
 
 function formatDateWithSuperscript(date) {
@@ -855,6 +1227,7 @@ function renderFilters() {
 function renderSpotlight() {
   const key = state.activeLocation;
   const spotlight = destinationSpotlights[key] || destinationSpotlights.All;
+  const spotlightImage = spotlight.imageKey ? imageAssets[spotlight.imageKey] : null;
   const days =
     key === "All"
       ? itinerary.map((day) => day.date)
@@ -865,7 +1238,16 @@ function renderSpotlight() {
   destinationSpotlight.innerHTML = `
     <div class="spotlight__media">
       ${
-        spotlight.image
+        spotlightImage
+          ? `
+            <a class="spotlight__image-link" href="${spotlightImage.sourceUrl}" target="_blank" rel="noreferrer noopener" aria-label="Open image source for ${spotlight.title}">
+              <img class="spotlight__image" src="${spotlightImage.src}" alt="${spotlightImage.alt}" loading="lazy" />
+            </a>
+            <p class="spotlight__credit">
+              <a href="${spotlightImage.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${spotlightImage.credit}</a>
+            </p>
+          `
+          : spotlight.image
           ? `<img class="spotlight__image" src="${spotlight.image}" alt="${spotlight.alt}" loading="lazy" />`
           : `<div class="spotlight__placeholder">Image<br />placeholder</div>`
       }
@@ -873,9 +1255,14 @@ function renderSpotlight() {
     <div class="spotlight__body">
       <p class="spotlight__kicker">${key === "All" ? "Trip summary" : key}</p>
       <h3>${spotlight.title}</h3>
-      <p>${spotlight.summary}</p>
+      <p>${superscriptMonthDays(spotlight.summary)}</p>
       <div class="spotlight__days">
-        ${days.map((day) => `<span class="spotlight__day">${formatDateWithSuperscript(day)}</span>`).join("")}
+        ${days
+          .map(
+            (day) =>
+              `<a class="spotlight__day" href="#${getDayAnchorId(day)}">${formatDateWithSuperscript(day)}</a>`
+          )
+          .join("")}
       </div>
     </div>
   `;
@@ -911,17 +1298,136 @@ function createMiniTag(text) {
   return tag;
 }
 
+const placeCuisineTypes = {
+  "Komeda-is": ["Cafe"],
+  "Komeda-Is": ["Cafe"],
+  "Vegan Sushi Tokyo": ["Sushi"],
+  "Vegan Bistro Jangara": ["Bistro"],
+  "Bistro Jangara": ["Bistro"],
+  "Izakya Nowhere": ["Izakaya"],
+  "Izakaya Nowhere": ["Izakaya"],
+  "Ain Soph Shinjuku": ["Cafe"],
+  "2foods": ["Cafe"],
+  "Cafe Restaurant Bell": ["Set Meal"],
+  "Falafel Brothers": ["Falafel"],
+  "Brown Rice Ometosando": ["Set Meal"],
+  FARO: ["Fine Dining"],
+  "luna burger": ["Burger"],
+  magokoro: ["Set Meal"],
+  "Vegan Izakaya Masaka": ["Izakaya"],
+  "Il Riccio": ["Fine Dining"],
+  Kotonoki: ["Set Meal"],
+  Mumokuteki: ["Cafe"],
+  Nijiya: ["Set Meal"],
+  Vegginy: ["Bistro"],
+  Zirael: ["Bistro"],
+  "Uno Ramen Sanjo": ["Ramen"],
+  aisunao: ["Set Meal"],
+  apron: ["Cafe"],
+  "Noeud.Tokyo": ["Fine Dining"],
+  Marugoto: ["Set Meal"],
+  Udatsu: ["Sushi"],
+  Sougo: ["Fine Dining"],
+  "Oscar Wilde": ["Fine Dining"],
+  "Island Vintage": ["Cafe"],
+  "Peace Cafe": ["Cafe"],
+  Floralia: ["Pizza"],
+  "Tane Vegan Izakaya": ["Izakaya"],
+  "Universal Bakes and Cafe": ["Cafe"],
+  "marbre vegan": ["Cafe"],
+};
+
+function getCuisineTypes(activity) {
+  const value = activity.toLowerCase();
+  const types = new Set();
+
+  Object.entries(placeCuisineTypes).forEach(([place, cuisineTypes]) => {
+    if (value.includes(place.toLowerCase())) {
+      cuisineTypes.forEach((type) => types.add(type));
+    }
+  });
+
+  if (/\bizakaya\b/.test(value)) types.add("Izakaya");
+  if (/\bkaiseki\b/.test(value)) types.add("Kaiseki");
+  if (/\bsushi\b/.test(value)) types.add("Sushi");
+  if (/\bramen\b/.test(value)) types.add("Ramen");
+  if (/\bburger\b/.test(value)) types.add("Burger");
+  if (/\bcafe\b|\bcoffee\b|\bbakery\b|\bsnack\b/.test(value)) types.add("Cafe");
+  if (/\bshojin\b/.test(value)) types.add("Shojin");
+  if (/\bfalafel\b/.test(value)) types.add("Falafel");
+  if (/\bfine dining\b|\b1\*\b|\bnoeud\b|\bfaro\b/.test(value)) types.add("Fine Dining");
+  if (/\bbistro\b/.test(value)) types.add("Bistro");
+  if (/\bpizza\b/.test(value)) types.add("Pizza");
+  if (/\byuba set\b|\bset\b/.test(value)) types.add("Set Meal");
+
+  if (types.size) {
+    return Array.from(types);
+  }
+
+  if (/\bbreakfast\b|\blunch\b|\bdinner\b/.test(value)) {
+    return ["Food"];
+  }
+
+  return [];
+}
+
+function getEventCategory(item) {
+  if (item.kind === "hotel") {
+    return { label: "Stay", modifier: "event--hotel" };
+  }
+
+  const activity = item.activity.toLowerCase();
+  const cuisineTypes = getCuisineTypes(item.activity);
+
+  if (cuisineTypes.length) {
+    const label = cuisineTypes.join(" / ");
+    return {
+      label,
+      modifier: "event--meal",
+    };
+  }
+
+  if (
+    /\b(flight|train|taxi|shuttle|ferry|bus|airport|car service|waymo|leave for|depart|pickup|dropoff|send luggage)\b/.test(activity) ||
+    /\b(arrive|arrival|back in)\b/.test(activity) ||
+    /\b[a-z]{2,}\b\s*>\s*\b[a-z]{2,}\b/.test(activity)
+  ) {
+    return { label: "Travel", modifier: "event--travel" };
+  }
+
+  if (
+    /\b(museum|gallery|art house|chichu|minamidera|benessee|benesse|sugimoto)\b/.test(activity)
+  ) {
+    return { label: "Museum", modifier: "event--museum" };
+  }
+
+  if (
+    /\b(shop|shops|store|stores|ragtag|beams|snoopytown|isetan|cdg|dries|pleats please|sacai|margiela|mm6|pick up protein powder)\b/.test(activity)
+  ) {
+    return { label: "Shopping", modifier: "event--shopping" };
+  }
+
+  if (
+    /\b(temple|shrine|bridge|park|garden|gardens|observation|walk|exploration|exploring|tour|castle|beach|tower|buddha|old town|ginza|view|climb)\b/.test(activity)
+  ) {
+    return { label: "Sightseeing", modifier: "event--sightseeing" };
+  }
+
+  return { label: "Activity", modifier: "event--activity" };
+}
+
 function renderEvent(item, list) {
   const node = eventTemplate.content.firstElementChild.cloneNode(true);
   const time = node.querySelector(".event__time");
   const kind = node.querySelector(".event__kind");
   const activity = node.querySelector(".event__activity");
   const notes = node.querySelector(".event__notes");
+  const category = getEventCategory(item);
 
-  node.classList.toggle("event--hotel", item.kind === "hotel");
+  node.classList.add(category.modifier);
 
   time.textContent = item.kind === "hotel" ? item.time.replace("Hotel: ", "") : item.time || "Flexible";
-  kind.textContent = item.kind === "hotel" ? "Stay" : item.time ? "Scheduled" : "Open";
+  kind.textContent = category.label;
   if (item.kind === "hotel") {
     activity.innerHTML = `<a href="${getGoogleMapsUrl(item.activity, item.time.replace("Hotel: ", ""))}" target="_blank" rel="noreferrer noopener">${item.activity}</a>`;
   } else if (activityHtmlOverrides[item.activity]) {
@@ -964,11 +1470,27 @@ function renderTimeline() {
     const titleNode = card.querySelector(".day-card__title");
     const tagsNode = card.querySelector(".day-card__tags");
     const eventList = card.querySelector(".event-list");
+    const imageLink = card.querySelector(".day-card__image-link");
+    const imageNode = card.querySelector(".day-card__image");
+    const creditNode = card.querySelector(".day-card__credit");
+    const dayImage = imageAssets[dayImages[day.date]];
 
+    card.id = getDayAnchorId(day.date);
     indexNode.textContent = `Day ${String(index + 1).padStart(2, "0")}`;
     dateNode.innerHTML = formatDateWithSuperscript(day.date);
     locationNode.textContent = getDisplayLocation(day);
     titleNode.innerHTML = dayTitleHtmlOverrides[day.title] || day.title;
+
+    if (dayImage) {
+      imageLink.href = dayImage.sourceUrl;
+      imageLink.setAttribute("aria-label", `Open image source for ${day.date}`);
+      imageNode.src = dayImage.src;
+      imageNode.alt = dayImage.alt;
+      creditNode.innerHTML = `<a href="${dayImage.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${dayImage.credit}</a>`;
+    } else {
+      imageLink.remove();
+      creditNode.remove();
+    }
 
     getDayStops(day).forEach((stop) => {
       tagsNode.appendChild(createMiniTag(stop));
@@ -1004,13 +1526,6 @@ function renderTimeline() {
     timelineGrid.appendChild(card);
   });
 }
-
-focusToggle.addEventListener("click", () => {
-  state.highlightsOnly = !state.highlightsOnly;
-  focusToggle.classList.toggle("is-active", state.highlightsOnly);
-  focusToggle.textContent = state.highlightsOnly ? "Show full itinerary" : "Show highlights only";
-  renderTimeline();
-});
 
 renderHeroStats();
 renderRouteRibbon();
