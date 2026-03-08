@@ -2,6 +2,8 @@
 
 ![Tokyo skyline at sunset](https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_-_Sunset_Skyline.jpg?width=1600)
 
+<p align="center"><sub>Image: Fred Cherrygarden via Wikimedia Commons, CC BY-SA 4.0</sub></p>
+
 <p align="center">
   A small, fully static travel website built with free and open-source code for a May 2026 birthday trip across <strong>Tokyo</strong>, <strong>Kamakura</strong>, <strong>Kyoto</strong>, <strong>Naoshima</strong>, and <strong>Honolulu</strong>. The site turns a personal itinerary into a polished public-facing experience, combining route storytelling, destination filtering, linked activities, image-rich day cards, and lightweight client-side interactions with plain HTML, CSS, and JavaScript.
 </p>
