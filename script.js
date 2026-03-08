@@ -33,7 +33,7 @@ const itinerary = [
       { time: "", activity: "Photomatic, Iyoshi Cola, Square Enix?", notes: "", kind: "event" },
       { time: "", activity: "Ragtag (Harujuku and Shibuya), Snoopytown, Beams", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Go to hotel (leave for dinner at 5:00pm?)", notes: "", kind: "event" },
-      { time: "5:30 PM", activity: "Dinner: Izakya Nowhere (open 5pm)", notes: "", kind: "event" },
+      { time: "5:30 PM", activity: "Dinner: Izakaya Nowhere (open 5pm)", notes: "", kind: "event" },
       { time: "", activity: "Sumida River nighttime walk", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
     ],
@@ -51,7 +51,7 @@ const itinerary = [
       { time: "", activity: "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck", notes: "", kind: "event" },
       { time: "2:30 PM", activity: "head to Aman", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Aman Spa Afternoon (4pm treatment; 90min Grounding Massage Ritual)", notes: "", kind: "event" },
-      { time: "6:00 PM", activity: "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-Is (17mins) [also Ginza block on Tuesday]", notes: "", kind: "event" },
+      { time: "6:00 PM", activity: "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-is (17mins) [also Ginza block on Tuesday]", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
     ],
   },
@@ -740,11 +740,9 @@ const highlightMatchers = [
 
 const diningPlaceLinks = {
   "Komeda-is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
-  "Komeda-Is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
   "Vegan Sushi Tokyo": "https://www.google.com/maps/search/?api=1&query=Vegan+Sushi+Tokyo+Dogenzaka+Shibuya+Tokyo",
   "Vegan Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
   "Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
-  "Izakya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
   "Izakaya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
   "Ain Soph Shinjuku": "https://www.google.com/maps/search/?api=1&query=AIN+SOPH+Journey+Shinjuku",
   "2foods": "https://www.google.com/maps/search/?api=1&query=2foods+Ginza+Tokyo",
@@ -835,12 +833,12 @@ const activityHtmlOverrides = {
     `Dinner: ${linkPlace("Komeda-is")}`,
   "Lunch: Vegan Sushi Tokyo (or Vegan Bistro Jangara)":
     `Lunch: ${linkPlace("Vegan Sushi Tokyo")} (or ${linkPlace("Vegan Bistro Jangara")})`,
-  "Dinner: Izakya Nowhere (open 5pm)":
-    `Dinner: ${linkPlace("Izakya Nowhere")} (open 5pm)`,
+  "Dinner: Izakaya Nowhere (open 5pm)":
+    `Dinner: ${linkPlace("Izakaya Nowhere")} (open 5pm)`,
   "Lunch: Ain Soph Shinjuku":
     `Lunch: ${linkPlace("Ain Soph Shinjuku")}`,
-  "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-Is (17mins) [also Ginza block on Tuesday]":
-    `Dinner: ${linkPlace("Bistro Jangara")} (20mins) or Ginza + ${linkPlace("2foods")}, ${linkPlace("Komeda-Is")} (17mins) [also Ginza block on Tuesday]`,
+  "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-is (17mins) [also Ginza block on Tuesday]":
+    `Dinner: ${linkPlace("Bistro Jangara")} (20mins) or Ginza + ${linkPlace("2foods")}, ${linkPlace("Komeda-is")} (17mins) [also Ginza block on Tuesday]`,
   "Lunch: Cafe Restaurant Bell for yuba set":
     `Lunch: ${linkPlace("Cafe Restaurant Bell")} for yuba set`,
   "Dinner: Falafel Brothers or Izakaya Nowhere (open until 10pm)":
@@ -1317,11 +1315,9 @@ function createMiniTag(text) {
 
 const placeCuisineTypes = {
   "Komeda-is": ["Cafe"],
-  "Komeda-Is": ["Cafe"],
   "Vegan Sushi Tokyo": ["Sushi"],
   "Vegan Bistro Jangara": ["Bistro"],
   "Bistro Jangara": ["Bistro"],
-  "Izakya Nowhere": ["Izakaya"],
   "Izakaya Nowhere": ["Izakaya"],
   "Ain Soph Shinjuku": ["Cafe"],
   "2foods": ["Cafe"],
