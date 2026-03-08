@@ -1057,23 +1057,30 @@ function countTimedEvents() {
   );
 }
 
-function countHighlightEvents() {
+function countRestaurantStops() {
   return itinerary.reduce(
     (sum, day) =>
       sum +
-      day.items.filter((item) =>
-        highlightMatchers.some((match) => `${item.time} ${item.activity}`.toLowerCase().includes(match))
-      ).length,
+      day.items.filter((item) => item.kind === "event" && getCuisineTypes(item.activity).length).length,
+    0
+  );
+}
+
+function countActivities() {
+  return itinerary.reduce(
+    (sum, day) =>
+      sum +
+      day.items.filter((item) => item.kind === "event" && !getCuisineTypes(item.activity).length).length,
     0
   );
 }
 
 function renderHeroStats() {
   const stats = [
-    { label: "Day blocks", value: itinerary.length },
-    { label: "Timed stops", value: countTimedEvents() },
+    { label: "Days", value: itinerary.length },
+    { label: "Restaurants", value: countRestaurantStops() },
     { label: "Hotels", value: countHotels() },
-    { label: "Major moments", value: countHighlightEvents() },
+    { label: "Activities", value: countActivities() },
   ];
 
   heroStats.innerHTML = stats
