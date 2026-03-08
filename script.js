@@ -339,6 +339,12 @@ const imageAssets = {
     alt: "San Francisco waterfront skyline",
     credit: "clement proust via Unsplash",
   },
+  sfVictorianWeb: {
+    src: "https://images.unsplash.com/photo-1621606016505-f74ee91fc522?q=80&w=1746&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    sourceUrl: "https://unsplash.com/photos/cars-parked-in-front-of-white-concrete-building-during-daytime-zVpcLB_LBDA",
+    alt: "Cars parked on a San Francisco street lined with white Victorian buildings",
+    creditHtml: 'Photo by <a href="https://unsplash.com/@szamanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">Piotr Musioł</a> on <a href="https://unsplash.com/photos/cars-parked-in-front-of-white-concrete-building-during-daytime-zVpcLB_LBDA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">Unsplash</a>',
+  },
   sfSkyline: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/San_Francisco_skyline_from_Marin_Headlands.jpg?width=1400",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:San_Francisco_skyline_from_Marin_Headlands.jpg",
@@ -662,7 +668,7 @@ const destinationSpotlights = {
     title: "Launch and landing",
     summary:
       "San Francisco bookends the itinerary rather than acting as a full stop on its own. It holds both the clean takeoff into Japan on May 7th and the final return home on May 24th after the Honolulu coda.",
-    imageKey: "sfCableCarWeb",
+    imageKey: "sfVictorianWeb",
   },
   Tokyo: {
     title: "Tokyo chapters",
@@ -965,6 +971,18 @@ function superscriptMonthDays(text) {
   });
 }
 
+function renderImageCredit(image, { prefix = "Image: " } = {}) {
+  if (!image) {
+    return "";
+  }
+
+  if (image.creditHtml) {
+    return image.creditHtml;
+  }
+
+  return `<a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">${prefix}${image.credit}</a>`;
+}
+
 function getDisplayLocation(day) {
   if (day.date === "TIMEWARP") {
     return "Tokyo to Honolulu";
@@ -1064,7 +1082,7 @@ function renderRouteRibbon() {
 
 function renderOverview() {
   routeCards.innerHTML = `
-    <div class="overview-index">
+    <div class="overview-index" id="route-index">
       <div class="overview-index__intro">
         <h3>High-level day index</h3>
       </div>
@@ -1115,7 +1133,7 @@ function renderOverview() {
               <img class="hotel-stack__image" src="${image?.src || ""}" alt="${image?.alt || name.replace("Hotel: ", "")}" loading="lazy" />
               ${
                 image
-                  ? `<p class="hotel-stack__credit"><a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">${image.credit}</a></p>`
+                  ? `<p class="hotel-stack__credit">${renderImageCredit(image, { prefix: "" })}</p>`
                   : ""
               }
               <div class="hotel-stack__body">
@@ -1243,7 +1261,7 @@ function renderSpotlight() {
               <img class="spotlight__image" src="${spotlightImage.src}" alt="${spotlightImage.alt}" loading="lazy" />
             </a>
             <p class="spotlight__credit">
-              <a href="${spotlightImage.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${spotlightImage.credit}</a>
+              ${renderImageCredit(spotlightImage)}
             </p>
           `
           : spotlight.image
@@ -1450,15 +1468,7 @@ function renderEvent(item, list) {
 
 function renderTimeline() {
   const visibleDays = getVisibleDays();
-  const visibleEvents = visibleDays.reduce((sum, day) => {
-    const items = state.highlightsOnly
-      ? day.items.filter((item) => item.kind === "hotel" || isHighlight(item))
-      : day.items;
-
-    return sum + items.length;
-  }, 0);
-
-  resultsLabel.textContent = `${visibleDays.length} day blocks · ${visibleEvents} visible items`;
+  resultsLabel.textContent = `${visibleDays.length} ${visibleDays.length === 1 ? "day" : "days"}`;
   timelineGrid.innerHTML = "";
 
   visibleDays.forEach((day, index) => {
@@ -1485,7 +1495,7 @@ function renderTimeline() {
       imageLink.setAttribute("aria-label", `Open image source for ${day.date}`);
       imageNode.src = dayImage.src;
       imageNode.alt = dayImage.alt;
-      creditNode.innerHTML = `<a href="${dayImage.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${dayImage.credit}</a>`;
+      creditNode.innerHTML = renderImageCredit(dayImage);
     } else {
       imageLink.remove();
       creditNode.remove();

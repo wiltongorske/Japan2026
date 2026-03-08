@@ -120,6 +120,8 @@
         </div>
       </header>
 
+      <div id="calendar-anchor" aria-hidden="true"></div>
+
       <main>
         <section class="overview section">
           <div class="section-heading">
@@ -158,7 +160,10 @@
         <p>Made with 100% free and open source code. Gratefully hosted on <a href="https://github.com/wiltongorske/Japan2026" target="_blank" rel="noreferrer noopener">GitHub Pages</a>.</p>
       </footer>
 
-      <a class="filters-fab" href="#filters-anchor" aria-label="Jump to filters">↑</a>
+      <div class="floating-nav" aria-label="Quick jumps">
+        <a class="filters-fab" href="#filters-anchor" aria-label="Jump to filters">📍</a>
+        <a class="filters-fab" href="#calendar-anchor" aria-label="Jump to hero end">📅</a>
+      </div>
     </div>
 
     <template id="dayCardTemplate">
