@@ -30,7 +30,6 @@
 ├── index.html   # Page structure and metadata
 ├── styles.css   # Visual design, layout, and responsive styling
 ├── script.js    # Itinerary data, rendering, filters, and interactions
-├── map.png      # Route map used on the site
 └── CNAME        # Custom domain configuration for GitHub Pages
 ```
 

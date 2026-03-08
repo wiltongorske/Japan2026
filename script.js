@@ -677,9 +677,9 @@ const destinationSpotlights = {
     imageKey: "kyotoKinkaku",
   },
   "San Francisco": {
-    title: "Departure day",
+    title: "Launch and landing",
     summary:
-      "San Francisco is the runway rather than the destination. It is the clean handoff into the trip: pickup, airport, and the first long-haul flight that starts the birthday journey.",
+      "San Francisco bookends the itinerary rather than acting as a full stop on its own. It holds both the clean takeoff into Japan on May 7th and the final return home on May 24th after the Honolulu coda.",
     imageKey: "sfCableCarWeb",
   },
   Tokyo: {
@@ -1007,6 +1007,10 @@ function getDayStops(day) {
     return ["Tokyo", "Honolulu"];
   }
 
+  if (day.date === "Sunday, May 24") {
+    return ["Honolulu", "San Francisco"];
+  }
+
   if (!base.length && /Tokyo/i.test(day.title)) {
     return ["Tokyo"];
   }
@@ -1162,7 +1166,7 @@ function renderOverview() {
 
 function formatDateWithSuperscript(date) {
   if (date === "TIMEWARP") {
-    return date;
+    return "May 21<sup>st</sup> TimeWarp";
   }
 
   return date.replace(

@@ -318,6 +318,19 @@ h2 {
   object-fit: cover;
 }
 
+.hero__map-credit {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.hero__map-credit a {
+  color: inherit;
+  text-decoration-color: rgba(181, 73, 45, 0.38);
+  text-underline-offset: 0.14em;
+}
+
 .route-stop {
   display: grid;
   grid-template-columns: 18px 1fr;
@@ -692,6 +705,11 @@ h2 {
   font-size: 0.72rem;
   line-height: 1.5;
   letter-spacing: 0.03em;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration-color: rgba(128, 103, 76, 0.45);
 }
 
 .day-card__index,
