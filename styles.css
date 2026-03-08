@@ -302,6 +302,22 @@ h2 {
   gap: 10px;
 }
 
+.hero__map {
+  margin-top: auto;
+  border-radius: 26px;
+  overflow: hidden;
+  aspect-ratio: 1.9 / 1;
+  border: 1px solid rgba(30, 36, 48, 0.08);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.hero__map img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .route-stop {
   display: grid;
   grid-template-columns: 18px 1fr;

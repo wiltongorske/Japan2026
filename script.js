@@ -142,7 +142,7 @@ const itinerary = [
     items: [
       { time: "9:00 AM", activity: "Breakfast", notes: "", kind: "event" },
       { time: "10:00 AM", activity: "Gym (and laundry if needed)", notes: "", kind: "event" },
-      { time: "", activity: "Send luggage toTokyo", notes: "", kind: "event" },
+      { time: "", activity: "Send luggage to Tokyo", notes: "", kind: "event" },
       { time: "12:00 PM", activity: "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)", notes: "", kind: "event" },
       { time: "2:00 PM", activity: "Honen-in (moss temple) and Ginkaku-ji (temple) + Mt. Daimonji-yama Climb", notes: "", kind: "event" },
       { time: "6:30 PM", activity: "leave for dinner", notes: "", kind: "event" },
@@ -244,7 +244,7 @@ const itinerary = [
     title: "And another one: Birthday Pt 2, jet lag recovery and massage",
     items: [
       { time: "10:20 AM", activity: "Arrive Honolulu", notes: "", kind: "event" },
-      { time: "11:00 AM", activity: "Car service: https://www.toplimohawaii.com/airport-reservation-form/", notes: "", kind: "event" },
+      { time: "11:00 AM", activity: "Car service", notes: "", kind: "event" },
       { time: "12:00 PM", activity: "Lunch at Island Vintage or Peace Cafe (delivery possible)", notes: "", kind: "event" },
       { time: "1:00 PM", activity: "Optional: Royal Hawaiian Tour at Bakery (60 mins)", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Massage", notes: "", kind: "event" },
@@ -477,9 +477,58 @@ const diningPlaceLinks = {
   "Peace Cafe": "https://www.google.com/maps/search/?api=1&query=Peace+Cafe+Honolulu",
   Floralia: "https://www.google.com/maps/search/?api=1&query=Floralia+Honolulu+vegan+pizza",
   "Tane Vegan Izakaya": "https://www.google.com/maps/search/?api=1&query=Tane+Vegan+Izakaya+Honolulu",
+  "Universal Bakes and Cafe": "https://www.google.com/maps/search/?api=1&query=Universal+Bakes+and+Cafe+Setagaya+Tokyo",
+  "marbre vegan": "https://www.google.com/maps/search/?api=1&query=marbre+vegan+Shinjuku+Tokyo",
+  "Nuts Exchange Tokyo": "https://www.google.com/maps/search/?api=1&query=Nuts+Exchange+Tokyo",
 };
 
 const activityHtmlOverrides = {
+  "Universal Bakes and Cafe":
+    `${linkPlace("Universal Bakes and Cafe")}`,
+  "Gotoku-ji":
+    `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")}`,
+  "Photomatic, Iyoshi Cola, Square Enix?":
+    `${linkExternal("Photomatic", "https://photomatic.jp/")}, ${linkExternal("Iyoshi Cola", "https://iyoshicola.com/en/")}, ${linkExternal("Square Enix", "https://www.jp.square-enix.com/")}?`,
+  "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (Harujuku and Shibuya), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.beams.co.jp/")}`,
+  "Shinjuku Gyoen":
+    `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")}`,
+  "Snack: marbre vegan":
+    `Snack: ${linkPlace("marbre vegan")}`,
+  "Isetan men's, CDG":
+    `${linkExternal("Isetan men's", "https://www.mistore.jp/store/shinjuku/shops/men.html")}, ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}`,
+  "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
+    `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Shinky%C5%8D")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3811.html")}`,
+  "Nezu Museum":
+    `${linkExternal("Nezu Museum", "https://www.nezumuseum.or.jp/en/")}`,
+  "Nuts Exchange Tokyo":
+    `${linkPlace("Nuts Exchange Tokyo")}`,
+  "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
+    `Aoyama shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/en/brands/pleatspleaseisseymiyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
+  "Hasedera Temple, Buddha":
+    `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")}, ${linkExternal("Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")}`,
+  "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
+    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")}, ${linkExternal("Genjiyama Park", "https://en.wikipedia.org/wiki/Genjiyama_Park")}, ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")}, Old Town`,
+  "Himeji Castle and Koko-en Gardens Tickets":
+    `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} Tickets`,
+  "Send luggage to Tokyo":
+    `Send luggage to Tokyo`,
+  "Art House Project (Go'O, Haisha, Kadoya)":
+    `${linkExternal("Art House Project", "https://benesse-artsite.jp/en/art/arthouse.html")} (Go'O, Haisha, Kadoya)`,
+  Minamidera:
+    `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/minamidera.html")}`,
+  Chichu:
+    `${linkExternal("Chichu", "https://benesse-artsite.jp/en/art/chichu.html")}`,
+  "Benessee House":
+    `${linkExternal("Benessee House", "https://benesse-artsite.jp/en/art/benessehouse-museum.html")}`,
+  "Valley Gallery":
+    `${linkExternal("Valley Gallery", "https://benesse-artsite.jp/en/art/valley-gallery.html")}`,
+  "Hiroshi Sugimoto Gallery: Time Corridors":
+    `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/timecorridors.html")}`,
+  "Option to stop by Okura Museum or gym":
+    `Option to stop by ${linkExternal("Okura Museum", "https://www.shukokan.org/en/")} or gym`,
+  "Car service":
+    `Car service`,
   "Dinner: Komeda-is":
     `Dinner: ${linkPlace("Komeda-is")}`,
   "Lunch: Vegan Sushi Tokyo (or Vegan Bistro Jangara)":
@@ -497,7 +546,7 @@ const activityHtmlOverrides = {
   "Lunch Brown Rice Ometosando or Vegan Bistro Jangara":
     `Lunch ${linkPlace("Brown Rice Ometosando")} or ${linkPlace("Vegan Bistro Jangara")}`,
   "Dinner: FARO 1*":
-    `Dinner: ${linkPlace("FARO")} 1*`,
+    `Dinner: ${linkExternal("Faro", diningPlaceLinks.FARO)}`,
   "Lunch luna burger":
     `Lunch ${linkPlace("luna burger")}`,
   "Dinner: magokoro":
@@ -530,10 +579,20 @@ const activityHtmlOverrides = {
     `Dinner at ${linkPlace("Floralia")} [${linkPlace("Island Vintage")}, ${linkPlace("Peace Cafe")} also open & delivery]`,
   "Dinner at Tane Vegan Izakaya (delivery possible) [Peace, Floralia also open]":
     `Dinner at ${linkPlace("Tane Vegan Izakaya")} (delivery possible) [<a href="${diningPlaceLinks["Peace Cafe"]}" target="_blank" rel="noreferrer noopener">Peace</a>, ${linkPlace("Floralia")} also open]`,
+  "Night time beach walk with banana ice cream from banan":
+    `Night time beach walk with banana ice cream from ${linkExternal("banan", "https://banan.co/")}`,
+  "Option 1) Brown Rice Ometosando + any Aoyama stores; back to Okura at 6pm":
+    `Option 1) ${linkPlace("Brown Rice Ometosando")} + any Aoyama stores; back to Okura at 6pm`,
+  "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm":
+    `Option 2) ${linkExternal("Alchemy", "https://www.google.com/maps/search/?api=1&query=Alchemy+Honolulu+restaurant")} or ${linkExternal("Shogun Burger", "https://shogun-burger.com/")} ; walk back to Okura 6:20pm`,
 };
 
 function linkPlace(label) {
   return `<a href="${diningPlaceLinks[label]}" target="_blank" rel="noreferrer noopener">${label}</a>`;
+}
+
+function linkExternal(label, url) {
+  return `<a href="${url}" target="_blank" rel="noreferrer noopener">${label}</a>`;
 }
 
 function normalizeLocation(location) {
