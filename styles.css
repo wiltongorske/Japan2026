@@ -499,6 +499,91 @@ h2 {
   flex-wrap: wrap;
 }
 
+.overview-index {
+  width: 100%;
+}
+
+.overview-index__intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.overview-index__intro h3 {
+  font-size: 1.45rem;
+}
+
+.overview-index__table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.overview-index__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  align-content: start;
+  min-height: 108px;
+  padding: 12px 13px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.52));
+  border: 1px solid rgba(30, 36, 48, 0.08);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.overview-index__row:hover,
+.overview-index__row:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(39, 29, 15, 0.08);
+  border-color: rgba(181, 73, 45, 0.28);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 242, 0.72));
+}
+
+.overview-index__day,
+.overview-index__place {
+  color: var(--accent-deep);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.overview-index__day {
+  opacity: 0.8;
+}
+
+.overview-index__date {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.02rem;
+  line-height: 1.02;
+}
+
+.overview-index__summary {
+  color: var(--muted);
+  line-height: 1.35;
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.overview-index__summary a {
+  color: inherit;
+  text-decoration-color: rgba(181, 73, 45, 0.38);
+  text-underline-offset: 0.14em;
+}
+
 .route-segment {
   flex: 1 1 190px;
   flex-direction: column;
@@ -1059,6 +1144,19 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .overview-index__intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .overview-index__row {
+    min-height: 100px;
+  }
+
+  .overview-index__table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   h1 {
     max-width: 100%;
   }
@@ -1115,6 +1213,15 @@ h2 {
 
   .hotel-stack {
     grid-template-columns: 1fr;
+  }
+
+  .overview-index__table {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-index__row {
+    gap: 8px;
+    min-height: auto;
   }
 
   .site-footer {

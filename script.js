@@ -320,24 +320,6 @@ const uniqueStops = [
   "Honolulu",
 ];
 
-const routeNarrative = [
-  {
-    title: "Arrival arc ✈️",
-    text: "San Francisco departure into a Tokyo landing stretch with neighborhood wandering, museum days, Nikko, and a Kamakura overnight. It starts with soft landings and resets: hotel check-ins, favorite vegan meals, shopping pockets, and long walks easing the trip into motion. By the time Kamakura arrives, the rhythm has shifted from city sparkle into temple air, seaside calm, and a more intimate pace.",
-    imageKey: "sfSkylineWeb",
-  },
-  {
-    title: "Middle chapter ⛩️",
-    text: "Kyoto anchors the cultural center of the trip, with Himeji as a side quest before shifting south to Naoshima's slower museum rhythm. This section feels more carved-out and intentional: workshops, castle history, hikes, saunas, and carefully chosen dinners. Then the trip opens up again on Naoshima, where ferries, galleries, and onsen time replace city momentum with quiet immersion.",
-    imageKey: "naoshimaSeaWeb",
-  },
-  {
-    title: "Exit glide 🌺",
-    text: "Tokyo returns for the finale, then the itinerary time-shifts into Honolulu for decompression before the flight back to San Francisco. The final Tokyo days carry the celebratory core of the trip, including the May 21 birthday itself, before Honolulu turns everything looser and sunnier. It reads like a coda: beach time, massage, one more great dinner, and a warm glide back home.",
-    imageKey: "honoluluBeachWeb",
-  },
-];
-
 const imageAssets = {
   sfCableCarWeb: {
     src: "https://images.unsplash.com/photo-1770742153178-84f7b416d761?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
@@ -1081,27 +1063,33 @@ function renderRouteRibbon() {
 }
 
 function renderOverview() {
-  routeCards.innerHTML = routeNarrative
-    .map(
-      (segment) => {
-        const image = imageAssets[segment.imageKey];
-        return `
-        <div class="route-segment">
-          <a class="route-segment__image-link" href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener" aria-label="Open image source for ${segment.title}">
-            <img class="route-segment__image" src="${image.src}" alt="${image.alt}" loading="lazy" />
-          </a>
-          <p class="route-segment__credit">
-            <a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">Image: ${image.credit}</a>
-          </p>
-          <div>
-            <strong>${segment.title}</strong>
-            <p>${superscriptMonthDays(emphasizeCities(segment.text))}</p>
-          </div>
-        </div>
-      `;
-      }
-    )
-    .join("");
+  routeCards.innerHTML = `
+    <div class="overview-index">
+      <div class="overview-index__intro">
+        <h3>High-level day index</h3>
+      </div>
+      <div class="overview-index__table" role="list">
+        ${itinerary
+          .map(
+            (day, index) => `
+              <a
+                class="overview-index__row"
+                href="#${getDayAnchorId(day.date)}"
+                data-day-anchor="${getDayAnchorId(day.date)}"
+                role="listitem"
+                aria-label="Jump to ${day.date}"
+              >
+                <span class="overview-index__day">Day ${String(index + 1).padStart(2, "0")}</span>
+                <span class="overview-index__date">${formatDateWithSuperscript(day.date)}</span>
+                <span class="overview-index__place">${getDisplayLocation(day)}</span>
+                <span class="overview-index__summary">${day.title}</span>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
 
   const hotelMap = new Map();
 
@@ -1160,6 +1148,13 @@ function renderOverview() {
         event.preventDefault();
         openCard();
       }
+    });
+  });
+
+  routeCards.querySelectorAll("[data-day-anchor]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      jumpToDay(link.dataset.dayAnchor);
     });
   });
 }
@@ -1528,6 +1523,23 @@ function renderTimeline() {
     }
 
     timelineGrid.appendChild(card);
+  });
+}
+
+function jumpToDay(anchorId) {
+  const target = document.getElementById(anchorId);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  state.activeLocation = "All";
+  renderFilters();
+  renderSpotlight();
+  renderTimeline();
+
+  window.requestAnimationFrame(() => {
+    document.getElementById(anchorId)?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
