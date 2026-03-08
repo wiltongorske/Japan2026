@@ -1,13 +1,9 @@
 # Trans Pacific Birthday: Japan & Hawai'i
 
-![Trip route map](./map.png)
+![Tokyo skyline at sunset](https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_-_Sunset_Skyline.jpg?width=1600)
 
 <p align="center">
   A small, fully static travel website built with free and open-source code for a May 2026 birthday trip across <strong>Tokyo</strong>, <strong>Kamakura</strong>, <strong>Kyoto</strong>, <strong>Naoshima</strong>, and <strong>Honolulu</strong>. The site turns a personal itinerary into a polished public-facing experience, combining route storytelling, destination filtering, linked activities, image-rich day cards, and lightweight client-side interactions with plain HTML, CSS, and JavaScript.
-</p>
-
-<p align="center">
-  <a href="https://github.com/wiltongorske/Japan2026">Repository</a>
 </p>
 
 ## What This Repo Contains
@@ -32,7 +28,7 @@
 ├── index.html   # Page structure and metadata
 ├── styles.css   # Visual design, layout, and responsive styling
 ├── script.js    # Itinerary data, rendering, filters, and interactions
-├── map.png      # Route map used on the site and in this README
+├── map.png      # Route map used on the site
 └── CNAME        # Custom domain configuration for GitHub Pages
 ```
 
@@ -44,3 +40,4 @@ Because the site is fully static, you can open `index.html` directly in a browse
 
 - The content is tailored to a specific trip and reads like a designed travel microsite rather than a generic template.
 - The repository intentionally stays lightweight: no package manager, no bundler, and no framework layer.
+- This README was created with help from an LLM.
