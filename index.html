@@ -121,7 +121,7 @@
         </div>
       </header>
 
-      <div id="calendar-anchor" aria-hidden="true"></div>
+      <div id="overview-anchor" aria-hidden="true"></div>
 
       <main>
         <section class="overview section">
@@ -162,8 +162,9 @@
       </footer>
 
       <div class="floating-nav" aria-label="Quick jumps">
+        <a class="filters-fab" href="#overview-anchor" aria-label="Jump to overview">🗓️</a>
         <a class="filters-fab" href="#filters-anchor" aria-label="Jump to filters">📍</a>
-        <a class="filters-fab" href="#calendar-anchor" aria-label="Jump to hero end">📅</a>
+        <a class="filters-fab" id="todayJumpFab" href="#" aria-label="Jump to today's itinerary" hidden>📅</a>
       </div>
     </div>
 

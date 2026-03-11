@@ -310,6 +310,7 @@ const resultsLabel = document.querySelector("#resultsLabel");
 const destinationSpotlight = document.querySelector("#destinationSpotlight");
 const dayCardTemplate = document.querySelector("#dayCardTemplate");
 const eventTemplate = document.querySelector("#eventTemplate");
+const todayJumpFab = document.querySelector("#todayJumpFab");
 
 const uniqueStops = [
   "San Francisco",
@@ -847,7 +848,7 @@ const activityHtmlOverrides = {
   "Hasedera Temple, Buddha":
     `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")} (${linkMeta("map", "https://maps.app.goo.gl/Y2MWc9ZEu2Ty3qc4A")}), ${linkExternal("Kōtoku-in Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")} (${linkMeta("map", "https://maps.app.goo.gl/e4QWpKzUfsvb6oWs6")})`,
   "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
-    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")} (${linkMeta("map", "https://maps.app.goo.gl/EWkBeB2oZD6hmTdf9")}), ${linkExternal("Genjiyama Park", "https://www.japan-guide.com/e/e3113.html")} (${linkMeta("maps", "https://maps.app.goo.gl/xUDgGewmwMJZTEy48")}), ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")} (${linkMeta("maps", "https://maps.app.goo.gl/cZ5uAXx7KCDUwgbH7")}), ${linkExternal("Old Town", "https://maps.app.goo.gl/FxHuQR8z5zcMu8xa7")}`,
+    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")} (${linkMeta("map", "https://maps.app.goo.gl/EWkBeB2oZD6hmTdf9")}), ${linkExternal("Genjiyama Park", "https://www.japan-guide.com/e/e3113.html")} (${linkMeta("map", "https://maps.app.goo.gl/xUDgGewmwMJZTEy48")}), ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")} (${linkMeta("map", "https://maps.app.goo.gl/cZ5uAXx7KCDUwgbH7")}), ${linkExternal("Old Town", "https://maps.app.goo.gl/FxHuQR8z5zcMu8xa7")}`,
   "Himeji Castle and Koko-en Gardens Tickets":
     `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} (${linkMeta("map", "https://maps.app.goo.gl/aqnP9pAX3sK1Qjq96")}) and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} (${linkMeta("map", "https://maps.app.goo.gl/wii6SnqYEf61dLLK9")}) Tickets for a 4-hour tour with a private government guide`,
   "Guide WhatsApp +81-90-9712-1750":
@@ -1424,6 +1425,7 @@ const placeCuisineTypes = {
   "Tane Vegan Izakaya": ["Izakaya"],
   "Universal Bakes and Cafe": ["Cafe"],
   "marbre vegan": ["Cafe"],
+  "Nuts Exchange Tokyo": ["Food"],
 };
 
 function getCuisineTypes(activity) {
@@ -1628,9 +1630,65 @@ function jumpToDay(anchorId) {
   });
 }
 
+function getTripDateAnchorId(now = new Date()) {
+  const tripYear = 2026;
+  const monthIndexes = {
+    January: 0,
+    February: 1,
+    March: 2,
+    April: 3,
+    May: 4,
+    June: 5,
+    July: 6,
+    August: 7,
+    September: 8,
+    October: 9,
+    November: 10,
+    December: 11,
+  };
+  const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+
+  const matchingDay = itinerary.find((day) => {
+    if (day.date === "TIMEWARP") {
+      return false;
+    }
+
+    const parts = day.date.match(/^[A-Za-z]+,\s+([A-Za-z]+)\s+(\d{1,2})$/);
+    if (!parts) {
+      return false;
+    }
+
+    const [, monthName, dayNumber] = parts;
+    const monthIndex = monthIndexes[monthName];
+    const tripKey = `${tripYear}-${String(monthIndex + 1).padStart(2, "0")}-${String(dayNumber).padStart(2, "0")}`;
+    return tripKey === todayKey;
+  });
+
+  return matchingDay ? getDayAnchorId(matchingDay.date) : null;
+}
+
+function setupFloatingNav() {
+  if (!todayJumpFab) {
+    return;
+  }
+
+  const todayAnchorId = getTripDateAnchorId();
+  if (!todayAnchorId) {
+    todayJumpFab.hidden = true;
+    return;
+  }
+
+  todayJumpFab.hidden = false;
+  todayJumpFab.addEventListener("click", (event) => {
+    event.preventDefault();
+    jumpToDay(todayAnchorId);
+  });
+}
+
 renderHeroStats();
 renderRouteRibbon();
 renderOverview();
 renderFilters();
 renderSpotlight();
 renderTimeline();
+setupFloatingNav();
