@@ -826,7 +826,7 @@ const activityHtmlOverrides = {
   "Photomatic, Iyoshi Cola, Square Enix?":
     `${linkExternal("Photomatic", "https://maps.app.goo.gl/TBm7zZ1yEjorGVEYA")}, ${linkExternal("Iyoshi Cola", "https://maps.app.goo.gl/jCmG2q2Rv4h5aCwz6")}, ${linkExternal("ARTNIA Square Enix", "https://maps.app.goo.gl/ndJ7jYrryREBe8AV7")}?`,
   "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
-    `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}`,
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}, ${linkExternal("Kuon", "https://maps.app.goo.gl/Hy4wSyCJxrPNnYta9")}`,
   "Shinjuku Gyoen":
     `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")} (${linkMeta("map", "https://maps.app.goo.gl/9qPiV5y3H4pRZyax9")})`,
   "Snack: marbre vegan":
@@ -844,7 +844,12 @@ const activityHtmlOverrides = {
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
-    `${linkExternal("Aoyama", "https://maps.app.goo.gl/nkdrt2ZRzCARQSgc7")} shops: ${linkExternal("CDG", "https://maps.app.goo.gl/dzp277KYXCXbcjaU8")}, ${linkExternal("Dries", "https://maps.app.goo.gl/Pmki6RmKHj17zZmJA")}, ${linkExternal("Pleats Please", "https://maps.app.goo.gl/dMytKeuNE8jgDd15A")}, ${linkExternal("Sacai", "https://maps.app.goo.gl/rFmTgKg6QJsaiaxr7")}. ${linkExternal("Margiela", "https://maps.app.goo.gl/NHN7QbRNtNDwqTNZ9")} + ${linkExternal("MM6", "https://maps.app.goo.gl/aSwUq3fEQcEDQMVC6")}`,
+    `${linkExternal("Aoyama", "https://maps.app.goo.gl/nkdrt2ZRzCARQSgc7")} shops: ${[
+      linkExternal("CDG", "https://maps.app.goo.gl/dzp277KYXCXbcjaU8"),
+      linkExternal("Dries", "https://maps.app.goo.gl/Pmki6RmKHj17zZmJA"),
+      linkExternal("Pleats Please", "https://maps.app.goo.gl/dMytKeuNE8jgDd15A"),
+      linkExternal("Sacai", "https://maps.app.goo.gl/rFmTgKg6QJsaiaxr7"),
+    ].join(", ")}. ${linkExternal("Margiela", "https://maps.app.goo.gl/NHN7QbRNtNDwqTNZ9")} + ${linkExternal("MM6", "https://maps.app.goo.gl/aSwUq3fEQcEDQMVC6")}`,
   "Hasedera Temple, Buddha":
     `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")} (${linkMeta("map", "https://maps.app.goo.gl/Y2MWc9ZEu2Ty3qc4A")}), ${linkExternal("Kōtoku-in Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")} (${linkMeta("map", "https://maps.app.goo.gl/e4QWpKzUfsvb6oWs6")})`,
   "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
@@ -1522,10 +1527,10 @@ function renderEvent(item, list) {
   kind.textContent = category.label;
   if (item.kind === "hotel") {
     activity.innerHTML = `<a href="${getGoogleMapsUrl(item.activity, item.time.replace("Hotel: ", ""))}" target="_blank" rel="noreferrer noopener">${item.activity}</a>`;
-  } else if (flightActivityHtml) {
-    activity.innerHTML = flightActivityHtml;
   } else if (activityHtmlOverrides[item.activity]) {
     activity.innerHTML = activityHtmlOverrides[item.activity];
+  } else if (flightActivityHtml) {
+    activity.innerHTML = flightActivityHtml;
   } else {
     activity.textContent = item.activity;
   }
