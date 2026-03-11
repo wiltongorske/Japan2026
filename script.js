@@ -314,8 +314,10 @@ const eventTemplate = document.querySelector("#eventTemplate");
 const uniqueStops = [
   "San Francisco",
   "Tokyo",
+  "Nikko",
   "Kamakura",
   "Kyoto",
+  "Himeji",
   "Naoshima",
   "Honolulu",
 ];
