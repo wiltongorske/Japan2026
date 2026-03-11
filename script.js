@@ -314,8 +314,10 @@ const eventTemplate = document.querySelector("#eventTemplate");
 const uniqueStops = [
   "San Francisco",
   "Tokyo",
+  "Nikko",
   "Kamakura",
   "Kyoto",
+  "Himeji",
   "Naoshima",
   "Honolulu",
 ];
@@ -968,8 +970,10 @@ const dayTitleHtmlOverrides = {
 const routeStopDisplay = {
   "San Francisco": "San Francisco 🇺🇸",
   Tokyo: "Tokyo 🇯🇵",
+  Nikko: "Nikko 🇯🇵",
   Kamakura: "Kamakura 🇯🇵",
   Kyoto: "Kyoto 🇯🇵",
+  Himeji: "Himeji 🇯🇵",
   Naoshima: "Naoshima 🇯🇵",
   Honolulu: "Honolulu 🇺🇸",
 };
