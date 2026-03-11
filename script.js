@@ -5,7 +5,7 @@ const itinerary = [
     title: "Travel day",
     items: [
       { time: "9:00 AM", activity: "Leave for SFO; Waymo pick up", notes: "", kind: "event" },
-      { time: "12:00 PM", activity: "Flight SFO > Haneda departs (JL 1 5UD8ZG)", notes: "", kind: "event" },
+      { time: "12:00 PM", activity: "Flight SFO > Haneda departs (JL1)", notes: "", kind: "event" },
     ],
   },
   {
@@ -49,7 +49,7 @@ const itinerary = [
       { time: "", activity: "Isetan men's, CDG", notes: "", kind: "event" },
       { time: "1:00 PM", activity: "Lunch: Ain Soph Shinjuku", notes: "", kind: "event" },
       { time: "", activity: "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck", notes: "", kind: "event" },
-      { time: "2:30 PM", activity: "head to Aman", notes: "", kind: "event" },
+      { time: "2:30 PM", activity: "Head to Aman", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Aman Spa Afternoon (4pm treatment; 90min Grounding Massage Ritual)", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Dinner: Bistro Jangara (20mins) or Ginza + 2foods, Komeda-is (17mins) [also Ginza block on Tuesday]", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
@@ -61,7 +61,7 @@ const itinerary = [
     title: "Nikko: Mountains, Shrines, and Yuba",
     items: [
       { time: "8:00 AM", activity: "Train to Nikko Spacia X (depart from Tokyo Skytree)", notes: "", kind: "event" },
-      { time: "10:00 AM", activity: "Arrive Tobu-Nikko", notes: "", kind: "event" },
+      { time: "10:00 AM", activity: "Arrive Tōbu-nikkō Station", notes: "", kind: "event" },
       { time: "", activity: "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss", notes: "", kind: "event" },
       { time: "", activity: "Lunch: Cafe Restaurant Bell for yuba set", notes: "", kind: "event" },
       { time: "5:45 PM", activity: "Train to Tokyo", notes: "", kind: "event" },
@@ -91,8 +91,8 @@ const itinerary = [
     title: "Kamakura: Temples, Sea Air, and vegan Ryokan",
     items: [
       { time: "", activity: "Send luggage to Kyoto", notes: "", kind: "event" },
-      { time: "10:00 AM", activity: "train to Kamakura", notes: "", kind: "event" },
-      { time: "11:00 AM", activity: "arrive in Kamakura; drop bags at Kishi-ke Ryokan", notes: "", kind: "event" },
+      { time: "10:00 AM", activity: "Train to Kamakura", notes: "", kind: "event" },
+      { time: "11:00 AM", activity: "Arrive in Kamakura; drop bags at Kishi-ke Ryokan", notes: "", kind: "event" },
       { time: "", activity: "Lunch luna burger", notes: "", kind: "event" },
       { time: "", activity: "Hasedera Temple, Buddha", notes: "", kind: "event" },
       { time: "", activity: "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town", notes: "", kind: "event" },
@@ -122,15 +122,15 @@ const itinerary = [
     location: "Himeji/Kyoto",
     title: "Kyoto at a Distance: Himeji Castles, History, and Evening Wanders",
     items: [
-      { time: "8:29 AM", activity: "train to Himeji", notes: "", kind: "event" },
-      { time: "9:15 AM", activity: "arrival, grab coffee", notes: "", kind: "event" },
+      { time: "8:29 AM", activity: "Train to Himeji", notes: "", kind: "event" },
+      { time: "9:15 AM", activity: "Arrival, grab coffee", notes: "", kind: "event" },
       { time: "9:45 AM", activity: "Meet at Himeji Station JR Line (Central North Exit or Himeji Castle Exit near 7-11)", notes: "", kind: "event" },
       { time: "", activity: "Himeji Castle and Koko-en Gardens Tickets", notes: "", kind: "event" },
-      { time: "", activity: "guide whatsapp +81-90-9712-1750", notes: "", kind: "event" },
+      { time: "", activity: "Guide WhatsApp +81-90-9712-1750", notes: "", kind: "event" },
       { time: "1:45 PM", activity: "Lunch: Il Riccio OR Kotonoki to go (leave at 2:45pm for train) - update guide!", notes: "", kind: "event" },
       { time: "3:11 PM", activity: "Train", notes: "", kind: "event" },
       { time: "4:00 PM", activity: "Arrive Kyoto Station", notes: "", kind: "event" },
-      { time: "6:00 PM", activity: "leave for dinner", notes: "", kind: "event" },
+      { time: "6:00 PM", activity: "Leave for dinner", notes: "", kind: "event" },
       { time: "6:30 PM", activity: "Dinner: Mumokuteki", notes: "", kind: "event" },
       { time: "Hotel: Tamao Kyoto", activity: "〒600-8409 Kyoto, Shimogyo Ward, Tamayacho, 519", notes: "", kind: "hotel" },
     ],
@@ -145,7 +145,7 @@ const itinerary = [
       { time: "", activity: "Send luggage to Tokyo", notes: "", kind: "event" },
       { time: "12:00 PM", activity: "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)", notes: "", kind: "event" },
       { time: "2:00 PM", activity: "Honen-in (moss temple) and Ginkaku-ji (temple) + Mt. Daimonji-yama Climb", notes: "", kind: "event" },
-      { time: "6:30 PM", activity: "leave for dinner", notes: "", kind: "event" },
+      { time: "6:30 PM", activity: "Leave for dinner", notes: "", kind: "event" },
       { time: "7:00 PM", activity: "Dinner: Uno Ramen Sanjo", notes: "", kind: "event" },
       { time: "Hotel: Tamao Kyoto", activity: "〒600-8409 Kyoto, Shimogyo Ward, Tamayacho, 519", notes: "", kind: "hotel" },
     ],
@@ -176,8 +176,8 @@ const itinerary = [
     location: "Naoshima",
     title: "Naoshima Immersion: Chichu Light + Island Wanders",
     items: [
-      { time: "9:00 AM", activity: "breakfast", notes: "", kind: "event" },
-      { time: "", activity: "Bikeride", notes: "", kind: "event" },
+      { time: "9:00 AM", activity: "Breakfast", notes: "", kind: "event" },
+      { time: "", activity: "Bike ride", notes: "", kind: "event" },
       { time: "", activity: "Benessee House", notes: "", kind: "event" },
       { time: "", activity: "Lunch", notes: "", kind: "event" },
       { time: "", activity: "Valley Gallery", notes: "", kind: "event" },
@@ -212,7 +212,7 @@ const itinerary = [
     items: [
       { time: "10:30 AM", activity: "Chopstick workshop (90 mins)", notes: "", kind: "event" },
       { time: "12:30 PM", activity: "Lunch: Marugoto [option for Ginza on the way back]", notes: "", kind: "event" },
-      { time: "2:30 PM", activity: "gym", notes: "", kind: "event" },
+      { time: "2:30 PM", activity: "Gym", notes: "", kind: "event" },
       { time: "5:30 PM", activity: "Leave for Udatsu", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Dinner: Udatsu", notes: "", kind: "event" },
       { time: "9:00 PM", activity: "Ni-Chome", notes: "", kind: "event" },
@@ -224,18 +224,18 @@ const itinerary = [
     location: "Tokyo",
     title: "Birthday and Japan Goodbye: National Diet, Birthday Lunch, and Hawai'i",
     items: [
-      { time: "morning", activity: "early-ish breakfast, pack, check-out", notes: "", kind: "event" },
+      { time: "morning", activity: "Early-ish breakfast, pack, check-out", notes: "", kind: "event" },
       { time: "10:00 AM", activity: "Option to stop by Okura Museum or gym", notes: "", kind: "event" },
-      { time: "11:20 AM", activity: "leave for lunch (10 mins)", notes: "", kind: "event" },
+      { time: "11:20 AM", activity: "Leave for lunch (10 mins)", notes: "", kind: "event" },
       { time: "11:30 AM", activity: "Lunch: Sougo + Oscar Wilde", notes: "", kind: "event" },
-      { time: "1:00 PM", activity: "leave for Kokkai-gijidōmae Sta. (about 20mins)", notes: "", kind: "event" },
+      { time: "1:00 PM", activity: "Leave for Kokkai-gijidōmae Sta. (about 20mins)", notes: "", kind: "event" },
       { time: "1:30 PM", activity: "Tameike: Exploring the Heart of Japanese Politics Tour (3 hours)", notes: "", kind: "event" },
       { time: "4:30 PM", activity: "Tour concludes", notes: "", kind: "event" },
       { time: "4:45 PM", activity: "Option 1) Brown Rice Ometosando + any Aoyama stores; back to Okura at 6pm", notes: "", kind: "event" },
       { time: "4:55 PM", activity: "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm", notes: "", kind: "event" },
       { time: "6:45 PM", activity: "Take car to airport", notes: "", kind: "event" },
       { time: "7:30 PM", activity: "Arrive at Airport", notes: "", kind: "event" },
-      { time: "9:55 PM", activity: "Haneda > Honolulu (JL72; 64VUHE)", notes: "", kind: "event" },
+      { time: "9:55 PM", activity: "Haneda > Honolulu (JL72)", notes: "", kind: "event" },
     ],
   },
   {
@@ -274,7 +274,7 @@ const itinerary = [
     title: "Island Adventure: eBike, Packing, and Goodbye Dinner at Tane",
     items: [
       { time: "8:00 AM", activity: "eBike Tour Honolulu Rainforest", notes: "", kind: "event" },
-      { time: "", activity: "Pickup Sheraton Waikiki Beach Resort, 2255 Kalakaua Avenue, Honolulu, Oahu, HI 96815", notes: "", kind: "event" },
+      { time: "", activity: "Pickup Sheraton Waikiki Beach Resort", notes: "", kind: "event" },
       { time: "11:30 AM", activity: "Bike ride ends", notes: "", kind: "event" },
       { time: "12:00 PM", activity: "Arrive hotel", notes: "", kind: "event" },
       { time: "", activity: "Lunch at Island Vintage or Peace Cafe (delivery possible)", notes: "", kind: "event" },
@@ -289,7 +289,7 @@ const itinerary = [
     title: "Back to Reality: Travel Home",
     items: [
       { time: "10:00 AM", activity: "Shuttle", notes: "", kind: "event" },
-      { time: "12:30 PM", activity: "HNL > SFO flight (HA 812, FC5OWM)", notes: "", kind: "event" },
+      { time: "12:30 PM", activity: "HNL > SFO flight (HA812)", notes: "", kind: "event" },
       { time: "8:30 PM", activity: "Arrive SFO", notes: "", kind: "event" },
     ],
   },
@@ -778,7 +778,7 @@ const highlightMatchers = [
 const diningPlaceLinks = {
   "Komeda-is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
   "Vegan Sushi Tokyo": "https://www.google.com/maps/search/?api=1&query=Vegan+Sushi+Tokyo+Dogenzaka+Shibuya+Tokyo",
-  "Vegan Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
+  "Vegan Bistro Jangara": "https://maps.app.goo.gl/kx6zzjLH7zho86AQ8",
   "Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
   "Izakaya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
   "Ain Soph Shinjuku": "https://www.google.com/maps/search/?api=1&query=AIN+SOPH+Journey+Shinjuku",
@@ -816,52 +816,56 @@ const diningPlaceLinks = {
 const activityHtmlOverrides = {
   "Universal Bakes and Cafe":
     `${linkPlace("Universal Bakes and Cafe")}`,
+  "Maybe pick up protein powder (bio-ce-bon, Ginza Six)":
+    `Maybe pick up protein powder (${linkExternal("Bio c' Bon GINZA SIX Store", "https://maps.app.goo.gl/j4YbxRsgskJ5VgBK8")})`,
   "Ginza exploration":
     `${linkExternal("Ginza exploration", "https://en.wikipedia.org/wiki/Ginza")}`,
   "Gotoku-ji":
-    `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")}`,
+    `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")} (${linkMeta("map", "https://maps.app.goo.gl/VxmWY4fsTyNW2y1K8")})`,
   "Photomatic, Iyoshi Cola, Square Enix?":
-    `${linkExternal("Photomatic", "https://photomatic.jp/")}, ${linkExternal("Iyoshi Cola", "https://iyoshicola.com/en/")}, ${linkExternal("ARTNIA", "https://www.jp.square-enix.com/artnia/")}?`,
+    `${linkExternal("Photomatic", "https://maps.app.goo.gl/TBm7zZ1yEjorGVEYA")}, ${linkExternal("Iyoshi Cola", "https://maps.app.goo.gl/jCmG2q2Rv4h5aCwz6")}, ${linkExternal("ARTNIA Square Enix", "https://maps.app.goo.gl/ndJ7jYrryREBe8AV7")}?`,
   "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
-    `${linkExternal("Ragtag", "https://www.ragtag.jp/") } (${linkExternal("Harajuku", "https://en.wikipedia.org/wiki/Harajuku")} and ${linkExternal("Shibuya", "https://en.wikipedia.org/wiki/Shibuya")}), ${linkExternal("Snoopytown", "https://town.snoopy.co.jp/")}, ${linkExternal("Beams", "https://www.instagram.com/beams_japan_shibuya/?hl=en")}`,
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}`,
   "Shinjuku Gyoen":
-    `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")}`,
+    `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")} (${linkMeta("map", "https://maps.app.goo.gl/9qPiV5y3H4pRZyax9")})`,
   "Snack: marbre vegan":
     `Snack: ${linkPlace("marbre vegan")}`,
   "Isetan men's, CDG":
-    `${linkExternal("Isetan men's", "https://www.mistore.jp/store/shinjuku/shops/men.html")}, ${linkExternal("CDG", "https://www.comme-des-garcons.com/")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
+    `${linkExternal("Isetan men's", "https://maps.app.goo.gl/JVHhKk6LszfwECn99")}, ${linkExternal("CDG", "https://maps.app.goo.gl/QGURcHoyJ5cPK1pn7")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
   "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
-    `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Futarasan_shrine#Sacred_Bridge")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3810.html")}`,
+    `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Futarasan_shrine#Sacred_Bridge")} (${linkMeta("map", "https://maps.app.goo.gl/YS6ZPGHuCm3sj41z5")}), ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")} (${linkMeta("map", "https://maps.app.goo.gl/UgYmyeR8Akg6d7T3A")}), ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3810.html")} (${linkMeta("map", "https://maps.app.goo.gl/3cfjZHXUjc7NwpoF8")})`,
   "Train to Nikko Spacia X (depart from Tokyo Skytree)":
-    `Train to ${linkExternal("Nikko Spacia X", "https://www.tobu.co.jp/spaciax/en/en/")} (${linkExternal("Nikko", "https://en.wikipedia.org/wiki/Nikk%C5%8D")}; depart from Tokyo Skytree)`,
+    `Train to ${linkExternal("Nikko Spacia X", "https://www.tobu.co.jp/spaciax/en/en/")} (${linkExternal("Nikko", "https://en.wikipedia.org/wiki/Nikk%C5%8D")}; depart from ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")})`,
+  "Arrive Tōbu-nikkō Station":
+    `Arrive ${linkExternal("Tōbu-nikkō Station", "https://maps.app.goo.gl/9Q9sHZKJQzcHEVku6")}`,
   "Nezu Museum":
-    `${linkExternal("Nezu Museum", "https://www.nezu-muse.or.jp/en/")}`,
+    `${linkExternal("Nezu Museum", "https://www.nezu-muse.or.jp/en/")} (${linkMeta("map", "https://maps.app.goo.gl/wTB6WCmoPZuTCrFf9")})`,
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
-    `${linkExternal("Aoyama", "https://en.wikipedia.org/wiki/Aoyama")} shops: ${linkExternal("CDG", "https://www.comme-des-garcons.com/")}, ${linkExternal("Dries", "https://www.driesvannoten.com/")}, ${linkExternal("Pleats Please", "https://www.isseymiyake.com/collections/pleats-please-issey-miyake")}, ${linkExternal("Sacai", "https://www.sacai.jp/en/")}. ${linkExternal("Margiela", "https://www.maisonmargiela.com/") } + ${linkExternal("MM6", "https://www.maisonmargiela.com/en-us/mm6/")}`,
+    `${linkExternal("Aoyama", "https://maps.app.goo.gl/nkdrt2ZRzCARQSgc7")} shops: ${linkExternal("CDG", "https://maps.app.goo.gl/dzp277KYXCXbcjaU8")}, ${linkExternal("Dries", "https://maps.app.goo.gl/Pmki6RmKHj17zZmJA")}, ${linkExternal("Pleats Please", "https://maps.app.goo.gl/dMytKeuNE8jgDd15A")}, ${linkExternal("Sacai", "https://maps.app.goo.gl/rFmTgKg6QJsaiaxr7")}. ${linkExternal("Margiela", "https://maps.app.goo.gl/NHN7QbRNtNDwqTNZ9")} + ${linkExternal("MM6", "https://maps.app.goo.gl/aSwUq3fEQcEDQMVC6")}`,
   "Hasedera Temple, Buddha":
-    `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")}, ${linkExternal("Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")}`,
+    `${linkExternal("Hasedera Temple", "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)")} (${linkMeta("map", "https://maps.app.goo.gl/Y2MWc9ZEu2Ty3qc4A")}), ${linkExternal("Kōtoku-in Buddha", "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in")} (${linkMeta("map", "https://maps.app.goo.gl/e4QWpKzUfsvb6oWs6")})`,
   "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town":
-    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")}, ${linkExternal("Genjiyama Park", "https://www.japan-guide.com/e/e3113.html")}, ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")}, Old Town`,
+    `Options if time: ${linkExternal("Zeniarai Shrine", "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine")} (${linkMeta("map", "https://maps.app.goo.gl/EWkBeB2oZD6hmTdf9")}), ${linkExternal("Genjiyama Park", "https://www.japan-guide.com/e/e3113.html")} (${linkMeta("maps", "https://maps.app.goo.gl/xUDgGewmwMJZTEy48")}), ${linkExternal("Tsurugaoka Shrine", "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB")} (${linkMeta("maps", "https://maps.app.goo.gl/cZ5uAXx7KCDUwgbH7")}), ${linkExternal("Old Town", "https://maps.app.goo.gl/FxHuQR8z5zcMu8xa7")}`,
   "Himeji Castle and Koko-en Gardens Tickets":
-    `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} Tickets for a 4-hour tour with a private government guide`,
-  "guide whatsapp +81-90-9712-1750":
+    `${linkExternal("Himeji Castle", "https://en.wikipedia.org/wiki/Himeji_Castle")} (${linkMeta("map", "https://maps.app.goo.gl/aqnP9pAX3sK1Qjq96")}) and ${linkExternal("Koko-en Gardens", "https://en.wikipedia.org/wiki/K%C5%8Dko-en")} (${linkMeta("map", "https://maps.app.goo.gl/wii6SnqYEf61dLLK9")}) Tickets for a 4-hour tour with a private government guide`,
+  "Guide WhatsApp +81-90-9712-1750":
     `Guide's WhatsApp: ${linkExternal("+81-90-9712-1750", "https://wa.me/819097121750")}`,
   "Send luggage to Tokyo":
     `Send luggage to Tokyo`,
   "Art House Project (Go'O, Haisha, Kadoya)":
-    `${linkExternal("Art House Project", "https://benesse-artsite.jp/en/art/arthouse.html")} (Go'O, Haisha, Kadoya)`,
+    `${linkExternal("Art House Project", "https://benesse-artsite.jp/en/art/arthouse.html")} (${linkExternal("Go'O", "https://maps.app.goo.gl/sy9hSXtvAd3Yx9mk9")}, ${linkExternal("Haisha", "https://maps.app.goo.gl/jT59XxJ3HnxAC3VP8")}, ${linkExternal("Kadoya", "https://maps.app.goo.gl/xaq9XpMTUBDLFsHv7")})`,
   Minamidera:
-    `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/arthouse.html")}`,
+    `${linkExternal("Minamidera", "https://benesse-artsite.jp/en/art/arthouse.html")} (${linkMeta("map", "https://maps.app.goo.gl/k3WZw2UNrJL3LpgY6")})`,
   Chichu:
-    `${linkExternal("Chichu Art Museum", "https://benesse-artsite.jp/en/art/chichu.html")}`,
+    `${linkExternal("Chichu Art Museum", "https://benesse-artsite.jp/en/art/chichu.html")} (${linkMeta("map", "https://maps.app.goo.gl/y3PTV7kbCMKY3DEV8")})`,
   "Benessee House":
-    `${linkExternal("Benessee House", "https://benesse-artsite.jp/en/art/benessehouse-museum.html")}`,
+    `${linkExternal("Benessee House", "https://benesse-artsite.jp/en/art/benessehouse-museum.html")} (${linkMeta("map", "https://maps.app.goo.gl/rwSUGJnAMMbiiy9m9")})`,
   "Valley Gallery":
-    `${linkExternal("Valley Gallery", "https://www.wallpaper.com/architecture/valley-gallery-tadao-ando-naoshima-japan")}`,
+    `${linkExternal("Valley Gallery", "https://www.wallpaper.com/architecture/valley-gallery-tadao-ando-naoshima-japan")} (${linkMeta("map", "https://maps.app.goo.gl/g9Tfmpo5UGgjy5Mr7")})`,
   "Hiroshi Sugimoto Gallery: Time Corridors":
-    `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/sugimoto-gallery.html")}`,
+    `${linkExternal("Hiroshi Sugimoto Gallery: Time Corridors", "https://benesse-artsite.jp/en/art/sugimoto-gallery.html")} (${linkMeta("map", "https://maps.app.goo.gl/wb3YADNXhidbBGETA")})`,
   "Option to stop by Okura Museum or gym":
     `Option to stop by ${linkExternal("Okura Museum", "https://theokuratokyo.jp/en/experiences-and-activities/the-okura-museum-of-art/")} or gym`,
   "Car service":
@@ -897,7 +901,7 @@ const activityHtmlOverrides = {
   "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)":
     `Lunch: ${linkPlace("Nijiya")} (12-3pm) or ${linkPlace("Vegginy")} (12-2:30pm open) or ${linkPlace("Zirael")} (12:30-7pm open)`,
   "Honen-in (moss temple) and Ginkaku-ji (temple) + Mt. Daimonji-yama Climb":
-    `${linkExternal("Honen-in", "https://en.wikipedia.org/wiki/H%C5%8Dnen-in")} (moss temple) and ${linkExternal("Ginkaku-ji", "https://www.shokoku-ji.jp/en/ginkakuji/about/")} (temple) + ${linkExternal("Mt. Daimonji-yama Climb", "http://insidekyoto.com/mt-daimonji-yama-hike-ginkaku-ji-temple")}`,
+    `${linkExternal("Honen-in", "https://en.wikipedia.org/wiki/H%C5%8Dnen-in")} (moss temple—${linkMeta("map", "https://maps.app.goo.gl/WRyj1i4rcixLUEn29")}) and ${linkExternal("Ginkaku-ji", "https://en.wikipedia.org/wiki/Ginkaku-ji")} (Zen temple—${linkMeta("map", "https://maps.app.goo.gl/jjUQ9Jzske99u4Uw8")}) + ${linkExternal("Mt. Daimonji-yama Climb", "http://insidekyoto.com/mt-daimonji-yama-hike-ginkaku-ji-temple")} (hike)`,
   "Dinner: Uno Ramen Sanjo":
     `Dinner: ${linkPlace("Uno Ramen Sanjo")}`,
   "Lunch: aisunao or apron":
@@ -907,19 +911,19 @@ const activityHtmlOverrides = {
   "Ginza":
     `${linkExternal("Ginza", "https://en.wikipedia.org/wiki/Ginza")}`,
   "Train to Shin-Yokahama":
-    `Train to ${linkExternal("Shin-Yokahama", "https://en.wikipedia.org/wiki/Shin-Yokohama_Station")}`,
-  "train to Kamakura":
-    `train to ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}`,
-  "arrive in Kamakura; drop bags at Kishi-ke Ryokan":
-    `arrive in ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}; drop bags at Kishi-ke Ryokan`,
-  "train to Himeji":
-    `train to ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")}`,
-  "arrival, grab coffee":
-    `arrival in ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")}, grab coffee`,
+    `Train to ${linkExternal("Shin-Yokahama", "https://en.wikipedia.org/wiki/Shin-Yokohama_Station")} (${linkMeta("map", "https://maps.app.goo.gl/g7MmoVLbji6QwpCu5")})`,
+  "Train to Kamakura":
+    `Train to ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}`,
+  "Arrive in Kamakura; drop bags at Kishi-ke Ryokan":
+    `Arrive in ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}; drop bags at ${linkExternal("Kishi-ke Ryokan", "https://maps.app.goo.gl/MVXJoTwxnbahj8uRA")}`,
+  "Train to Himeji":
+    `Train to ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} (${linkMeta("station map", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")})`,
+  "Arrival, grab coffee":
+    `Arrival in ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} (${linkMeta("station map", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")}), grab coffee`,
   "Dropoff at Naoshima Port":
-    `Dropoff at ${linkExternal("Naoshima Port", "https://en.wikipedia.org/wiki/Naoshima,_Kagawa")}`,
+    `Dropoff at ${linkExternal("Naoshima Port", "https://en.wikipedia.org/wiki/Naoshima,_Kagawa")} (${linkMeta("map", "https://maps.app.goo.gl/mGeTGPJWf4kSvAST9")})`,
   "Ni-Chome":
-    `${linkExternal("Ni-Chome", "https://en.wikipedia.org/wiki/Shinjuku_Ni-ch%C5%8Dme")} 🏳️‍🌈`,
+    `${linkExternal("Ni-Chome", "https://en.wikipedia.org/wiki/Shinjuku_Ni-ch%C5%8Dme")} 🏳️‍🌈 (${linkMeta("map", "https://maps.app.goo.gl/x6RgxKpGzDvJZLYQ6")})`,
   "Lunch: Marugoto [option for Ginza on the way back]":
     `Lunch: ${linkPlace("Marugoto")} [option for Ginza on the way back]`,
   "Dinner: Udatsu":
@@ -935,29 +939,51 @@ const activityHtmlOverrides = {
   "Dinner at Tane Vegan Izakaya (delivery possible) [Peace, Floralia also open]":
     `Dinner at ${linkPlace("Tane Vegan Izakaya")} (delivery possible) [<a href="${diningPlaceLinks["Peace Cafe"]}" target="_blank" rel="noreferrer noopener">Peace</a>, ${linkPlace("Floralia")} also open]`,
   "Night time beach walk with banana ice cream from banan":
-    `Night time beach walk with banana ice cream from ${linkExternal("banan", "https://banan.co/")}`,
+    `Night time beach walk with banana ice cream from ${linkExternal("banan", "https://banan.co/")} (${linkMeta("map", "https://maps.app.goo.gl/iV9Yb2vhP6FrLNSi9")})`,
   "Option 1) Brown Rice Ometosando + any Aoyama stores; back to Okura at 6pm":
     `Option 1) ${linkPlace("Brown Rice Ometosando")} + any Aoyama stores; back to Okura at 6pm`,
   "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm":
-    `Option 2) ${linkExternal("Alchemy", "https://www.google.com/maps/search/?api=1&query=Alchemy+Honolulu+restaurant")} or ${linkExternal("Shogun Burger", "https://shogun-burger.com/")} ; walk back to Okura 6:20pm`,
+    `Option 2) ${linkExternal("Alchemy", "https://maps.app.goo.gl/5EysXKRcBkP7cNS86")} or ${linkExternal("Shogun Burger", "https://maps.app.goo.gl/66GZ5aEHWmV2SyXk6")} ; walk back to Okura 6:20pm`,
   "Sumida River nighttime walk":
     `${linkExternal("Sumida River", "https://en.wikipedia.org/wiki/Sumida_River")} nighttime walk`,
   "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck":
-    `If time permits, cat billboard and maybe ${linkExternal("Tokyo Metropolitan Gov. Building observation deck", "https://www.yokoso.metro.tokyo.lg.jp/en/tenbou/index.html")}`,
+    `If time permits, ${linkExternal("cat billboard", "https://maps.app.goo.gl/mfoGWjSedo7kciyEA")} and maybe ${linkExternal("Tokyo Metropolitan Gov. Building observation deck", "https://maps.app.goo.gl/9Ax4JnrNnsCdjkVD7")}`,
+  "Head to Aman":
+    `Head to ${linkExternal("Aman", "https://maps.app.goo.gl/pJDERJZ4QXGzurYR9")}`,
   "Aman Spa Afternoon (4pm treatment; 90min Grounding Massage Ritual)":
     `${linkExternal("Aman Spa Afternoon", "https://www.aman.com/hotels/aman-tokyo/wellness/spa")} (4pm treatment; 90min Grounding Massage Ritual)`,
+  "Optional: Royal Hawaiian Tour at Bakery (60 mins)":
+    `Optional: ${linkExternal("Royal Hawaiian Tour at Bakery", "https://www.royal-hawaiian.com/events/")} (60 mins)`,
   "Hanko class":
-    `${linkExternal("Hanko class", "https://wabunka-lux.jp/experiences/en_kamakurahanko-basic/")} 💮`,
+    `${linkExternal("Hanko class", "https://wabunka-lux.jp/experiences/en_kamakurahanko-basic/")} 💮 (${linkMeta("map", "https://maps.app.goo.gl/XYYQ9LXeu3eUtwhP7")})`,
   "Shuttle (first coffee mikauzkishoten)":
     `Shuttle (first coffee ${linkExternal("mikauzkishoten", "https://www.google.com/maps/search/?api=1&query=Mikazuki+Shoten+Naoshima")})`,
   "Chopstick workshop (90 mins)":
-    `${linkExternal("Chopstick workshop", "https://wabunka-lux.jp/experiences/en_mogami-kogei/")} (90 mins)`,
+    `${linkExternal("Chopstick workshop", "https://wabunka-lux.jp/experiences/en_mogami-kogei/")} (90 mins—${linkMeta("map", "https://maps.app.goo.gl/totZ3EwxMpBxGyCw7")})`,
   "Tokyo Tower View":
-    `${linkExternal("Tokyo Tower View", "https://www.tokyotower.co.jp/en/ticket/")}`,
+    `${linkExternal("Tokyo Tower View", "https://maps.app.goo.gl/VVXsC18jGQMDWvS76")}`,
   "Tameike: Exploring the Heart of Japanese Politics Tour (3 hours)":
-    `${linkExternal("Tameike: Exploring the Heart of Japanese Politics Tour", "https://www.getyourguide.com/tokyo-l193/tameike-exploring-the-heart-of-japanese-politics-tour-t740982/?ranking_uuid=84718a94-dad7-4a5f-9f43-e9731ef8145a")} (3 hours)`,
+    `${linkExternal("Tameike: Exploring the Heart of Japanese Politics Tour", "https://www.getyourguide.com/tokyo-l193/tameike-exploring-the-heart-of-japanese-politics-tour-t740982/?ranking_uuid=84718a94-dad7-4a5f-9f43-e9731ef8145a")} (3 hours—${linkMeta("map", "https://maps.app.goo.gl/62EZ3m1KtWmafME28")})`,
   "eBike Tour Honolulu Rainforest":
-    `${linkExternal("eBike Tour Honolulu Rainforest", "https://www.tripadvisor.com/AttractionProductReview-g29222-d17684562-EBike_Tour_Honolulu_Rainforest-Oahu_Hawaii.html")}`,
+    `${linkExternal("eBike Tour Honolulu Rainforest", "https://www.tripadvisor.com/AttractionProductReview-g29222-d17684562-EBike_Tour_Honolulu_Rainforest-Oahu_Hawaii.html")} (${linkMeta("map", "https://maps.app.goo.gl/yHcJ3L7t5JpaGWtv9")})`,
+  "Bike ride":
+    `${linkExternal("Bike ride", "https://roka.voyage/news-en/bicycle-rental-information-2/")}`,
+  "Train to Okayama":
+    `Train to ${linkExternal("Okayama", "https://maps.app.goo.gl/4gpD1uShsE2A8vt7A")}`,
+  "Train to Uno":
+    `Train to ${linkExternal("Uno", "https://maps.app.goo.gl/vpkVLX6gTvW2febEA")}`,
+  "Ferry (get roundtrip tix)":
+    `${linkExternal("Ferry", "https://maps.app.goo.gl/iL5TzVz19UFUsrDh8")} (get roundtrip tix)`,
+  "Ferry Miyanoura":
+    `${linkExternal("Ferry Miyanoura", "https://maps.app.goo.gl/scL5bMbvZdrvDNeF6")}`,
+  "Train to Okayma (grab train food)":
+    `Train to ${linkExternal("Okayma", "https://maps.app.goo.gl/FGapm1YgJTLsRExE9")} (grab train food)`,
+  "Leave for Kokkai-gijidōmae Sta. (about 20mins)":
+    `Leave for ${linkExternal("Kokkai-gijidōmae Sta.", "https://maps.app.goo.gl/fwvtdbkrT5R3a9XW9")} (about 20mins)`,
+  "Pickup Sheraton Waikiki Beach Resort":
+    `${linkExternal("Pickup Sheraton Waikiki Beach Resort", "https://maps.app.goo.gl/5PTHRqhqwwCxgD1x6")}`,
+  "Arrive Kyoto Station":
+    `Arrive ${linkExternal("Kyoto Station", "https://maps.app.goo.gl/PX2N9Rxr7H7LBtJe6")} (${linkMeta("map", "https://maps.app.goo.gl/PX2N9Rxr7H7LBtJe6")})`,
 };
 
 const dayTitleHtmlOverrides = {
@@ -984,6 +1010,23 @@ function linkPlace(label) {
 
 function linkExternal(label, url) {
   return `<a href="${url}" target="_blank" rel="noreferrer noopener">${label}</a>`;
+}
+
+function linkMeta(label, url) {
+  return `<a class="link-meta" href="${url}" target="_blank" rel="noreferrer noopener">${label}</a>`;
+}
+
+function renderFlightActivity(activity) {
+  const flightCodePattern = /\b([A-Z]{2})\s?(\d{1,4})\b/g;
+
+  if (!flightCodePattern.test(activity)) {
+    return null;
+  }
+
+  return activity.replace(flightCodePattern, (_, airline, number) => {
+    const code = `${airline}${number}`;
+    return linkExternal(code, `https://www.google.com/search?q=${code}`);
+  });
 }
 
 function getDayAnchorId(date) {
@@ -1469,6 +1512,7 @@ function renderEvent(item, list) {
   const activity = node.querySelector(".event__activity");
   const notes = node.querySelector(".event__notes");
   const category = getEventCategory(item);
+  const flightActivityHtml = renderFlightActivity(item.activity);
 
   node.classList.add(category.modifier);
 
@@ -1476,6 +1520,8 @@ function renderEvent(item, list) {
   kind.textContent = category.label;
   if (item.kind === "hotel") {
     activity.innerHTML = `<a href="${getGoogleMapsUrl(item.activity, item.time.replace("Hotel: ", ""))}" target="_blank" rel="noreferrer noopener">${item.activity}</a>`;
+  } else if (flightActivityHtml) {
+    activity.innerHTML = flightActivityHtml;
   } else if (activityHtmlOverrides[item.activity]) {
     activity.innerHTML = activityHtmlOverrides[item.activity];
   } else {
