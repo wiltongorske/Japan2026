@@ -1171,7 +1171,6 @@ function renderOverview() {
               <div class="hotel-stack__body">
                 <span>${address}</span>
                 <strong>${name.replace("Hotel: ", "")}</strong>
-                <span class="hotel-stack__cta">Official website</span>
               </div>
             </article>
           `;
