@@ -311,6 +311,22 @@ const destinationSpotlight = document.querySelector("#destinationSpotlight");
 const dayCardTemplate = document.querySelector("#dayCardTemplate");
 const eventTemplate = document.querySelector("#eventTemplate");
 const todayJumpFab = document.querySelector("#todayJumpFab");
+const tripYear = 2026;
+
+const monthIndexes = {
+  January: 0,
+  February: 1,
+  March: 2,
+  April: 3,
+  May: 4,
+  June: 5,
+  July: 6,
+  August: 7,
+  September: 8,
+  October: 9,
+  November: 10,
+  December: 11,
+};
 
 const uniqueStops = [
   "San Francisco",
@@ -1039,6 +1055,33 @@ function getDayAnchorId(date) {
   return `day-${date.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 }
 
+function parseItineraryDate(dateLabel) {
+  if (dateLabel === "TIMEWARP") {
+    return null;
+  }
+
+  const parts = dateLabel.match(/^[A-Za-z]+,\s+([A-Za-z]+)\s+(\d{1,2})$/);
+  if (!parts) {
+    return null;
+  }
+
+  const [, monthName, dayNumber] = parts;
+  const monthIndex = monthIndexes[monthName];
+  if (monthIndex === undefined) {
+    return null;
+  }
+
+  return new Date(tripYear, monthIndex, Number(dayNumber));
+}
+
+function isSameCalendarDay(firstDate, secondDate) {
+  return (
+    firstDate.getFullYear() === secondDate.getFullYear() &&
+    firstDate.getMonth() === secondDate.getMonth() &&
+    firstDate.getDate() === secondDate.getDate()
+  );
+}
+
 function normalizeLocation(location) {
   return location || "Unassigned";
 }
@@ -1635,41 +1678,21 @@ function jumpToDay(anchorId) {
   });
 }
 
-function getTripDateAnchorId(now = new Date()) {
-  const tripYear = 2026;
-  const monthIndexes = {
-    January: 0,
-    February: 1,
-    March: 2,
-    April: 3,
-    May: 4,
-    June: 5,
-    July: 6,
-    August: 7,
-    September: 8,
-    October: 9,
-    November: 10,
-    December: 11,
-  };
-  const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-
+function getTripDateMatch(now = new Date()) {
+  const localToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const matchingDay = itinerary.find((day) => {
-    if (day.date === "TIMEWARP") {
-      return false;
-    }
-
-    const parts = day.date.match(/^[A-Za-z]+,\s+([A-Za-z]+)\s+(\d{1,2})$/);
-    if (!parts) {
-      return false;
-    }
-
-    const [, monthName, dayNumber] = parts;
-    const monthIndex = monthIndexes[monthName];
-    const tripKey = `${tripYear}-${String(monthIndex + 1).padStart(2, "0")}-${String(dayNumber).padStart(2, "0")}`;
-    return tripKey === todayKey;
+    const itineraryDate = parseItineraryDate(day.date);
+    return itineraryDate ? isSameCalendarDay(itineraryDate, localToday) : false;
   });
 
-  return matchingDay ? getDayAnchorId(matchingDay.date) : null;
+  if (!matchingDay) {
+    return null;
+  }
+
+  return {
+    anchorId: getDayAnchorId(matchingDay.date),
+    label: matchingDay.date,
+  };
 }
 
 function setupFloatingNav() {
@@ -1677,17 +1700,20 @@ function setupFloatingNav() {
     return;
   }
 
-  const todayAnchorId = getTripDateAnchorId();
-  if (!todayAnchorId) {
+  const todayMatch = getTripDateMatch();
+  if (!todayMatch) {
     todayJumpFab.hidden = true;
+    todayJumpFab.removeAttribute("href");
     return;
   }
 
   todayJumpFab.hidden = false;
-  todayJumpFab.addEventListener("click", (event) => {
+  todayJumpFab.href = `#${todayMatch.anchorId}`;
+  todayJumpFab.setAttribute("aria-label", `Jump to ${todayMatch.label}`);
+  todayJumpFab.onclick = (event) => {
     event.preventDefault();
-    jumpToDay(todayAnchorId);
-  });
+    jumpToDay(todayMatch.anchorId);
+  };
 }
 
 renderHeroStats();

@@ -773,6 +773,10 @@ h2 {
   -webkit-backdrop-filter: blur(14px);
 }
 
+.filters-fab[hidden] {
+  display: none;
+}
+
 .filters-fab:hover,
 .filters-fab:focus-visible {
   background: rgba(182, 73, 37, 0.92);
