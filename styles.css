@@ -1126,9 +1126,13 @@ h2 {
   text-underline-offset: 0.14em;
 }
 
+.event__activity .link-meta-group {
+  color: #7b725f;
+}
+
 .event__activity a.link-meta {
-  color: var(--muted);
-  text-decoration-color: rgba(94, 85, 69, 0.35);
+  color: inherit;
+  text-decoration-color: rgba(123, 114, 95, 0.3);
 }
 
 .event__notes {
