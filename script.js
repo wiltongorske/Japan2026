@@ -127,7 +127,7 @@ const itinerary = [
       { time: "9:45 AM", activity: "Meet at Himeji Station JR Line (Central North Exit or Himeji Castle Exit near 7-11)", notes: "", kind: "event" },
       { time: "", activity: "Himeji Castle and Koko-en Gardens Tickets", notes: "", kind: "event" },
       { time: "", activity: "Guide WhatsApp +81-90-9712-1750", notes: "", kind: "event" },
-      { time: "1:45 PM", activity: "Lunch: Il Riccio OR Kotonoki to go (leave at 2:45pm for train) - update guide!", notes: "", kind: "event" },
+      { time: "1:45 PM", activity: "Lunch: Il Riccio (leave at 2:45pm for train)", notes: "", kind: "event" },
       { time: "3:11 PM", activity: "Train", notes: "", kind: "event" },
       { time: "4:00 PM", activity: "Arrive Kyoto Station", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Leave for dinner", notes: "", kind: "event" },
@@ -919,8 +919,8 @@ const activityHtmlOverrides = {
     `Dinner: ${linkPlace("magokoro")}`,
   "Dinner: Vegan Izakaya Masaka (open at 5pm)":
     `Dinner: ${linkPlace("Vegan Izakaya Masaka")} (open at 5pm)`,
-  "Lunch: Il Riccio OR Kotonoki to go (leave at 2:45pm for train) - update guide!":
-    `Lunch: ${linkPlace("Il Riccio")} OR ${linkPlace("Kotonoki")} to go (leave at 2:45pm for train) - update guide!`,
+  "Lunch: Il Riccio (leave at 2:45pm for train)":
+    `Lunch: ${linkPlace("Il Riccio")} (leave at 2:45pm for train)`,
   "Dinner: Mumokuteki":
     `Dinner: ${linkPlace("Mumokuteki")}`,
   "Lunch: Nijiya (12-3pm) or Vegginy (12-2:30pm open) or Zirael (12:30-7pm open)":
