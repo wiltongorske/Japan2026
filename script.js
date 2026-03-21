@@ -202,7 +202,7 @@ const itinerary = [
       { time: "3:00 PM", activity: "Lunch: Room service", notes: "", kind: "event" },
       { time: "", activity: "Unpack, laundry, etc", notes: "", kind: "event" },
       { time: "7:00 PM", activity: "Dinner: Noeud.Tokyo", notes: "", kind: "event" },
-      { time: "9:30 PM", activity: "Tokyo Tower View", notes: "", kind: "event" },
+      { time: "9:30 PM", activity: "Tokyo Tower View", notes: "Tickets valid anytime up to 10:30 PM", kind: "event" },
       { time: "Hotel: Okura Tokyo", activity: "2-10-4 Toranomon, Minato-ku", notes: "", kind: "hotel" },
     ],
   },
