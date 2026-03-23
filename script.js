@@ -289,8 +289,8 @@ const itinerary = [
     location: "Honolulu/San Francisco",
     title: "Back to Reality: Travel Home",
     items: [
-      { time: "10:00 AM", activity: "Shuttle", notes: "", kind: "event" },
-      { time: "12:30 PM", activity: "HNL > SFO flight (HA812)", notes: "", kind: "event" },
+      { time: "9:20 AM", activity: "Shuttle", notes: "", kind: "event" },
+      { time: "12:10 PM", activity: "HNL > SFO flight (HA812)", notes: "", kind: "event" },
       { time: "8:30 PM", activity: "Arrive SFO", notes: "", kind: "event" },
     ],
   },
