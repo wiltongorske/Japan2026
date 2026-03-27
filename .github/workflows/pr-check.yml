@@ -1,0 +1,55 @@
+name: PR Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  static-site-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate static site files
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          root = Path(".")
+          required_files = [
+              root / "index.html",
+              root / "styles.css",
+              root / "script.js",
+              root / "README.md",
+              root / "CNAME",
+          ]
+
+          missing = [str(path) for path in required_files if not path.exists()]
+          if missing:
+              raise SystemExit(f"Missing required files: {', '.join(missing)}")
+
+          index_html = (root / "index.html").read_text(encoding="utf-8")
+          required_snippets = {
+              "<!DOCTYPE html>": "missing HTML5 doctype",
+              '<link rel="stylesheet" href="./styles.css" />': "missing stylesheet link",
+              '<script src="./script.js"></script>': "missing script include",
+              "<title>": "missing page title",
+          }
+
+          for snippet, description in required_snippets.items():
+              if snippet not in index_html:
+                  raise SystemExit(f"index.html {description}")
+
+          cname = (root / "CNAME").read_text(encoding="utf-8").strip()
+          if not cname:
+              raise SystemExit("CNAME must not be empty")
+
+          print("Static site validation passed.")
+          PY
