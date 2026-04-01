@@ -31,7 +31,7 @@ const itinerary = [
       { time: "10:00 AM", activity: "Gotoku-ji", notes: "", kind: "event" },
       { time: "12:00 PM", activity: "Lunch: Vegan Sushi Tokyo (or Vegan Bistro Jangara)", notes: "", kind: "event" },
       { time: "", activity: "Photomatic, Iyoshi Cola, Square Enix?", notes: "", kind: "event" },
-      { time: "", activity: "Ragtag (Harujuku and Shibuya), Snoopytown, Beams", notes: "", kind: "event" },
+      { time: "", activity: "Ragtag (Harujuku and Shibuya / GTD), Snoopytown, Beams, Kuon, Tamagotchi Factory", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Go to hotel (leave for dinner at 5:00pm?)", notes: "", kind: "event" },
       { time: "5:30 PM", activity: "Dinner: Izakaya Nowhere (open 5pm)", notes: "", kind: "event" },
       { time: "", activity: "Sumida River nighttime walk", notes: "", kind: "event" },
@@ -842,8 +842,8 @@ const activityHtmlOverrides = {
     `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/VxmWY4fsTyNW2y1K8")}`,
   "Photomatic, Iyoshi Cola, Square Enix?":
     `${linkExternal("Photomatic", "https://maps.app.goo.gl/TBm7zZ1yEjorGVEYA")}, ${linkExternal("Iyoshi Cola", "https://maps.app.goo.gl/jCmG2q2Rv4h5aCwz6")}, ${linkExternal("ARTNIA Square Enix", "https://maps.app.goo.gl/ndJ7jYrryREBe8AV7")}?`,
-  "Ragtag (Harujuku and Shibuya), Snoopytown, Beams":
-    `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}, ${linkExternal("Kuon", "https://maps.app.goo.gl/Hy4wSyCJxrPNnYta9")}`,
+  "Ragtag (Harujuku and Shibuya / GTD), Snoopytown, Beams, Kuon, Tamagotchi Factory":
+    `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}, ${linkExternal("Kuon", "https://maps.app.goo.gl/Hy4wSyCJxrPNnYta9")}, ${linkExternal("Tamagotchi Factory", "https://maps.app.goo.gl/Q335ZsmgMd3acxUw8")}`,
   "Shinjuku Gyoen":
     `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/9qPiV5y3H4pRZyax9")}`,
   "Snack: marbre vegan":
