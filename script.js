@@ -109,7 +109,7 @@ const itinerary = [
       { time: "9:30 AM", activity: "Shojin breakfast - hotel will provide lunchbox!", notes: "", kind: "event" },
       { time: "11:30 AM", activity: "Hanko class", notes: "", kind: "event" },
       { time: "12:30 PM", activity: "Train to Shin-Yokahama", notes: "", kind: "event" },
-      { time: "2:00 PM", activity: "Train to Kyoto", notes: "", kind: "event" },
+      { time: "2:07 PM", activity: "Nozomi 73 departs Shin-Yokohama for Kyoto", notes: "Car 9, seats 9C / 9D", kind: "event" },
       { time: "4:00 PM", activity: "Arrive Kyoto Station", notes: "", kind: "event" },
       { time: "", activity: "Check in hotel", notes: "", kind: "event" },
       { time: "5:00 PM", activity: "Dinner: Vegan Izakaya Masaka (open at 5pm)", notes: "", kind: "event" },
