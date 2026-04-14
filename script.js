@@ -375,7 +375,7 @@ const imageAssets = {
     src: "https://images.unsplash.com/photo-1621606016505-f74ee91fc522?q=80&w=1746&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     sourceUrl: "https://unsplash.com/photos/cars-parked-in-front-of-white-concrete-building-during-daytime-zVpcLB_LBDA",
     alt: "Cars parked on a San Francisco street lined with white Victorian buildings",
-    creditHtml: 'Photo by <a href="https://unsplash.com/@szamanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">Piotr Musioł</a> on <a href="https://unsplash.com/photos/cars-parked-in-front-of-white-concrete-building-during-daytime-zVpcLB_LBDA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">Unsplash</a>',
+    creditHtml: '画像: <a href="https://unsplash.com/@szamanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">ピオトル・ムショウ</a>（<a href="https://unsplash.com/photos/cars-parked-in-front-of-white-concrete-building-during-daytime-zVpcLB_LBDA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">アンスプラッシュ</a>）',
   },
   sfSkyline: {
     src: "https://commons.wikimedia.org/wiki/Special:FilePath/San_Francisco_skyline_from_Marin_Headlands.jpg?width=1400",
@@ -853,10 +853,16 @@ const activityHtmlOverrides = {
     `${linkExternal("Isetan men's", "https://maps.app.goo.gl/JVHhKk6LszfwECn99")}, ${linkExternal("CDG", "https://maps.app.goo.gl/QGURcHoyJ5cPK1pn7")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
   "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
     `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Futarasan_shrine#Sacred_Bridge")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/YS6ZPGHuCm3sj41z5")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/UgYmyeR8Akg6d7T3A")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3810.html")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/3cfjZHXUjc7NwpoF8")}`,
-  "Train to Nikko Spacia X (depart from Tokyo Skytree)":
-    `Train to ${linkExternal("Nikko Spacia X", "https://www.tobu.co.jp/spaciax/en/en/")} (${linkExternal("Nikko", "https://en.wikipedia.org/wiki/Nikk%C5%8D")}; depart from ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")})`,
+  "SPACIA X 001 departs Tokyo Skytree":
+    `${linkExternal("SPACIA X 001", "https://www.tobu.co.jp/spaciax/en/en/")} departs ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")}`,
   "Arrive Tōbu-nikkō Station":
     `Arrive ${linkExternal("Tōbu-nikkō Station", "https://maps.app.goo.gl/9Q9sHZKJQzcHEVku6")}`,
+  "SPACIA X 012 departs Tōbu-nikkō Station":
+    `${linkExternal("SPACIA X 012", "https://www.tobu.co.jp/spaciax/en/en/")} departs ${linkExternal("Tōbu-nikkō Station", "https://maps.app.goo.gl/9Q9sHZKJQzcHEVku6")}`,
+  "Arrive Tokyo Skytree":
+    `Arrive ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")}`,
+  "Tickets: tobu-japantrip-tickets.com":
+    `Tickets: ${linkExternal("tobu-japantrip-tickets.com", "https://tobu-japantrip-tickets.com")}`,
   "Nezu Museum":
     `${linkExternal("Nezu Museum", "https://www.nezu-muse.or.jp/en/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/wTB6WCmoPZuTCrFf9")}`,
   "Nuts Exchange Tokyo":
@@ -938,6 +944,8 @@ const activityHtmlOverrides = {
     `${linkExternal("Ginza", "https://en.wikipedia.org/wiki/Ginza")}`,
   "Train to Shin-Yokahama":
     `Train to ${linkExternal("Shin-Yokahama", "https://en.wikipedia.org/wiki/Shin-Yokohama_Station")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/g7MmoVLbji6QwpCu5")}`,
+  "Nozomi 73 departs Shin-Yokohama for Kyoto":
+    `${linkExternal("Nozomi 73", "https://global.jr-central.co.jp/en/onlinebooking/")} departs ${linkExternal("Shin-Yokohama", "https://en.wikipedia.org/wiki/Shin-Yokohama_Station")} for ${linkExternal("Kyoto", "https://en.wikipedia.org/wiki/Kyoto")}`,
   "Train to Kamakura":
     `Train to ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}`,
   "Arrive in Kamakura; drop bags at Kishi-ke Ryokan":
@@ -1030,6 +1038,34 @@ const routeStopDisplay = {
   Honolulu: "Honolulu 🇺🇸",
 };
 
+const bilingualLocationLabels = {
+  All: { jp: "全て", en: "All" },
+  "San Francisco": { jp: "サンフランシスコ", en: "San Francisco" },
+  Tokyo: { jp: "東京", en: "Tokyo" },
+  Nikko: { jp: "日光", en: "Nikko" },
+  Kamakura: { jp: "鎌倉", en: "Kamakura" },
+  Kyoto: { jp: "京都", en: "Kyoto" },
+  Himeji: { jp: "姫路", en: "Himeji" },
+  Naoshima: { jp: "直島", en: "Naoshima" },
+  Honolulu: { jp: "ホノルル", en: "Honolulu" },
+};
+
+const bilingualStatLabels = {
+  Days: { jp: "日程", en: "Days" },
+  Restaurants: { jp: "食事", en: "Restaurants" },
+  Hotels: { jp: "宿泊", en: "Hotels" },
+  Activities: { jp: "予定", en: "Activities" },
+};
+
+function renderBilingualLabel(jp, en, wrapperClass = "bilingual-label") {
+  return `<span class="${wrapperClass}"><span class="${wrapperClass}__jp">${jp}</span><span class="${wrapperClass}__en">${en}</span></span>`;
+}
+
+function renderLocationLabel(location) {
+  const pair = bilingualLocationLabels[location] || { jp: location, en: location };
+  return renderBilingualLabel(pair.jp, pair.en, "location-label");
+}
+
 function linkPlace(label) {
   return `<a href="${diningPlaceLinks[label]}" target="_blank" rel="noreferrer noopener">${label}</a>`;
 }
@@ -1108,7 +1144,65 @@ function superscriptMonthDays(text) {
   });
 }
 
-function renderImageCredit(image, { prefix = "Image: " } = {}) {
+const imageCreditNameMap = {
+  "clement proust": "クレマン・プルースト",
+  "Mazin Omron": "マジン・オムロン",
+  "Ryan Schwark": "ライアン・シュワーク",
+  Ningyou: "ニンギョウ",
+  "Fred Cherrygarden": "フレッド・チェリーガーデン",
+  "Y S": "ワイ・エス",
+  "Muhammad Irfan": "ムハンマド・イルファン",
+  "Manuel Cosentino": "マヌエル・コセンティーノ",
+  "Frank Huang": "フランク・ファン",
+  "Tomi Mäkitalo": "トミ・マキタロ",
+  Akonnchiroll: "アコンチロール",
+  Daderot: "ダデロット",
+  nubobo: "ヌボボ",
+  Fukumoto: "フクモト",
+  "TAKA@P.P.R.S": "タカ・アット・ピー・ピー・アール・エス",
+  "U-Kane": "ユー・カネ",
+  "Andrea Sun": "アンドレア・サン",
+  "Koichi Sato": "コウイチ・サトウ",
+  "S K": "エス・ケー",
+  "27curlyta": "27カーリータ",
+  Floodmfx: "フラッド・エム・エフ・エックス",
+  Kakidai: "カキダイ",
+  "zhgn_": "ゼットエイチジーエヌ",
+  "Charlie Charoenwattana": "チャーリー・チャルーンワッタナー",
+  Artandgeograph: "アートアンドジオグラフ",
+  "Lee Thom": "リー・トム",
+  "Yanhao Fang": "ヤンハオ・ファン",
+  "Alan Jiang": "アラン・ジャン",
+  "Bea Phi": "ベア・ファイ",
+  "Masashi Hatsuka": "マサシ・ハツカ",
+  "w_lemay": "ダブリュー・ルメイ",
+  Artodidact: "アートディダクト",
+  CCPAPA: "シーシーパパ",
+  stinne24: "スティンネ24",
+  "Warren McKenzie": "ウォーレン・マッケンジー",
+  "Travis Thurston": "トラヴィス・サーストン",
+  "Jon Sullivan": "ジョン・サリヴァン",
+  "Érico Andrei": "エリコ・アンドレイ",
+};
+
+function localizeImageCreditText(text) {
+  let localized = text
+    .replace(/\s+via\s+/gi, " ／ ")
+    .replace(/Wikimedia Commons/g, "ウィキメディア・コモンズ")
+    .replace(/Unsplash/g, "アンスプラッシュ")
+    .replace(/Pixabay/g, "ピクサベイ")
+    .replace(/Public domain/g, "パブリックドメイン")
+    .replace(/,\s*(CC(?:0| BY(?:-[A-Z]+)?(?: \d\.\d)?))/g, "、$1")
+    .replace(/,\s*(パブリックドメイン)/g, "、$1");
+
+  Object.entries(imageCreditNameMap).forEach(([latinName, japaneseName]) => {
+    localized = localized.replaceAll(latinName, japaneseName);
+  });
+
+  return localized;
+}
+
+function renderImageCredit(image, { prefix = "画像: " } = {}) {
   if (!image) {
     return "";
   }
@@ -1117,17 +1211,22 @@ function renderImageCredit(image, { prefix = "Image: " } = {}) {
     return image.creditHtml;
   }
 
-  return `<a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">${prefix}${image.credit}</a>`;
+  const localizedCredit = localizeImageCreditText(image.credit);
+
+  return `<a href="${image.sourceUrl}" target="_blank" rel="noreferrer noopener">${prefix}${localizedCredit}</a>`;
 }
 
 function getDisplayLocation(day) {
+  const renderedStops = getDayStops(day)
+    .filter((stop) => stop !== "Unassigned")
+    .map((stop) => bilingualLocationLabels[stop]?.en || stop)
+    .join(" / ");
+
   if (!day.location) {
-    return getDayStops(day)
-      .filter((stop) => stop !== "Unassigned")
-      .join(" / ");
+    return renderedStops;
   }
 
-  return normalizeLocation(day.location);
+  return renderedStops || normalizeLocation(day.location);
 }
 
 function getDayStops(day) {
@@ -1190,8 +1289,12 @@ function renderHeroStats() {
   heroStats.innerHTML = stats
     .map(
       (stat) => `
-        <div>
-          <dt>${stat.label}</dt>
+        <div role="button" tabindex="0" data-jump-target="#overview-anchor" aria-label="Jump to overview">
+          <dt>${renderBilingualLabel(
+            bilingualStatLabels[stat.label]?.jp || stat.label,
+            bilingualStatLabels[stat.label]?.en || stat.label,
+            "stat-label"
+          )}</dt>
           <dd>${stat.value}</dd>
         </div>
       `
@@ -1203,20 +1306,43 @@ function renderRouteRibbon() {
   routeRibbon.innerHTML = uniqueStops
     .map(
       (stop) => `
-        <div class="route-stop">
+        <div class="route-stop" role="button" tabindex="0" data-jump-target="#filters-anchor" aria-label="Jump to filter section">
           <span class="route-stop__dot" aria-hidden="true"></span>
-          <span class="route-stop__label">${routeStopDisplay[stop] || stop}</span>
+          <span class="route-stop__label">${renderLocationLabel(stop)}</span>
         </div>
       `
     )
     .join("");
 }
 
+function setupJumpTargets(root = document) {
+  root.querySelectorAll("[data-jump-target]").forEach((node) => {
+    if (node.dataset.jumpBound === "true") {
+      return;
+    }
+
+    const jump = () => {
+      const target = document.querySelector(node.dataset.jumpTarget);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    node.addEventListener("click", jump);
+    node.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        jump();
+      }
+    });
+
+    node.dataset.jumpBound = "true";
+  });
+}
+
 function renderOverview() {
   routeCards.innerHTML = `
     <div class="overview-index" id="route-index">
       <div class="overview-index__intro">
-        <h3>High-level day index</h3>
+        <h3>全日程インデックス / High-level day index</h3>
       </div>
       <div class="overview-index__table" role="list">
         ${itinerary
@@ -1254,7 +1380,7 @@ function renderOverview() {
   });
 
   hotelSummary.innerHTML = `
-    <h3>Hotels on file</h3>
+    <h3>宿泊ホテル / Hotels on file</h3>
     <div class="hotel-stack">
       ${Array.from(hotelMap.entries())
         .map(
@@ -1356,7 +1482,7 @@ function renderFilters() {
           type="button"
           data-location="${location}"
         >
-          ${location}
+          ${renderLocationLabel(location)}
         </button>
       `
     )
@@ -1401,7 +1527,9 @@ function renderSpotlight() {
       }
     </div>
     <div class="spotlight__body">
-      <p class="spotlight__kicker">${key === "All" ? "Trip summary" : key}</p>
+      <p class="spotlight__kicker">${
+        key === "All" ? "旅の要約 / Trip summary" : `${bilingualLocationLabels[key]?.jp || key} / ${key}`
+      }</p>
       <h3>${spotlight.title}</h3>
       <p>${superscriptMonthDays(spotlight.summary)}</p>
       <div class="spotlight__days">
@@ -1535,7 +1663,7 @@ function getEventCategory(item) {
   }
 
   if (
-    /\b(flight|train|taxi|shuttle|ferry|bus|airport|car service|waymo|leave for|depart|pickup|dropoff|send luggage)\b/.test(activity) ||
+    /\b(flight|train|taxi|shuttle|ferry|bus|airport|car service|waymo|leave for|depart|pickup|dropoff|send luggage|head to)\b/.test(activity) ||
     /\b(arrive|arrival|back in)\b/.test(activity) ||
     /\b[a-z]{2,}\b\s*>\s*\b[a-z]{2,}\b/.test(activity)
   ) {
@@ -1730,4 +1858,5 @@ renderOverview();
 renderFilters();
 renderSpotlight();
 renderTimeline();
+setupJumpTargets();
 setupFloatingNav();

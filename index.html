@@ -89,12 +89,29 @@
     <div class="page-shell">
       <header class="hero">
         <nav class="topbar" aria-label="Primary">
-          <span class="brand">May 2026</span>
+          <div class="topbar__brand">
+            <span class="brand">2026年5月 / MAY 2026</span>
+            <span class="brand-note">Travel file for the birthday route</span>
+          </div>
+          <div class="topbar__links">
+            <a class="topbar__link" href="#overview-anchor">概要</a>
+            <a class="topbar__link" href="#filters-anchor">行き先</a>
+            <a class="topbar__link" href="https://docs.google.com/spreadsheets/d/1EapMk227W2OXgcyJOSbEdRODJ_HHRVbMBEYJJ8gswYY/edit?usp=sharing" target="_blank" rel="noreferrer noopener">予約表</a>
+            <a class="topbar__link" href="https://www.icloud.com/iclouddrive/07cnAhwfEQipeJHa_X70Xrqig#Japan/Hawaii_2026" target="_blank" rel="noreferrer noopener">資料</a>
+          </div>
         </nav>
 
         <div class="hero__content">
           <div class="hero__intro">
-            <p class="eyebrow">May 7<sup>th</sup> to May 24<sup>th</sup>, 2026</p>
+            <div class="hero__meta-row">
+              <p class="hero__badge-strip">
+                <span role="button" tabindex="0" data-jump-target="#filters-anchor">特集号</span>
+                <span role="button" tabindex="0" data-jump-target="#filters-anchor">Japan + Hawai'i</span>
+                <span role="button" tabindex="0" data-jump-target="#filters-anchor">Birthday Route File</span>
+              </p>
+              <span class="hero__guide-badge" title="Trip guide" role="button" tabindex="0" data-jump-target="#filters-anchor">旅の案内</span>
+            </div>
+            <p class="eyebrow">旅程案内 / May 7<sup>th</sup> to May 24<sup>th</sup>, 2026</p>
             <h1>Trans Pacific Birthday: <em>Japan &amp; Hawai'i</em></h1>
             <p class="hero__lede">
               A trip built around Wilton's birthday on the 21<sup>st</sup>,
@@ -102,20 +119,27 @@
               Tokyo, and onward to Honolulu before heading home.
             </p>
             <div class="hero__actions">
-              <a class="button button--primary" href="#filters-anchor">Browse locations</a>
+              <a class="button button--primary" href="#filters-anchor">行き先を見る Browse locations</a>
+            </div>
+            <div class="hero__route-list" aria-label="Decorative route list">
+              <span role="button" tabindex="0" data-jump-target="#filters-anchor">東京 / TOKYO</span>
+              <span role="button" tabindex="0" data-jump-target="#filters-anchor">鎌倉 / KAMAKURA</span>
+              <span role="button" tabindex="0" data-jump-target="#filters-anchor">京都 / KYOTO</span>
+              <span role="button" tabindex="0" data-jump-target="#filters-anchor">直島 / NAOSHIMA</span>
+              <span role="button" tabindex="0" data-jump-target="#filters-anchor">ホノルル / HONOLULU</span>
             </div>
           </div>
 
           <aside class="hero__panel" aria-label="Trip summary">
-            <a class="stamp" href="https://www.icloud.com/iclouddrive/07cnAhwfEQipeJHa_X70Xrqig#Japan/Hawaii_2026" target="_blank" rel="noreferrer noopener">🔒📁 iCloud Drive Folder</a>
-            <a class="stamp" href="https://docs.google.com/spreadsheets/d/1EapMk227W2OXgcyJOSbEdRODJ_HHRVbMBEYJJ8gswYY/edit?usp=sharing" target="_blank" rel="noreferrer noopener">🛎️☑️ Booking Spreadsheet</a>
+            <a class="stamp" href="https://www.icloud.com/iclouddrive/07cnAhwfEQipeJHa_X70Xrqig#Japan/Hawaii_2026" target="_blank" rel="noreferrer noopener">共有フォルダ / iCloud Drive Folder</a>
+            <a class="stamp" href="https://docs.google.com/spreadsheets/d/1EapMk227W2OXgcyJOSbEdRODJ_HHRVbMBEYJJ8gswYY/edit?usp=sharing" target="_blank" rel="noreferrer noopener">予約管理 / Booking Spreadsheet</a>
             <dl class="hero__stats" id="heroStats"></dl>
             <div class="route-ribbon" id="routeRibbon"></div>
             <div class="hero__map">
               <img src="https://www.futuretravelexperience.com/wp-content/uploads/2014/09/japan-airlines-sky-suite.jpg" alt="Japan Airlines 787 Sky Suite cabin" />
             </div>
             <p class="hero__map-credit">
-              <a href="https://www.futuretravelexperience.com/2014/09/japan-airlines-unveils-new-look-787-sky-suite/" target="_blank" rel="noreferrer noopener">Image: Japan Airlines 787 Sky Suite via Future Travel Experience</a>
+              <a href="https://www.futuretravelexperience.com/2014/09/japan-airlines-unveils-new-look-787-sky-suite/" target="_blank" rel="noreferrer noopener">画像: 日本航空 787 スカイスイート ／ フューチャー・トラベル・エクスペリエンス</a>
             </p>
           </aside>
         </div>
@@ -126,7 +150,7 @@
       <main>
         <section class="overview section">
           <div class="section-heading">
-            <p class="eyebrow">Overview</p>
+            <p class="eyebrow">概要 Overview</p>
             <h2>One trip, multiple rhythms</h2>
           </div>
           <div class="overview__grid">
@@ -139,7 +163,7 @@
 
         <section class="filters section" id="itinerary">
           <div class="section-heading">
-            <p class="eyebrow">Filter the trip</p>
+            <p class="eyebrow">行き先で絞り込み Filter the trip</p>
             <h2>Move by destination or scan the full run</h2>
           </div>
           <div class="filters__bar">
@@ -158,7 +182,7 @@
       </main>
 
       <footer class="site-footer">
-        <p>Made with 100% free and open source code. Gratefully hosted on <a href="https://github.com/wiltongorske/Japan2026" target="_blank" rel="noreferrer noopener">GitHub Pages</a>.</p>
+        <p>公開メモ / Made with 100% free and open source code.<br />Gratefully hosted on <a href="https://github.com/wiltongorske/Japan2026" target="_blank" rel="noreferrer noopener">GitHub Pages</a>.</p>
       </footer>
 
       <div class="floating-nav" aria-label="Quick jumps">
