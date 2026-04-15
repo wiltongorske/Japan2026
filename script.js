@@ -1183,10 +1183,17 @@ const imageCreditNameMap = {
   "Travis Thurston": "トラヴィス・サーストン",
   "Jon Sullivan": "ジョン・サリヴァン",
   "Érico Andrei": "エリコ・アンドレイ",
+  "HOSHINOYA Tokyo": "星のや東京",
+  "Kishi-ke Ryokan": "岸家旅館",
+  "Tamao Kyoto": "タマオ京都",
+  "Ryokan Roka": "旅館ロカ",
+  "The Okura Tokyo": "オークラ東京",
+  "The Royal Hawaiian": "ロイヤル・ハワイアン",
 };
 
 function localizeImageCreditText(text) {
   let localized = text
+    .replace(/^Image courtesy of\s+/i, "画像提供：")
     .replace(/\s+via\s+/gi, " ／ ")
     .replace(/Wikimedia Commons/g, "ウィキメディア・コモンズ")
     .replace(/Unsplash/g, "アンスプラッシュ")
