@@ -123,14 +123,15 @@ const itinerary = [
     location: "Himeji/Kyoto",
     title: "Kyoto at a Distance: Himeji Castles, History, and Evening Wanders",
     items: [
-      { time: "8:29 AM", activity: "Train to Himeji", notes: "", kind: "event" },
+      { time: "8:29 AM", activity: "HIKARI 735 departs Kyoto for Himeji", notes: "Green Car: Car 8, seats 6C / 6D", kind: "event" },
+      { time: "9:14 AM", activity: "Arrive Himeji Station", notes: "", kind: "event" },
       { time: "9:15 AM", activity: "Arrival, grab coffee", notes: "", kind: "event" },
       { time: "9:45 AM", activity: "Meet at Himeji Station JR Line (Central North Exit or Himeji Castle Exit near 7-11)", notes: "", kind: "event" },
       { time: "", activity: "Himeji Castle and Koko-en Gardens Tickets", notes: "", kind: "event" },
       { time: "", activity: "Guide WhatsApp +81-90-9712-1750", notes: "", kind: "event" },
       { time: "1:45 PM", activity: "Lunch: Il Riccio (leave at 2:45pm for train)", notes: "", kind: "event" },
-      { time: "3:11 PM", activity: "Train", notes: "", kind: "event" },
-      { time: "4:00 PM", activity: "Arrive Kyoto Station", notes: "", kind: "event" },
+      { time: "3:11 PM", activity: "HIKARI 714 departs Himeji for Kyoto", notes: "Green Car: Car 8, seats 12C / 12D", kind: "event" },
+      { time: "4:02 PM", activity: "Arrive Kyoto Station", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Leave for dinner", notes: "", kind: "event" },
       { time: "7:00 PM", activity: "Dinner: Mumokuteki", notes: "", kind: "event" },
       { time: "Hotel: Tamao Kyoto", activity: "〒600-8409 Kyoto, Shimogyo Ward, Tamayacho, 519", notes: "", kind: "hotel" },
@@ -952,8 +953,14 @@ const activityHtmlOverrides = {
     `Arrive in ${linkExternal("Kamakura", "https://en.wikipedia.org/wiki/Kamakura")}; drop bags at ${linkExternal("Kishi-ke Ryokan", "https://maps.app.goo.gl/MVXJoTwxnbahj8uRA")}`,
   "Train to Himeji":
     `Train to ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} ${linkMetaWrapped("station map", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")}`,
+  "HIKARI 735 departs Kyoto for Himeji":
+    `${linkExternal("HIKARI 735", "https://global.jr-central.co.jp/en/onlinebooking/")} departs ${linkExternal("Kyoto", "https://en.wikipedia.org/wiki/Kyoto")} for ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} ${linkMetaWrapped("station map", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")}`,
+  "Arrive Himeji Station":
+    `Arrive ${linkExternal("Himeji Station", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")}`,
   "Arrival, grab coffee":
     `Arrival in ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} ${linkMetaWrapped("station map", "https://maps.app.goo.gl/7rwwLQmFq4dmTPmc6")}, grab coffee`,
+  "HIKARI 714 departs Himeji for Kyoto":
+    `${linkExternal("HIKARI 714", "https://global.jr-central.co.jp/en/onlinebooking/")} departs ${linkExternal("Himeji", "https://en.wikipedia.org/wiki/Himeji")} for ${linkExternal("Kyoto", "https://en.wikipedia.org/wiki/Kyoto")}`,
   "Dropoff at Naoshima Port":
     `Dropoff at ${linkExternal("Naoshima Port", "https://en.wikipedia.org/wiki/Naoshima,_Kagawa")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/mGeTGPJWf4kSvAST9")}`,
   "Ni-Chome":
