@@ -124,8 +124,7 @@ const itinerary = [
     title: "Kyoto at a Distance: Himeji Castles, History, and Evening Wanders",
     items: [
       { time: "8:29 AM", activity: "HIKARI 735 departs Kyoto for Himeji", notes: "Green Car: Car 8, seats 6C / 6D", kind: "event" },
-      { time: "9:14 AM", activity: "Arrive Himeji Station", notes: "", kind: "event" },
-      { time: "9:15 AM", activity: "Arrival, grab coffee", notes: "", kind: "event" },
+      { time: "9:14 AM", activity: "Arrival, grab coffee", notes: "", kind: "event" },
       { time: "9:45 AM", activity: "Meet at Himeji Station JR Line (Central North Exit or Himeji Castle Exit near 7-11)", notes: "", kind: "event" },
       { time: "", activity: "Himeji Castle and Koko-en Gardens Tickets", notes: "", kind: "event" },
       { time: "", activity: "Guide WhatsApp +81-90-9712-1750", notes: "", kind: "event" },
