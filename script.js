@@ -157,7 +157,8 @@ const itinerary = [
     location: "Kyoto/Naoshima",
     title: "Toward the Art Island: Travel South and First Naoshima Encounters",
     items: [
-      { time: "8:47 AM", activity: "Train to Okayama", notes: "", kind: "event" },
+      { time: "8:47 AM", activity: "NOZOMI 5 departs Kyoto for Okayama", notes: "Green Car: Car 8, seats 10C / 10D", kind: "event" },
+      { time: "9:46 AM", activity: "Arrive Okayama Station", notes: "", kind: "event" },
       { time: "9:54 AM", activity: "Train to Uno", notes: "", kind: "event" },
       { time: "11:00 AM", activity: "Ferry (get roundtrip tix)", notes: "", kind: "event" },
       { time: "11:45 AM", activity: "Shuttle (first coffee mikauzkishoten)", notes: "", kind: "event" },
