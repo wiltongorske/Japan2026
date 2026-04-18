@@ -1548,6 +1548,10 @@ h3 {
     left: 12px;
     bottom: 12px;
   }
+
+  .mimitchi-corner__sprite {
+    width: 20vw;
+  }
 }
 
 @media (max-width: 640px) {
