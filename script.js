@@ -315,7 +315,13 @@ const destinationSpotlight = document.querySelector("#destinationSpotlight");
 const dayCardTemplate = document.querySelector("#dayCardTemplate");
 const eventTemplate = document.querySelector("#eventTemplate");
 const todayJumpFab = document.querySelector("#todayJumpFab");
+const mimitchiSprite = document.querySelector("#mimitchiSprite");
+const mimitchiCopyright = document.querySelector("#mimitchiCopyright");
 const tripYear = 2026;
+const mimitchiSprites = Array.from(
+  { length: 17 },
+  (_, index) => `./assets/mimitchi/mimitchi_${index + 1}.png`,
+);
 
 const monthIndexes = {
   January: 0,
@@ -1867,6 +1873,20 @@ function setupFloatingNav() {
   };
 }
 
+function setupMimitchiCorner() {
+  if (!mimitchiSprite) {
+    return;
+  }
+
+  const randomSprite =
+    mimitchiSprites[Math.floor(Math.random() * mimitchiSprites.length)];
+  mimitchiSprite.src = randomSprite;
+
+  if (mimitchiCopyright) {
+    mimitchiCopyright.decoding = "async";
+  }
+}
+
 renderHeroStats();
 renderRouteRibbon();
 renderOverview();
@@ -1875,3 +1895,4 @@ renderSpotlight();
 renderTimeline();
 setupJumpTargets();
 setupFloatingNav();
+setupMimitchiCorner();

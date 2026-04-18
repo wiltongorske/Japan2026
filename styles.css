@@ -1430,6 +1430,40 @@ h3 {
   background: linear-gradient(180deg, #fff1e7, #ffd7c7);
 }
 
+.mimitchi-corner {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  z-index: 25;
+  text-decoration: none;
+}
+
+.mimitchi-corner__sprite,
+.mimitchi-corner__copyright {
+  display: block;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(0 4px 12px rgba(72, 63, 46, 0.18));
+}
+
+.mimitchi-corner__sprite {
+  width: 10vw;
+}
+
+.mimitchi-corner__copyright {
+  width: 100px;
+}
+
+.mimitchi-corner:hover .mimitchi-corner__sprite,
+.mimitchi-corner:hover .mimitchi-corner__copyright,
+.mimitchi-corner:focus-visible .mimitchi-corner__sprite,
+.mimitchi-corner:focus-visible .mimitchi-corner__copyright {
+  filter: drop-shadow(0 6px 14px rgba(72, 63, 46, 0.22));
+}
+
 .day-card[hidden] {
   display: none;
 }
@@ -1508,6 +1542,11 @@ h3 {
   .floating-nav {
     top: 12px;
     right: 12px;
+  }
+
+  .mimitchi-corner {
+    left: 12px;
+    bottom: 12px;
   }
 }
 
