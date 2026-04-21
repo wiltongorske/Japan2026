@@ -235,10 +235,9 @@ const itinerary = [
       { time: "1:00 PM", activity: "Leave for Kokkai-gijidōmae Sta. (about 20mins)", notes: "", kind: "event" },
       { time: "1:30 PM", activity: "Tameike: Exploring the Heart of Japanese Politics Tour (3 hours)", notes: "", kind: "event" },
       { time: "4:30 PM", activity: "Tour concludes", notes: "", kind: "event" },
-      { time: "4:45 PM", activity: "Option 1) Brown Rice Ometosando + any Aoyama stores; back to Okura at 6pm", notes: "", kind: "event" },
-      { time: "4:55 PM", activity: "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm", notes: "", kind: "event" },
-      { time: "6:45 PM", activity: "Take car to airport", notes: "", kind: "event" },
-      { time: "7:30 PM", activity: "Arrive at Airport", notes: "", kind: "event" },
+      { time: "5:00 PM", activity: "Food options: 1) Brown Rice Ometosando + Aoyama shops; 2) Alchemy or Shogun Burger in Roppongi; 3) Ginza", notes: "", kind: "event" },
+      { time: "7:25 PM", activity: "Car to Airport from Okura Heritage Wing", notes: "", kind: "event" },
+      { time: "8:00 PM", activity: "Arrive at Airport", notes: "", kind: "event" },
       { time: "9:55 PM", activity: "Haneda > Honolulu (JL72)", notes: "", kind: "event" },
     ],
   },
@@ -988,10 +987,8 @@ const activityHtmlOverrides = {
     `Dinner at ${linkPlace("Tane Vegan Izakaya")} (delivery possible) [<a href="${diningPlaceLinks["Peace Cafe"]}" target="_blank" rel="noreferrer noopener">Peace</a>, ${linkPlace("Floralia")} also open]`,
   "Night time beach walk with banana ice cream from banan":
     `Night time beach walk with banana ice cream from ${linkExternal("banan", "https://banan.co/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/iV9Yb2vhP6FrLNSi9")}`,
-  "Option 1) Brown Rice Ometosando + any Aoyama stores; back to Okura at 6pm":
-    `Option 1) ${linkPlace("Brown Rice Ometosando")} + any Aoyama stores; back to Okura at 6pm`,
-  "Option 2) Alchemy or Shogun Burger; walk back to Okura 6:20pm":
-    `Option 2) ${linkExternal("Alchemy", "https://maps.app.goo.gl/5EysXKRcBkP7cNS86")} or ${linkExternal("Shogun Burger", "https://maps.app.goo.gl/66GZ5aEHWmV2SyXk6")} ; walk back to Okura 6:20pm`,
+  "Food options: 1) Brown Rice Ometosando + Aoyama shops; 2) Alchemy or Shogun Burger in Roppongi; 3) Ginza":
+    `Food options: 1) ${linkPlace("Brown Rice Ometosando")} + Aoyama shops; 2) ${linkExternal("Alchemy", "https://maps.app.goo.gl/5EysXKRcBkP7cNS86")} or ${linkExternal("Shogun Burger", "https://maps.app.goo.gl/66GZ5aEHWmV2SyXk6")} in Roppongi; 3) ${linkExternal("Ginza", "https://en.wikipedia.org/wiki/Ginza")}`,
   "Sumida River nighttime walk":
     `${linkExternal("Sumida River", "https://en.wikipedia.org/wiki/Sumida_River")} nighttime walk`,
   "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck":
