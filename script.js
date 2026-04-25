@@ -93,7 +93,7 @@ const itinerary = [
     items: [
       { time: "", activity: "Send luggage to Kyoto", notes: "", kind: "event" },
       { time: "10:00 AM", activity: "Train to Kamakura", notes: "", kind: "event" },
-      { time: "11:00 AM", activity: "Arrive in Kamakura; drop bags at Kishi-ke Ryokan", notes: "", kind: "event" },
+      { time: "11:00 AM", activity: "Arrive at Kamakura Station; Nobu can pick up luggage so we can explore before check-in", notes: "Nobu: +81-90-5544-6125", kind: "event" },
       { time: "", activity: "Lunch luna burger", notes: "", kind: "event" },
       { time: "", activity: "Hasedera Temple, Buddha", notes: "", kind: "event" },
       { time: "", activity: "Options if time: Zeniarai Shrine,Genjiyama Park, Tsurugaoka Shrine, Old Town", notes: "", kind: "event" },
