@@ -77,11 +77,13 @@ const itinerary = [
     location: "Tokyo",
     title: "Artful Tokyo: Old Roots, Modern Design, and FARO",
     items: [
-      { time: "9:00 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
-      { time: "10:00 AM", activity: "Nezu Museum", notes: "", kind: "event" },
+      { time: "", activity: "Gym", notes: "", kind: "event" },
+      { time: "10:00 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
       { time: "", activity: "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6", notes: "", kind: "event" },
       { time: "1:00 PM", activity: "Lunch Brown Rice Ometosando or Vegan Bistro Jangara", notes: "", kind: "event" },
-      { time: "2:30 PM", activity: "Gym & onsen", notes: "", kind: "event" },
+      { time: "", activity: "Beams", notes: "", kind: "event" },
+      { time: "", activity: "Kuon", notes: "", kind: "event" },
+      { time: "3:00 PM", activity: "Head to hotel", notes: "", kind: "event" },
       { time: "5:00 PM", activity: "Ginza", notes: "", kind: "event" },
       { time: "6:30 PM", activity: "Dinner: FARO 1*", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
@@ -871,8 +873,6 @@ const activityHtmlOverrides = {
     `Arrive ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")}`,
   "Tickets: tobu-japantrip-tickets.com":
     `Tickets: ${linkExternal("tobu-japantrip-tickets.com", "https://tobu-japantrip-tickets.com")}`,
-  "Nezu Museum":
-    `${linkExternal("Nezu Museum", "https://www.nezu-muse.or.jp/en/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/wTB6WCmoPZuTCrFf9")}`,
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
@@ -926,6 +926,12 @@ const activityHtmlOverrides = {
     `Dinner: ${linkPlace("Falafel Brothers")} or ${linkPlace("Izakaya Nowhere")} (open until 10pm)`,
   "Lunch Brown Rice Ometosando or Vegan Bistro Jangara":
     `Lunch ${linkPlace("Brown Rice Ometosando")} or ${linkPlace("Vegan Bistro Jangara")}`,
+  Beams:
+    `${linkExternal("Beams", "https://maps.app.goo.gl/UbJToecfagzFQYwZ6")}`,
+  Kuon:
+    `${linkExternal("Kuon", "https://maps.app.goo.gl/9xVMAgSscnxNP9gy8")}`,
+  "Head to hotel":
+    `Head to hotel`,
   "Dinner: FARO 1*":
     `Dinner: ${linkExternal("Faro", diningPlaceLinks.FARO)}`,
   "Lunch luna burger":
