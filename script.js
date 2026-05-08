@@ -808,7 +808,6 @@ const diningPlaceLinks = {
   "Komeda-is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
   "Vegan Sushi Tokyo": "https://www.google.com/maps/search/?api=1&query=Vegan+Sushi+Tokyo+Dogenzaka+Shibuya+Tokyo",
   "Vegan Bistro Jangara": "https://maps.app.goo.gl/zQ492E1UJsVWRkFz7",
-  "Vegan Bistro Jangara": "https://maps.app.goo.gl/zQ492E1UJsVWRkFz7",
   "Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
   "Izakaya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
   "Ain Soph Shinjuku": "https://www.google.com/maps/search/?api=1&query=AIN+SOPH+Journey+Shinjuku",
@@ -917,6 +916,8 @@ const activityHtmlOverrides = {
     `Car service`,
   "Dinner: Komeda-is":
     `Dinner: ${linkPlace("Komeda-is")}`,
+  "Lunch: Vegan Bistro Jangara":
+    `Lunch: ${linkPlace("Vegan Bistro Jangara")}`,
   "Lunch: Vegan Sushi Tokyo (or Vegan Bistro Jangara)":
     `Lunch: ${linkPlace("Vegan Sushi Tokyo")} (or ${linkPlace("Vegan Bistro Jangara")})`,
   "Dinner: Izakaya Nowhere (open 5pm)":
