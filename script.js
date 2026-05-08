@@ -32,7 +32,7 @@ const itinerary = [
       { time: "", activity: "Lunch: Vegan Bistro Jangara", notes: "", kind: "event" },
       { time: "", activity: "Snoopytown, Ragtag (Harajuku)", notes: "", kind: "event" },
       { time: "", activity: "Coffee at Good Town or Iyoshi Cola", notes: "", kind: "event" },
-      { time: "", activity: "Ragtag Shibuya, Photomatic, Photomatic", notes: "", kind: "event" },
+      { time: "", activity: "Ragtag Shibuya, Photomatic, Square Enix Garden", notes: "", kind: "event" },
       { time: "2:30 PM", activity: "Optional: Onsen at hotel", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Dinner: Izakaya Nowhere (open 5pm)", notes: "", kind: "event" },
       { time: "", activity: "Sumida River nighttime walk", notes: "", kind: "event" },
@@ -853,6 +853,8 @@ const activityHtmlOverrides = {
     `${linkExternal("Gotoku-ji", "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/VxmWY4fsTyNW2y1K8")}`,
   "Photomatic, Iyoshi Cola, Square Enix shopping options":
     `${linkExternal("Photomatic", "https://maps.app.goo.gl/TBm7zZ1yEjorGVEYA")}, ${linkExternal("Iyoshi Cola", "https://maps.app.goo.gl/jCmG2q2Rv4h5aCwz6")}, ${linkExternal("SQUARE ENIX GARDEN (Shibuya Sakura Stage)", "https://maps.app.goo.gl/MVJA4WgJswuSfuBB9?g_st=ic")} or ${linkExternal("ARTNIA Square Enix (Shinjuku)", "https://maps.app.goo.gl/ndJ7jYrryREBe8AV7")}`,
+  "Ragtag Shibuya, Photomatic, Square Enix Garden":
+    `${linkExternal("Ragtag Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")}, ${linkExternal("Photomatic", "https://maps.app.goo.gl/TBm7zZ1yEjorGVEYA")}, ${linkExternal("Square Enix Garden", "https://maps.app.goo.gl/GUUs8EyTywm1ZZu18")}`,
   "Ragtag (Harujuku and Shibuya / GTD), Snoopytown, Beams, Kuon, Tamagotchi Factory":
     `${linkExternal("Ragtag", "https://www.ragtag.jp/")} (${linkExternal("Harajuku", "https://maps.app.goo.gl/6cEtTpRSWtoww3TJ8")} and ${linkExternal("Shibuya", "https://maps.app.goo.gl/dnfgEdQizpB1Jn6D8")} / ${linkExternal("GTD", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}), ${linkExternal("Snoopytown", "https://maps.app.goo.gl/h4qe3SZuuDkgaeaM7")}, ${linkExternal("Beams", "https://maps.app.goo.gl/PzvdSwAhePdpvup17")}, ${linkExternal("Kuon", "https://maps.app.goo.gl/Hy4wSyCJxrPNnYta9")}, ${linkExternal("Tamagotchi Factory", "https://maps.app.goo.gl/Q335ZsmgMd3acxUw8")}`,
   "Shinjuku Gyoen":
