@@ -807,7 +807,8 @@ const highlightMatchers = [
 const diningPlaceLinks = {
   "Komeda-is": "https://www.google.com/maps/search/?api=1&query=KOMEDA+is+Higashi+Ginza+Tokyo",
   "Vegan Sushi Tokyo": "https://www.google.com/maps/search/?api=1&query=Vegan+Sushi+Tokyo+Dogenzaka+Shibuya+Tokyo",
-  "Vegan Bistro Jangara": "https://maps.app.goo.gl/jSbJZo7x9Zr9FL4HA",
+  "Vegan Bistro Jangara": "https://maps.app.goo.gl/zQ492E1UJsVWRkFz7",
+  "Vegan Bistro Jangara": "https://maps.app.goo.gl/zQ492E1UJsVWRkFz7",
   "Bistro Jangara": "https://www.google.com/maps/search/?api=1&query=Vegan+Bistro+Jangara+Harajuku+Tokyo",
   "Izakaya Nowhere": "https://www.google.com/maps/search/?api=1&query=Vegan+Izakaya+Nowhere+Mukojima+Sumida+Tokyo",
   "Ain Soph Shinjuku": "https://www.google.com/maps/search/?api=1&query=AIN+SOPH+Journey+Shinjuku",
