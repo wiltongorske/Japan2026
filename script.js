@@ -81,17 +81,18 @@ const itinerary = [
     title: "Artful Tokyo: Old Roots, Modern Design, and FARO",
     items: [
       { time: "9:30 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
-      { time: "10:00 AM", activity: "Head to Teien", notes: "", kind: "event" },
-      { time: "10:30 AM–12:15 PM", activity: "Teien Art Museum + garden", notes: "", kind: "event" },
-      { time: "12:15–12:30 PM", activity: "Leave Teien / transit to lunch", notes: "", kind: "event" },
-      { time: "1:00–2:00 PM", activity: "Lunch", notes: "", kind: "event" },
-      { time: "2:00 PM", activity: "Leave for Hoshinoya", notes: "", kind: "event" },
-      { time: "2:30 PM", activity: "Arrive back at Hoshinoya Tokyo", notes: "", kind: "event" },
-      { time: "3:00–4:00 PM", activity: "Gym", notes: "", kind: "event" },
-      { time: "4:00–4:40 PM", activity: "Shower / change / reset", notes: "", kind: "event" },
-      { time: "4:40 PM", activity: "Leave Hoshinoya Tokyo", notes: "", kind: "event" },
-      { time: "5:00–5:50 PM", activity: "Extinct Media Museum", notes: "", kind: "event" },
-      { time: "5:50–6:00 PM", activity: "Leave for FARO", notes: "", kind: "event" },
+      { time: "10:00 AM", activity: "Leave for Meiji Jingu", notes: "", kind: "event" },
+      { time: "10:30–11:15 AM", activity: "Meiji Jingu Shrine", notes: "", kind: "event" },
+      { time: "11:15–11:30 AM", activity: "Walk toward Harajuku / Tokyu Plaza Harakado", notes: "", kind: "event" },
+      { time: "11:30 AM–12:15 PM", activity: "Tamagotchi Factory", notes: "", kind: "event" },
+      { time: "12:15–12:30 PM", activity: "Walk to Brown Rice / Neal’s Yard", notes: "", kind: "event" },
+      { time: "12:30–1:30 PM", activity: "Lunch at Brown Rice", notes: "", kind: "event" },
+      { time: "1:30 PM", activity: "Leave for Hoshinoya", notes: "", kind: "event" },
+      { time: "2:00 PM", activity: "Arrive back at Hoshinoya Tokyo", notes: "", kind: "event" },
+      { time: "2:00–4:30 PM", activity: "Gym / shower / rest", notes: "", kind: "event" },
+      { time: "4:30–4:45 PM", activity: "Leave Hoshinoya Tokyo", notes: "", kind: "event" },
+      { time: "5:00–5:45 PM", activity: "Extinct Media Museum", notes: "", kind: "event" },
+      { time: "5:45–6:00 PM", activity: "Leave for FARO", notes: "", kind: "event" },
       { time: "6:20 PM-ish", activity: "Arrive near FARO", notes: "", kind: "event" },
       { time: "6:30 PM", activity: "Dinner: FARO 1*", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
@@ -908,6 +909,18 @@ const activityHtmlOverrides = {
     `${linkExternal("Teien Art Museum", "https://www.teien-art-museum.ne.jp/en/")} + garden ${linkMetaWrapped("map", "https://www.google.com/maps/search/?api=1&query=Tokyo+Metropolitan+Teien+Art+Museum")}`,
   "Leave Teien / transit to lunch":
     `Leave ${linkExternal("Teien", "https://www.teien-art-museum.ne.jp/en/")} / transit to lunch`,
+  "Leave for Meiji Jingu":
+    `Leave for ${linkExternal("Meiji Jingu", "https://www.meijijingu.or.jp/en/")}`,
+  "Meiji Jingu Shrine":
+    `${linkExternal("Meiji Jingu Shrine", "https://www.meijijingu.or.jp/en/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/VmVxRu94nBywNQDv8")}`,
+  "Walk toward Harajuku / Tokyu Plaza Harakado":
+    `Walk toward ${linkExternal("Harajuku", "https://en.wikipedia.org/wiki/Harajuku")} / ${linkExternal("Tokyu Plaza Harakado", "https://maps.app.goo.gl/MxrHsdrQY82kChD88")}`,
+  "Tamagotchi Factory":
+    `${linkExternal("Tamagotchi Factory", "https://maps.app.goo.gl/Q335ZsmgMd3acxUw8")}`,
+  "Walk to Brown Rice / Neal’s Yard":
+    `Walk to ${linkPlace("Brown Rice Ometosando")} / ${linkExternal("Neal’s Yard", "https://maps.app.goo.gl/X8K9Q3H3BRQ9bLfBA")}`,
+  "Lunch at Brown Rice":
+    `Lunch at ${linkPlace("Brown Rice Ometosando")}`,
   "Leave for Hoshinoya":
     `Leave for ${linkPlace("Hotel: Hoshinoya Tokyo")}`,
   "Arrive back at Hoshinoya Tokyo":
