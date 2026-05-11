@@ -19,6 +19,7 @@ const itinerary = [
       { time: "6:00 PM", activity: "Ginza exploration", notes: "", kind: "event" },
       { time: "", activity: "Dinner: Komeda-is", notes: "", kind: "event" },
       { time: "", activity: "Maybe pick up protein powder (bio-ce-bon, Ginza Six)", notes: "", kind: "event" },
+      { time: "", activity: "Hotel onsen at Hoshinoya Tokyo", notes: "Tattoos now allowed", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
     ],
   },
@@ -31,9 +32,9 @@ const itinerary = [
       { time: "10:00 AM", activity: "Gotoku-ji", notes: "", kind: "event" },
       { time: "", activity: "Lunch: Vegan Bistro Jangara", notes: "", kind: "event" },
       { time: "", activity: "Snoopytown, Ragtag (Harajuku)", notes: "", kind: "event" },
-      { time: "", activity: "Coffee at Good Town or Iyoshi Cola", notes: "", kind: "event" },
+      { time: "", activity: "Coffee at Good Town", notes: "", kind: "event" },
+      { time: "", activity: "Margiela + MM6", notes: "", kind: "event" },
       { time: "", activity: "Ragtag Shibuya, Photomatic, Square Enix Garden", notes: "", kind: "event" },
-      { time: "2:30 PM", activity: "Optional: Onsen at hotel", notes: "", kind: "event" },
       { time: "6:00 PM", activity: "Dinner: Izakaya Nowhere (open 5pm)", notes: "", kind: "event" },
       { time: "", activity: "Sumida River nighttime walk", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
@@ -49,6 +50,7 @@ const itinerary = [
       { time: "11:00 AM", activity: "Snack: marbre vegan", notes: "", kind: "event" },
       { time: "", activity: "Isetan men's, CDG", notes: "", kind: "event" },
       { time: "1:00 PM", activity: "Lunch: Ain Soph Shinjuku", notes: "", kind: "event" },
+      { time: "", activity: "Aoyama shops: CDG, Dries, Pleats Please, Sacai", notes: "", kind: "event" },
       { time: "", activity: "If time permits, cat billboard and maybe Tokyo Metropolitan Gov. Building observation deck", notes: "", kind: "event" },
       { time: "2:30 PM", activity: "Head to Aman", notes: "", kind: "event" },
       { time: "3:00 PM", activity: "Aman Spa Afternoon (4pm treatment; 90min Grounding Massage Ritual)", notes: "", kind: "event" },
@@ -65,6 +67,7 @@ const itinerary = [
       { time: "9:39 AM", activity: "Arrive Tōbu-nikkō Station", notes: "", kind: "event" },
       { time: "", activity: "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss", notes: "", kind: "event" },
       { time: "", activity: "Lunch: Cafe Restaurant Bell for yuba set", notes: "", kind: "event" },
+      { time: "", activity: "Kanaya Samurai House", notes: "Before the train back to Tokyo", kind: "event" },
       { time: "5:44 PM", activity: "SPACIA X 012 departs Tōbu-nikkō Station", notes: "Seat: Car 6, Room 2", kind: "event" },
       { time: "7:31 PM", activity: "Arrive Tokyo Skytree", notes: "", kind: "event" },
       { time: "8:00 PM", activity: "Dinner: Falafel Brothers or Izakaya Nowhere (open until 10pm)", notes: "", kind: "event" },
@@ -77,14 +80,19 @@ const itinerary = [
     location: "Tokyo",
     title: "Artful Tokyo: Old Roots, Modern Design, and FARO",
     items: [
-      { time: "", activity: "Gym", notes: "", kind: "event" },
-      { time: "10:00 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
-      { time: "", activity: "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6", notes: "", kind: "event" },
-      { time: "1:00 PM", activity: "Lunch Brown Rice Ometosando or Vegan Bistro Jangara", notes: "", kind: "event" },
-      { time: "", activity: "Beams", notes: "", kind: "event" },
-      { time: "", activity: "Kuon", notes: "", kind: "event" },
-      { time: "3:00 PM", activity: "Head to hotel", notes: "", kind: "event" },
-      { time: "5:00 PM", activity: "Ginza", notes: "", kind: "event" },
+      { time: "9:30 AM", activity: "Nuts Exchange Tokyo", notes: "", kind: "event" },
+      { time: "10:00 AM", activity: "Head to Teien", notes: "", kind: "event" },
+      { time: "10:30 AM–12:15 PM", activity: "Teien Art Museum + garden", notes: "", kind: "event" },
+      { time: "12:15–12:30 PM", activity: "Leave Teien / transit to lunch", notes: "", kind: "event" },
+      { time: "1:00–2:00 PM", activity: "Lunch", notes: "", kind: "event" },
+      { time: "2:00 PM", activity: "Leave for Hoshinoya", notes: "", kind: "event" },
+      { time: "2:30 PM", activity: "Arrive back at Hoshinoya Tokyo", notes: "", kind: "event" },
+      { time: "3:00–4:00 PM", activity: "Gym", notes: "", kind: "event" },
+      { time: "4:00–4:40 PM", activity: "Shower / change / reset", notes: "", kind: "event" },
+      { time: "4:40 PM", activity: "Leave Hoshinoya Tokyo", notes: "", kind: "event" },
+      { time: "5:00–5:50 PM", activity: "Extinct Media Museum", notes: "", kind: "event" },
+      { time: "5:50–6:00 PM", activity: "Leave for FARO", notes: "", kind: "event" },
+      { time: "6:20 PM-ish", activity: "Arrive near FARO", notes: "", kind: "event" },
       { time: "6:30 PM", activity: "Dinner: FARO 1*", notes: "", kind: "event" },
       { time: "Hotel: Hoshinoya Tokyo", activity: "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004", notes: "", kind: "hotel" },
     ],
@@ -863,10 +871,25 @@ const activityHtmlOverrides = {
     `${linkExternal("Shinjuku Gyoen", "https://www.env.go.jp/garden/shinjukugyoen/english/")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/9qPiV5y3H4pRZyax9")}`,
   "Snack: marbre vegan":
     `Snack: ${linkPlace("marbre vegan")}`,
+  "Hotel onsen at Hoshinoya Tokyo":
+    `${linkPlace("Hotel: Hoshinoya Tokyo")} onsen at Hoshinoya Tokyo`,
+  "Coffee at Good Town":
+    `Coffee at ${linkExternal("Good Town", "https://maps.app.goo.gl/QmFrjZXDeXgrFnNUA")}`,
+  "Margiela + MM6":
+    `${linkExternal("Margiela", "https://maps.app.goo.gl/NHN7QbRNtNDwqTNZ9")} + ${linkExternal("MM6", "https://maps.app.goo.gl/aSwUq3fEQcEDQMVC6")}`,
   "Isetan men's, CDG":
     `${linkExternal("Isetan men's", "https://maps.app.goo.gl/JVHhKk6LszfwECn99")}, ${linkExternal("CDG", "https://maps.app.goo.gl/QGURcHoyJ5cPK1pn7")} (${linkExternal("Shinjuku", "https://en.wikipedia.org/wiki/Shinjuku")})`,
+  "Aoyama shops: CDG, Dries, Pleats Please, Sacai":
+    `${linkExternal("Aoyama", "https://maps.app.goo.gl/nkdrt2ZRzCARQSgc7")} shops: ${[
+      linkExternal("CDG", "https://maps.app.goo.gl/dzp277KYXCXbcjaU8"),
+      linkExternal("Dries", "https://maps.app.goo.gl/Pmki6RmKHj17zZmJA"),
+      linkExternal("Pleats Please", "https://maps.app.goo.gl/dMytKeuNE8jgDd15A"),
+      linkExternal("Sacai", "https://maps.app.goo.gl/rFmTgKg6QJsaiaxr7"),
+    ].join(", ")}`,
   "Shinkyo Bridge, Toshogu Shrine, Kanmangafuchi Abyss":
     `${linkExternal("Shinkyo Bridge", "https://en.wikipedia.org/wiki/Futarasan_shrine#Sacred_Bridge")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/YS6ZPGHuCm3sj41z5")}, ${linkExternal("Toshogu Shrine", "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/UgYmyeR8Akg6d7T3A")}, ${linkExternal("Kanmangafuchi Abyss", "https://www.japan-guide.com/e/e3810.html")} ${linkMetaWrapped("map", "https://maps.app.goo.gl/3cfjZHXUjc7NwpoF8")}`,
+  "Kanaya Samurai House":
+    `${linkExternal("Kanaya Samurai House", "https://www.google.com/maps/search/?api=1&query=Kanaya+Samurai+House+Nikko")}`,
   "SPACIA X 001 departs Tokyo Skytree":
     `${linkExternal("SPACIA X 001", "https://www.tobu.co.jp/spaciax/en/en/")} departs ${linkExternal("Tokyo Skytree", "https://maps.app.goo.gl/hLFVa4QCF7LwdBsV6")}`,
   "Arrive Tōbu-nikkō Station":
@@ -879,6 +902,24 @@ const activityHtmlOverrides = {
     `Tickets: ${linkExternal("tobu-japantrip-tickets.com", "https://tobu-japantrip-tickets.com")}`,
   "Nuts Exchange Tokyo":
     `${linkPlace("Nuts Exchange Tokyo")}`,
+  "Head to Teien":
+    `Head to ${linkExternal("Teien Art Museum", "https://www.teien-art-museum.ne.jp/en/")}`,
+  "Teien Art Museum + garden":
+    `${linkExternal("Teien Art Museum", "https://www.teien-art-museum.ne.jp/en/")} + garden ${linkMetaWrapped("map", "https://www.google.com/maps/search/?api=1&query=Tokyo+Metropolitan+Teien+Art+Museum")}`,
+  "Leave Teien / transit to lunch":
+    `Leave ${linkExternal("Teien", "https://www.teien-art-museum.ne.jp/en/")} / transit to lunch`,
+  "Leave for Hoshinoya":
+    `Leave for ${linkPlace("Hotel: Hoshinoya Tokyo")}`,
+  "Arrive back at Hoshinoya Tokyo":
+    `Arrive back at ${linkPlace("Hotel: Hoshinoya Tokyo")}`,
+  "Leave Hoshinoya Tokyo":
+    `Leave ${linkPlace("Hotel: Hoshinoya Tokyo")}`,
+  "Extinct Media Museum":
+    `${linkExternal("Extinct Media Museum", "https://www.google.com/maps/search/?api=1&query=Extinct+Media+Museum+Tokyo")}`,
+  "Leave for FARO":
+    `Leave for ${linkExternal("FARO", diningPlaceLinks.FARO)}`,
+  "Arrive near FARO":
+    `Arrive near ${linkExternal("FARO", diningPlaceLinks.FARO)}`,
   "Aoyama shops: CDG, Dries, Pleats Please, Sacai. Margiela + MM6":
     `${linkExternal("Aoyama", "https://maps.app.goo.gl/nkdrt2ZRzCARQSgc7")} shops: ${[
       linkExternal("CDG", "https://maps.app.goo.gl/dzp277KYXCXbcjaU8"),
